@@ -188,10 +188,11 @@ Replicaノードがある場合、確認可能な項目は下記のとおりで�
     * 接続制御情報に登録されていないIPは接続できません。
     
 #### ノード情報
-* 作成されたレプリケーショングループを選択し、ノード情報タブを押すとレプリケーショングループのノードの詳細情報を確認できます。
+* 作成されたレプリケーショングループを選択し、ノード情報タブを押すとレプリケーショングループのノードの詳細情報とログを確認できます。
 * また、ReplicaノードをMasterノードに昇格させることができます。
+- ノードのログを確認するには**ログ表示**ボタンを押します。
 
-![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/20.07.10/rep_node_info_001.PNG)
+![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/20.09.02/rep_node_info_001.PNG)
 
 * Replicaノードを選択し、マスター昇格を押すと、選択したReplicaノードをMasterノードに昇格できます。この時、MasterノードはReplicaノードに変更されます。
 * 確認可能な項目は下記のとおりです。
