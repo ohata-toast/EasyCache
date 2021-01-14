@@ -135,7 +135,7 @@
     * Replicaノードで変更された旧Masterノードを復旧するか、手動で削除した後、新しいReplicaノードを追加する前まで読み取り専用ドメインはフェイルオーバーでMasterノードに昇格した旧ReplicaノードのIPが付与された状態が維持されます。
     * Replicaノードで変更された旧Masterノードを復旧するか、手動で削除した後、新しいReplicaノードを追加する場合、読み取り専用ドメインは新しいReplicaノードのIPにバインディングが変更されます。
         * バインディングの変更に失敗すると、レプリケーショングループ > 接続情報より、手動で再試行できます。
-* Replicaノードに障害が発生した場合
+* Replicaノードに障害が発生したり、Replicaノードを削除する場合
     * 読み取り専用ドメインはMasterノードのIPにバインディングが変更されます。
     * Replicaノードを復旧するか、手動で削除した後、新しいReplicaノードを追加する場合、読み取り専用ドメインは新しいReplicaノードのIPにバインディングが変更されます。
         * バインディングの変更に失敗すると、レプリケーショングループ > 接続情報より、手動で再試行できます。
@@ -413,16 +413,24 @@ EasyCacheはRedis運営に必要なモニタリング項目を1分毎に収集�
     * tcp-keepalive	
     * timeout	
     * zset-max-ziplist-entries
-    * zset-max-ziplist-value
-    * replica-ignore-maxmemory (redis 5.0より追加)
-    * lazyfree-lazy-eviction (redis 5.0より追加)
-    * lazyfree-lazy-expire (redis 5.0より追加)
-    * lazyfree-lazy-server-del (redis 5.0より追加)
-    * repl-backlog-size (redis 5.0より追加)
-    * stream-node-max-bytes (redis 5.0より追加)
-    * stream-node-max-entries (redis 5.0より追加)
-    * client-query-buffer-limit (redis 5.0より追加)
-    * proto-max-bulk-len (redis 5.0より追加)
+  - replica-ignore-maxmemory(Redis 5.0追加)
+  - lazyfree-lazy-eviction(Redis 5.0追加)
+  - lazyfree-lazy-expire(Redis 5.0追加)
+  - lazyfree-lazy-server-del(Redis 5.0追加)
+  - repl-backlog-size(Redis 5.0追加)
+  - stream-node-max-bytes(Redis 5.0追加)
+  - stream-node-max-entries(Redis 5.0追加)
+  - client-query-buffer-limit(Redis 5.0追加)
+  - proto-max-bulk-len(Redis 5.0追加)
+  - activedefrag(Redis 5.0追加)
+  - active-defrag-ignore-bytes(Redis 5.0追加)
+  - active-defrag-threshold-lower(Redis 5.0追加)
+  - active-defrag-threshold-upper(Redis 5.0追加)
+  - active-defrag-cycle-min(Redis 5.0追加)
+  - active-defrag-cycle-max(Redis 5.0追加)
+  - active-defrag-max-scan-fields(Redis 5.0追加)
+
+
 ## アラーム
 
 * EasyCacheは、指定したリソースで発生する特定イベントに対する通知を受信グループに伝達できます。
