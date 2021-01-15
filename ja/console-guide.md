@@ -522,11 +522,11 @@ EasyCacheはRedis運営に必要なモニタリング項目を1分毎に収集�
 
 * レプリケーショングループ名の横に**!再起動**アイコンがあるレプリケーショングループがメンテナンス対象ノードが含まれるレプリケーショングループです。
 
-![migration_001.png](https://static.toastoven.net/prod_easycache/20.12.01/migration_001.png)
+![migration_001.png](https://static.toastoven.net/prod_easycache/21.01.15/migration_001.png)
 
 * **!再起動**アイコンにマウスオーバーすると、詳細なメンテナンス日程を確認できます。
 
-![migration_002.png](https://static.toastoven.net/prod_easycache/20.12.01/migration_002.png)
+![migration_002.png](https://static.toastoven.net/prod_easycache/21.01.15/migration_002.png)
 
 ### 3. メンテナンス対象ノードのタイプを確認します。
 
@@ -539,7 +539,7 @@ EasyCacheはRedis運営に必要なモニタリング項目を1分毎に収集�
 
 ### 4. メンテナンス対象レプリケーショングループの右に表示された!再起動アイコンをクリックしてメンテナンスノードを再起動します。
 
-![migration_003.png](https://static.toastoven.net/prod_easycache/20.12.01/migration_003.png)
+![migration_003.png](https://static.toastoven.net/prod_easycache/21.01.15/migration_003.png)
 
 * メンテナンスノードが多数の場合、1回の再起動で1つのノードのみ再起動します。実行順序はHAノード→Replicaノード→Masterノードです。
 
@@ -556,18 +556,18 @@ EasyCacheはRedis運営に必要なモニタリング項目を1分毎に収集�
 
 ### 1. メンテナンス対象に指定されたインターネットゲートウェイがあるプロジェクトへ移動します。
 
-![gm_001.png](https://static.toastoven.net/prod_easycache/20.12.01/gm_001.png)
+![gm_001.png](https://static.toastoven.net/prod_easycache/21.01.15/gm_001.png)
 
 ### 2. メンテナンス対象レプリケーショングループタブを確認します。
 
 * レプリケーショングループタブの右端にある**!インターネットゲートウェイ再起動**アイコンを確認します。
 * **!インターネットゲートウェイ再起動**アイコンにマウスオーバーすると、詳細なメンテナンス日程を確認できます。
 
-![gm_002.png](https://static.toastoven.net/prod_easycache/20.12.01/gm_002.png)
+![gm_002.png](https://static.toastoven.net/prod_easycache/21.01.15/gm_002.png)
 
 ### 3. メンテナンス対象レプリケーショングループの右に表示された!インターネットゲートウェイ再起動アイコンをクリックしてメンテナンスノードを再起動します。
 
-![gm_003.png](https://static.toastoven.net/prod_easycache/20.12.01/gm_003.png)
+![gm_003.png](https://static.toastoven.net/prod_easycache/21.01.15/gm_003.png)
 
 ### 4. !インターネットゲートウェイ再起動アイコンが消えるまで待機します。
 
