@@ -149,7 +149,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
     * Replica 노드로 변경된 구 Master 노드를 복구하거나 수동으로 삭제한 후 새 Replica 노드를 추가하기 전까지 읽기 전용 도메인은 장애 조치로 Master 노드로 승격된 구 Replica 노드의 IP가 부여된 상태가 유지됩니다.
     * Replica 노드로 변경된 구 Master 노드를 복구하거나 수동으로 삭제한 후 새 Replica 노드를 추가하는 경우, 읽기 전용 도메인은 새 Replica 노드의 IP로 바인딩이 변경됩니다.
         * 바인딩 변경에 실패하면 복제 그룹 > 접속 정보에서 수동으로 재시도할 수 있습니다.
-* Replica 노드에 장애가 발생하는 경우
+* Replica 노드에 장애가 발생하거나 Replica 노드를 삭제하는 경우
     * 읽기 전용 도메인은 Master 노드의 IP로 바인딩이 변경됩니다.
     * Replica 노드를 복구하거나 수동으로 삭제한 후 새 Replica 노드를 추가하는 경우, 읽기 전용 도메인은 새 Replica 노드의 IP로 바인딩이 변경됩니다.
         * 바인딩 변경에 실패하면 복제 그룹 > 접속 정보에서 수동으로 재시도할 수 있습니다.
@@ -166,7 +166,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 
 ### 인스턴스 타입 변경 
 
-* 한시적으로 해당 기능을 이용할 수 없습니다. (~ 2021년 2월 예정)
+* 한시적으로 해당 기능을 이용할 수 없습니다.(~ 2021년 2월 예정)
 * 사용 중인 노드의 인스턴스 타입을 변경할 수 있습니다. 
 * 인스턴스 타입은 현재 노드보다 사양이 높은 인스턴스로만 변경할 수 있습니다.
 * 인스턴스 타입 변경 중에 노드는 잠시 정지됩니다. 
@@ -400,15 +400,22 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
   - timeout
   - zset-max-ziplist-entries
   - zset-max-ziplist-value
-  - replica-ignore-maxmemory (redis 5.0 추가)
-  - lazyfree-lazy-eviction (redis 5.0 추가)
-  - lazyfree-lazy-expire (redis 5.0 추가)
-  - lazyfree-lazy-server-del (redis 5.0 추가)
-  - repl-backlog-size (redis 5.0 추가)
-  - stream-node-max-bytes (redis 5.0 추가)
-  - stream-node-max-entries (redis 5.0 추가)
-  - client-query-buffer-limit (redis 5.0 추가)
-  - proto-max-bulk-len (redis 5.0 추가)
+  - replica-ignore-maxmemory(Redis 5.0 추가)
+  - lazyfree-lazy-eviction(Redis 5.0 추가)
+  - lazyfree-lazy-expire(Redis 5.0 추가)
+  - lazyfree-lazy-server-del(Redis 5.0 추가)
+  - repl-backlog-size(Redis 5.0 추가)
+  - stream-node-max-bytes(Redis 5.0 추가)
+  - stream-node-max-entries(Redis 5.0 추가)
+  - client-query-buffer-limit(Redis 5.0 추가)
+  - proto-max-bulk-len(Redis 5.0 추가)
+  - activedefrag(Redis 5.0 추가)
+  - active-defrag-ignore-bytes(Redis 5.0 추가)
+  - active-defrag-threshold-lower(Redis 5.0 추가)
+  - active-defrag-threshold-upper(Redis 5.0 추가)
+  - active-defrag-cycle-min(Redis 5.0 추가)
+  - active-defrag-cycle-max(Redis 5.0 추가)
+  - active-defrag-max-scan-fields(Redis 5.0 추가)
 
 ## 알람
 
