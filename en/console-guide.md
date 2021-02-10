@@ -405,7 +405,7 @@ Alarm recipients can be managed under each group.
 - To check recipient groups, click **View Recipient Groups**. 
 - If you don't have a group in need, click **Create Recipient Groups** to create a new group. 
 - Available recipients to be specified by each group are confined to project members only. 
-  - Messages can be mailed or texted to the email address or phone number registered for TOAST membership. 
+  - Messages can be mailed or texted to the email address or phone number registered for NHN Cloud membership. 
 - Note that, by deleting a current recipient group for alarm rules, no more alarms are to be sent, if there's no other recipient group. 
 
 ##### Constraints 
