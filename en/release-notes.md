@@ -10,6 +10,12 @@
 
 * Fixed an issue where no replicated group is created if the maximum value is entered for a profile.
 
+### Nov 24, 2020
+
+#### Improvements/changes
+
+* View All Logs added
+
 ### 2020. 10. 27.
 
 #### 버그 수정
