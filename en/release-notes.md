@@ -1,5 +1,15 @@
 ## Database > EasyCache > 릴리스 노트
 
+### February 23, 2021
+
+#### Feature Updates
+
+* Added read-only domain tooltip
+
+#### Bug Fixes
+
+* Fixed an issue where no replicated group is created if the maximum value is entered for a profile.
+
 ### 2020. 10. 27.
 
 #### 버그 수정
