@@ -330,7 +330,11 @@ Redis configuration which is available for change can be registered as profile f
 | Applying Changes | Changed profile and transmitting changes to each node. <br />Once changes are transmitted, the status is changed to normal. <br />While change is underway, you cannot create, modify, or delete a replication group. |
 | In Service       | Replication group is being created or changed with a profile. <br />After a replication group is created and completed, the status will be changed to normal. <br />Profile cannot be created or modified while in service. |
 
+##### Constraints
 
+* Settings information can be changed while modifying or copying a profile or by clicking the **Detailed Settings**  button when creating a profile.
+* If you enter a value that is out of range or invalid, fault might occur. 
+* For the valid value or range, see [Redis document](https://redis.io/topics/config).
 
 ### Profile Details 
 
@@ -405,7 +409,7 @@ Alarm recipients can be managed under each group.
 - To check recipient groups, click **View Recipient Groups**. 
 - If you don't have a group in need, click **Create Recipient Groups** to create a new group. 
 - Available recipients to be specified by each group are confined to project members only. 
-  - Messages can be mailed or texted to the email address or phone number registered for TOAST membership. 
+  - Messages can be mailed or texted to the email address or phone number registered for NHN Cloud membership. 
 - Note that, by deleting a current recipient group for alarm rules, no more alarms are to be sent, if there's no other recipient group. 
 
 ##### Constraints 
