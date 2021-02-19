@@ -1,4 +1,4 @@
-## Database > EasyCache > 릴리스 노트
+## Database > EasyCache > Release Notes
 
 ### February 23, 2021
 
