@@ -136,7 +136,7 @@
 
 #### 기능 개선
 
-- NHN Cloud 회원 인증 모듈 버전 업그레이드
+- TOAST 회원 인증 모듈 버전 업그레이드
 
 #### 버그 수정
 - 복제 그룹 작성시 인터넷게이트웨이를 설정하지 않은 사용자의 VPC서브넷을 선택하는 경우 실패하는 현상 수정
@@ -152,4 +152,4 @@
 
 #### 신규 서비스 출시
 
-- NHN Cloud EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에서 제공하는 서비스입니다.
+- TOAST EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에서 제공하는 서비스입니다.
