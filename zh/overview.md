@@ -1,6 +1,6 @@
 ## Database > EasyCache > 개요
 
-TOAST EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에서 제공하는 서비스입니다.
+NHN Cloud EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에서 제공하는 서비스입니다.
 간단한 설정으로 고가용성의 Redis 서버를 사용할 수 있습니다.
 
 ## 특징 및 기능
@@ -42,7 +42,7 @@ TOAST EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에서 
 
 * 복제 그룹은 Standalone과 Replication 타입으로 제공합니다.
 * 서버 스펙은 최소 2~64GB 크기의 메모리를 지원합니다.
-* TOAST 클라우드의 Compute & Network 서비스에서 제공하는 모든 사양의 가상 장비로 복제 그룹을 생성할 수 있습니다.
+* NHN Cloud의 Compute & Network 서비스에서 제공하는 모든 사양의 가상 장비로 복제 그룹을 생성할 수 있습니다.
 * 복제 그룹의 운영체제에 직접 접근할 수는 없습니다. 부여된 도메인과 복제 그룹 생성 시 입력한 포트를 통해  Redis 서버에 접근할 수 있습니다.
 * 복제 그룹은 사용자의 Compute & Network 서비스의 VPC 서브넷을 선택해야만 생성할 수 있으며, VPC 서브넷을 통해 Compute & Network 서비스의 인스턴스와 통신할 수 있습니다.
 * 복제 그룹은 사용자의 서브넷 이외의 외부 네트워크와 단절되어 있습니다. 외부에서 연결을 원하면 플로팅 IP를 붙여야 합니다.
