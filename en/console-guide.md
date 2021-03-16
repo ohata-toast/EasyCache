@@ -398,7 +398,8 @@ Specify the condition, target, and recipient group for an alarm.
 
 6. After setting is done, click **Create**. 
 
-Alarm rules, after created, can be disabled and temporarily turned off. 
+The created alarm rules can be temporarily disabled by setting the alarm to 'Disabled.'
+The alarm rules are applied to all regions. 
 
 ### Recipient Groups 
 
@@ -410,14 +411,16 @@ Alarm recipients can be managed under each group.
 - If you don't have a group in need, click **Create Recipient Groups** to create a new group. 
 - Available recipients to be specified by each group are confined to project members only. 
   - Messages can be mailed or texted to the email address or phone number registered for NHN Cloud membership. 
-- Note that, by deleting a current recipient group for alarm rules, no more alarms are to be sent, if there's no other recipient group. 
+- Note that, by deleting a current recipient group for alarm rules, no more alarms are to be sent, if there's no other recipient group.
+- The created receiver group can be used across all regions.
 
 ##### Constraints 
 
 - If there's only one replication group as the target of alarm rules, and if the group has been deleted from the replication group page, further alarms are to be sent to all replication groups because its only replication group is gone. 
 - If there's only one recipient group for alarm rules, and if the group has been deleted from the detail recipient group page, no further alarms can be sent because its only recipient group is gone. 
 - Alarms for the creation of a replication group are sent for all replication groups, even if there's a target replication group. 
-- If a new user is added to a project, about an hour of wait time may be incurred until the user is synchronized to the list of project users of a recipient group. 
+- If a new user is added to a project, about an hour of wait time may be incurred until the user is synchronized to the list of project users of a recipient group.
+- Even when an alarm rule specifies a specific duplicate group in the target duplicate group, alarm rules without specified duplicate group will be synchronized in other regions and they will be applied to all regions.
 
 ## Events
 
