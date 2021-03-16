@@ -1,5 +1,16 @@
 ## Database > EasyCache > Release Notes
 
+### March 23, 2021
+
+#### Feature Updates
+
+* Added read-only domain event registration
+* Fixed the system to show an error message when the replication group is using a subnet without internet gateway when setting up a public domain
+
+#### Bug Fixes
+
+* Fixed an issue where an error would occur when the user enters a blank space in the search field during log search
+
 ### February 23, 2021
 
 #### Feature Updates
