@@ -1,139 +1,198 @@
-## Database > EasyCache > 릴리스 노트
+## Database > EasyCache > Release Notes
 
-### 2020. 10. 27.
+### March 23, 2021
 
-#### 버그 수정
-* 복제 그룹 이름 변경 시 노드 이름도 변경된 그룹 이름이 반영되도록 수정
-* CPU, RAM의 쿼터를 넘어설 경우의 에러 메세지를 수정
+#### Feature Updates
 
-### 2020. 09. 22.
+* Added read-only domain event registration
+* Fixed the system to show an error message when the replication group is using a subnet without internet gateway when setting up a public domain
 
-#### 기능 개선/변경
+#### Bug Fixes
 
-* 한국(평촌) 리전 오픈
-* 로그 확인 기능 추가
-* VPC 서브넷 목록을 이름순으로 표시
-* 서비스 이용권한 대응
+* Fixed an issue where an error would occur when the user enters a blank space in the search field during log search
 
-#### 버그 수정
+### February 23, 2021
 
-* 모니터링 그래프의 단위 수정 
-    * 입력 바이트: byte -> bytes/1min
-    * 출력 바이트: byte -> bytes/1min
-    * 초당 처리한 명령 수: counts/seconds -> count/1sec
-* 프로필을 수정 할 때, 수정 중인 프로필을 사용하고 있는 복제 그룹의 상태가 프로필 수정 중 으로 표시되지 않고 정상 으로 표시되는 현상
+#### Feature Updates
 
-### 2020.08.25.
+* Added read-only domain tooltip
 
-#### 기능개선/변경
+#### Bug Fixes
 
-* 복제그룹을 생성할 때 Redis접속용 비밀번호설정여부를 옵션으로 선택할 수 있도록 변경
+* Fixed an issue where no replicated group is created if the maximum value is entered for a profile.
 
-#### 버그수정
+### Nov 24, 2020
 
-* 레플리카노드를 승격할 때 노드승격 완료시점과 상태표시가 일치하지 않는 현상 수정
+#### Improvements/changes
 
-### 2020.07.28.
+* View All Logs added
 
-#### 기능 추가
+### January 26, 2021
 
-* 인스턴스 타입 변경 기능 추가
+#### Feature Updates
 
-#### 기능 개선/변경
+- Changed Maxmemory default from 70% to 50% of available memory
+- Added `activedefrag`-related options in profile
+- **View Log**  dialog box UI improved
 
-* 지원되는 인스턴스 타입에서 Compute Optimized 유형 삭제
+#### Bug Fixes
 
-#### 버그 수정
+- Fixed a bug where the date changes to January 2 when the time is changed in monitoring
 
-* 모니터링 그래프에서 연결된 클라이언트가 누적으로 표시되는 현상 수정
-* 유저 정의 프로필을 사용하던 Redis 3.2.12 복제 그룹의 백업에서 복원할 때 Redis 3.2 기본 프로필로 복원되던 버그 수정
+### December 29, 2020
 
-### 2020.06.23.
+#### More Features
 
-#### 기능 개선/변경
+- Added read-only domain feature
 
-* CloudTrail 서비스에 이벤트 등록
+#### Feature Updates
 
-#### 버그 수정
+- Improved the feature related to login control information
+- Improved to show guidance when mouse is hovered over the Change instance type button
+- Changed the dialog button name to OK.
 
-* 노드가 재기동될 경우 INFO의 레디스서버의 가동시간(uptime\_in\_seconds)이 실제보다 9시간 더해진 값으로 출력되는 현상 수정
-* 접속 정보 탭에서 패스워드를 확인하기 위해서 보기 버튼을 클릭하여도 노드가 장애 상태인 경우에는 패스워드 습득에 실패하는 현상 수정
-* HA재설정 버튼이 표시되어 HA재설정을 수행했으나 실패하는 현상 수정
-* 모니터링 화면의 검색 기간에서 지정을 선택하여도 기간을 자유롭게 설정할 수 없는 현상 수정
+#### Bug Fixes
 
-### 2020.05.26.
+- Fixed an issue where the task of profile modification fails and made unavailable when changing the profile of a duplicate group if the profile before the change is modified
+- Fixed an issue of Korean filter option names were displayed when the website language is set to 'Japanese'
 
-#### 기능 개선/변경
+### October 27, 2020
 
-* Redis 5.0 지원
-* 프로필 복사기능 제공
-* 모니터링 개선
-    * 조회탭을 복제그룹 상세화면에서 초기화면 상단의 별도탭으로 이동 
-    * 현재시간 버튼 추가
-    * 자동갱신 체크박스 추가
-    * 복제 그룹 선택 드롭다운 추가
-    * 단일 그래프를 팝업으로도 표시하여 통계항목과 집계기간을 선택할 수 있도록 개선
-* 프로필을 생성하거나 수정할 때 상세설정을 통해 설정값을 수정할 수 있도록 변경
+#### Bug Fixes
 
-#### 버그 수정
+- Modified node name to reflect changes in group name when changing name of duplicate group
+- Modified error message in cases where a quarter of CPU and RAM is exceeded
 
-* 노드가 추가된 복제 그룹 수정 후 노드를 추가하지 않은 복제 그룹을 수정하려고 하면 수정 버튼이 비활성화되는 현상 수정
-* 모니터링항목에서「연결된 클라이언트수」와「블록된 클라이언트수」가 누적값으로 표시되는 버그 수정
-* 프로필목록 수정후 프로필목록이 일부밖에 표시되지 않는 현상 수정
-* 복제그룹에서 사용중인 프로필을 수정하는 경우, 수정후 화면이 리로드되지 않는 현상 수정
+### September 22, 2020
 
-### 2020.04.28.
+#### Feature Updates
 
-#### 기능 개선
+- Korea (Pyeongchon) region opened
+- Added log check feature
+- Sort and display VPC subnet list by name
+- Service use permissions response
 
-- HA 감시설정에 헬스체크 응답시간을 사용자가 설정할 수 있도록 기능제공
-- 마스터 수동 승격 기능 제공
-- 모니터링 항목에서 조회 성공, 실패수를 누적값이 아닌 시간별 값으로 표시하도록 변경
-- 알람 규칙에서 메모리 사용량을 %로 설정할 수 있도록 변경
+#### Bug Fixes
 
-#### 버그 수정
+- Modified unit of monitoring graph
+  - Input byte: byte -> bytes/1min
+  - Output byte: byte -> bytes/1min
+  - Processed commands per second: counts/seconds -> count/1sec
+- During profile modification, the bug where the status of a duplicate group using the profile currently being modified is displayed as normal rather than displaying modification in progress
 
-- 10분 단위로 모니터링에서 그래프가 잘려서 나오는 현상 수정
-- failover후 장애 노드가 수 초 이내에 복구 된 경우에 복제 그룹, 노드 상태가 정상적으로 반영되지 않는 현상 수정
-- 경고 상태 복제 그룹의 패스워드 변경을 가능하게 변경
-- 일부 메뉴와 라벨 수정
+### August 25, 2020
 
-### 2020. 03. 24.
+#### Feature Updates
 
-#### 기능 개선
+- Changed the password setting for Redis access as optional
 
-- EasyCache 기본 config 값 변경(tcp-keepalive[0→300])
+#### Bug Fixes
 
-### 2020. 02. 25.
+- Fixed an issue where node promotion completion time and condition display does not accord when promoting replica nodes
 
-#### 기능 개선
+### July 28, 2020
 
-- 접속 정보를 동시에 복수개를 추가 가능할 수 있게 수정
-- SMS내용 개선
-- 중복된 CIDR입력시의 메세지 수정
+#### More Features
 
-#### 버그 수정
-- 대용량 데이터가 있을때 레플리카 노드를 추가할 경우 데이터 동기화 무한 로프가 발생하는 문제 수정
-- 복제 그룹 내 노드 생성 실패시 노드일람에서 노드가 계속 생성중으로 표시 되는 문제 수정
+- Instance type change feature added
 
-### 2020. 02. 11.
+#### Feature Updates
 
-#### 기능 개선
+- Deleted Compute Optimized type from supported instance type
 
-- TOAST 회원 인증 모듈 버전 업그레이드
+#### Bug Fixes
 
-#### 버그 수정
-- 복제 그룹 작성시 인터넷게이트웨이를 설정하지 않은 사용자의 VPC서브넷을 선택하는 경우 실패하는 현상 수정
+- Fixed an issue where clients connected from monitoring graph is displayed as an accumulation
+- Fixed a bug where, when restoring from Redis 3.2.12 duplicate group which used custom profile, the profile would be restored to Redis 3.2 default profile
 
-### 2020. 01. 21.
+### June 23, 2020
 
-#### 기능 개선
+#### Feature Updates
 
-- 콘솔 화면과 이벤트 메세지의 일본어 대응
-- Failover 후 도메인 변경 실패시 이벤트 등록 추가
+- Registered events on CloudTrail service
 
-### 2019. 12. 24.
+#### Bug Fixes
 
-#### 신규 서비스 출시
+- Fixed an issue in which the operation duration (uptime_in_seconds) of INFO’s Redis server is displayed in values with additional 9 hours
+- Fixed an issue where, when users click the View button to check their passwords, nodes fail to acquire passwords during node failures
+- Fixed an issue where HA reset fails even after HA reset button is displayed and reset is executed
+- Fixed an issue where dates could not be selected freely from search period on the monitoring screen
 
-- TOAST EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에서 제공하는 서비스입니다.
+### May 26, 2020
+
+#### Feature Updates
+
+- Redis 5.0 supported
+- Profile copying feature provided
+- Monitoring updated
+  - Moved query tab from duplicate group details screen to a separate tab on top of the initial screen
+  - Added Current Time button
+  - Added Auto Renew checkbox
+  - Added duplicate group selection drop-down menu
+  - Updated single graph to be displayed additionally as a pop-up to allow users to select statistical entries and aggregation duration
+- Changed features to allow user to modify values through detailed settings when creating or modifying profiles
+
+#### Bug Fixes
+
+- Fixed an issue where the modification button is disabled when trying to modify duplicate groups with no nodes added after modifying duplicate groups with added nodes
+- Fixed a bug where 「Number of Connected Clients」 and 「Number of Blocked Clients」 on the monitoring option is displayed as an accumulation value
+- Fixed an issue where the profile list is not fully displayed after modification
+- Fixed an issue where the screen does not reload after modifying profiles currently being used by duplicate groups
+
+### April 28, 2020
+
+#### Feature Updates
+
+- Provided feature to allow users to enable health check response time on watch setting
+- Provided master manual promotion feature
+- Changed a monitoring field to display successful/failed query numbers as per time instead of an accumulation value
+- Changed alarm rules to allow changing memory usage in %
+
+#### Bug Fixes
+
+- Fixed an issue where monitoring graphs are partially displayed every 10 minutes
+- Fixed an issue where duplicate group and node status is not properly reflected after failed nodes are restored within a few seconds after a failover
+- Made changes to allow password modification of warning duplicate groups
+- Modified a portion of menus and labels
+
+### March 24, 2020
+
+#### Feature Updates
+
+- Changed default config value of EasyCache(tcp-keepalive [0→300])
+
+### February 25, 2020
+
+#### Feature Updates
+
+- Modified feature to allow users to simultaneously add multiple connection information
+- Updated SMS content
+- Modified messages when entering duplicated CIDR
+
+#### Bug Fixes
+
+- Fixed an issue where infinite loops of data synchronization occurs when replica node is added in presence of bulk data
+- Fixed an issue where node is displayed as creating on node alarm even after node creation failure within a duplicate group
+
+### February 11, 2020
+
+#### Feature Updates
+
+- Upgraded version of NHN Cloud user authentication module
+
+#### Bug Fixes
+
+- Fixed an issue where selection fails in cases of selecting VPC subnets of users that did not set up internet gateways when creating duplicate groups
+
+### January 21, 2020
+
+#### Feature Updates
+
+- Japanese supported for console screen and event messages
+- Event registration added when domain change fails after failover
+
+### December 24, 2019
+
+#### New service release
+
+- NHN Cloud EasyCache is a service that provides Redis(REmote DIctionary Server)in a cloud environment.
