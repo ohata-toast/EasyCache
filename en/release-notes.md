@@ -1,5 +1,13 @@
 ## Database > EasyCache > Release Notes
 
+### April 27, 2021
+
+#### Feature Updates
+
+* Changed the system so that the nodes can only be deleted or restated when their status is 'unavailable'
+* Modified the system so that event categories and search time will be automatically searched when the respective button is selected
+* Modified the system so that the keyword will not remain when a notification event, duplicate group, or receiving group is searched for and its sub item list is selected in notification rules
+
 ### March 23, 2021
 
 #### Feature Updates
