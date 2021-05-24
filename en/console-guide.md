@@ -219,7 +219,7 @@ EasyCache collects monitoring items that are required to run and use Redis at ev
 - By clicking on the chart, it is expanded for display. 
 - On an expanded chart, statistics and collection period may be changed for display. 
   - Statistical method is applied to show accumulated data, and if the collection time is 1 minute, same value will be displayed even with changed statistics, since low data is applied. 
-- Monitoring data can be retained for 1 month. 
+- The data storage period for monitoring is 40 days.
 
 ![monitoring_002.PNG](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_002.PNG)
 - In monitoring, you may opt to show selected items only from **Filter Conditions**. 
