@@ -1,5 +1,16 @@
 ## Database > EasyCache > Release Notes
 
+### 2021. 05. 25.
+
+#### Feature Updates
+
+* In monitoring, there was improvement by adjusting the size of each chart according to the size of the full screen.
+* The monitoring data storage period was changed from 1 month to 40 days
+
+#### Bug Fixes
+
+* When setting the search period in the View Log, an error message that used to appear was fixed.
+
 ### April 27, 2021
 
 #### Feature Updates
