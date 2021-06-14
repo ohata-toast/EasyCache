@@ -174,7 +174,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 ### 데이터 가져오기
 * 복제 그룹을 선택한 후 기타 액션 버튼(⋯)을 클릭하고 **데이터 가져오기**를 클릭해 데이터를 가져올 수 있습니다.
 
-![data_import_001.png](https://static.toastoven.net/prod_easycache/21.06.04/data_import_001.png)
+![data_import_001.png](https://static.toastoven.net/prod_easycache/21.06.14/data_import_001.png)
 
 * 유저의 오브젝트 스토리지에 있는 RDB 파일을 사용 중인 노드로 가져올 수 있습니다. 이 때 오브젝트 스토리지와 EasyCache의 리전은 같아야 합니다.
 * 데이터를 가져올 때, 오브젝트 스토리지의 API 엔드포인트 설정, 컨테이너와 RDB 파일 경로가 필요합니다. 
