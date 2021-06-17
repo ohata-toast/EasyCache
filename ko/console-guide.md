@@ -64,6 +64,7 @@ Replica 노드는 원본 Master 노드와 동일한 서버 사양입니다.
 ##### 제약 사항
 
 - 원본 Master 노드에 최대 2대까지 Replica 노드를 만들 수 있습니다.
+- 정상 상태가 아닌 Replica 노드가 존재하는 경우 먼저 삭제한 후 새로운 Replica 노드를 추가할 수 있습니다.
 - Replica 노드의 Replica 노드는 만들 수 없습니다.
 
 #### 고가용성(HA)
