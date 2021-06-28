@@ -199,7 +199,7 @@
 * 作成されたレプリケーショングループを選択し、**基本情報** タブを押します。
 * レプリケーショングループの詳細情報を確認できます。
 
-![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/rep_detail_002.png)
+![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/21.07.02/rep_detail_info_001.png)
 
 * 確認可能な項目は下記のとおりです。
     * レプリケーショングループ名
@@ -242,7 +242,7 @@ Replicaノードがある場合、確認可能な項目は下記のとおりで�
 * また、ReplicaノードをMasterノードに昇格させることができます。
 - ノードのログを確認するには**ログ表示**ボタンを押します。
 
-![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/rep_node_info_002.png)
+![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/21.07.02/rep_node_info_001.png)
 
 - **マスター昇格**ボタンを押すとReplicaノードをMasterノードに昇格できます。この時、MasterノードはReplicaノードに変更されます。
 * 確認可能な項目は下記のとおりです。
