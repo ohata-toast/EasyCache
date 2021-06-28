@@ -8,7 +8,7 @@
 ### レプリケーショングループ作成
 * Console > Database > EasyCacheの **レプリケーショングループ** タブで作成ボタンを押すと、レプリケーショングループ作成ウィンドウが表示されます。
 
-![rep_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/rep_create_001.png)
+![rep_001.PNG](https://static.toastoven.net/prod_easycache/21.07.02/rep_create_001.png)
 
 * 設定ウィンドウに表示された必須項目を全て入力し、下部の作成ボタンを押してください。
     * レプリケーショングループ名：レプリケーショングループの名前を入力します。
@@ -46,7 +46,7 @@
 * 可用性を高めるために、RedisがサポートするReplicaノードを作成できます。
 * Replicaノードを作成するには、コピー元のレプリケーショングループを選択した後、ノード追加ボタンを押します。
 
-![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/rep_node_add_002.png)
+![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/21.07.02/rep_node_add_002.png)
 
 * Masterノードがダウンしているかを判断するために、ヘルスチェック応答待機時間を設定できます。デフォルトで値は3000msです。
 3. Masterノードの情報を確認できます。
@@ -165,7 +165,7 @@
 ### データのインポート
 * レプリケーショングループを選択した後、その他アクションボタン(⋯)をクリックして**データのインポート**をクリックしてデータをインポートできます。
 
-![data_import_001.png](https://static.toastoven.net/prod_easycache/21.06.14/data_import_001.png)
+![data_import_001.png](https://static.toastoven.net/prod_easycache/21.07.02/data_import_001.png)
 
 * ユーザーのオブジェクトストレージにあるRDBファイルを使用中のノードにインポートできます。この時、オブジェクトストレージとEasyCacheのリージョンは同じである必要があります。
 * データをインポートする時、オブジェクトストレージのAPIエンドポイント設定、コンテナとRDBファイルパスが必要です。 
@@ -350,7 +350,7 @@ EasyCacheはRedis運営に必要なモニタリング項目を1分毎に収集�
 * 復元時に原本ノードを変更しないで、同じ仕様のノードを新たに作成します。
 * 復元時に原本ノードを変更しないで、異なる仕様のノードを新たに作成します。
 
-   ![restore_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/restore_001.png)
+   ![restore_001.PNG](https://static.toastoven.net/prod_easycache/21.07.02/restore_001.png)
 
 * 復元内容
     * バックアップ名：復元するバックアップファイル名
