@@ -62,7 +62,7 @@ It may take more time to create a replica node, in proportion to the size of the
 ##### Constraints 
 
 - On the original master node, a maximum of 2 replica nodes can be created.
-- 정상 상태가 아닌 Replica 노드가 존재하는 경우 먼저 삭제한 후 새로운 Replica 노드를 추가할 수 있습니다.
+- If an abnormal Replica node is present, delete it first before adding a new Replica node.
 - A replica node cannot create its own replica nodes under it. 
 
 #### High Availability (HA)
@@ -136,11 +136,11 @@ You may create a backup for replication group at a time of choice. Even if a rep
 
 ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_public_domain_001.png)
 
-### 읽기 전용 도메인 설정
-* Replica 노드가 추가되어 있는 대상 복제 그룹을 선택한 후 기타 액션 버튼(⋯)을 클릭하고 읽기 전용 도메인 설정을 클릭해 읽기 전용 도메인을 설정할 수 있습니다.
-* 설정된 읽기 전용 도메인은 복제 그룹을 생성할 때 선택한 VPC서브넷에서 접속가능한 사설도메인으로 Replica 노드의 IP가 바인딩됩니다.
-* 설정된 읽기 전용 도메인은 **복제 그룹 > 접속 정보**에서 확인할 수 있습니다.
-* Master 노드의 장애로 장애 조치가 발생하는 경우
+### Read-only domain setup
+* After selecting target duplicate group where a Replica node is added to, click other action button (⋯) and click Read-only Domain Setup to set up a read-only domain.
+* The read-only domain you set is a private domain that can be logged in from the VPC subnet you selected when creating a duplicate group, and this is where the IP of the Replica node is bound to.
+* Go to **Duplicate Group > Login Information** if you want to check the read-only domain you set.
+* If failover occurs due to the fault of the Master node
     * When there is 1 replica node
         * Until the old master node is recovered with the replica node or a new replica node is added after deleting the old one, the read-only domain retains the IP of the old replica node that has been promoted to the master node due to the failover.
         * If the old master node is recovered with the replica node or a new replica node is added after deleting the old one, the binding of the read-only domain changes to the IP of the new replica node.
@@ -149,7 +149,7 @@ You may create a backup for replication group at a time of choice. Even if a rep
         * The IP of the old replica node promoted to new master node is excluded from binding
         * When recovering an old master node that has been changed to a replica node or adding a new replica node after manually deleting it, the IP of the new replica node is added to the read-only domain.
 
-* Replica 노드에 장애가 발생하거나 Replica 노드를 삭제하는 경우
+* If Replica node fails or is deleted
     * When there is 1 replica node
         * The binding of the read-only domain changes to the IP of the master node.
         * When recovering a replica node or adding a new replica node after manually deleting it, the read-only domain binding changes to the IP of the new replica node.
@@ -160,12 +160,12 @@ You may create a backup for replication group at a time of choice. Even if a rep
 
 * When deleting the replication group or disabling the service while set to read-only domain, the read-only domain is disabled.
 
-##### 제약 사항
-* 읽기 전용 도메인의 바인딩이 변경되는 경우
-    * Master 노드에 장애가 발생해 장애 조치를 한 후 새 Replica 노드를 추가하는 경우 등, 접속 중단 없이 바인딩이 변경되는 경우
-        * 읽기 전용 도메인으로 접속한 클라이언트에서 도메인의 바인딩 변경을 감지하는 기능을 지원하거나 해당 로직이 구현되어 있는 경우에는 변경된 바인딩 IP로 재접속되나, 그렇지 않은 경우 기존 접속을 중단하고 다시 접속해야 합니다.
-    * Replica 노드에 장애가 발생하거나 Replica 노드가 삭제되는 경우처럼 바인딩 변경 시 접속 중단이 동반되는 경우
-        * 클라이언트에서 자동 재접속 기능을 지원하거나 해당 로직이 구현 되어 있는 경우에는 변경된 바인딩 IP로 재접속되나, 그렇지 않은 경우 다시 접속해야합니다.
+##### Constraints
+* When the binding of the read-only domain is changed
+    * When binding is changed without login interruption (for instance, when new Replica node is added after failover of the Master node)
+        * If the client logged in as a read-only domain supports the detection of binding change in domains or such logic is implemented, user will be logged in again using the changed binding IP. Otherwise, the user has to terminate the current login and log in again.
+    * When binding change results in disconnection (e.g. when Replica node fails or is deleted)
+        * If the client supports automatic relogin or such logic is implemented, user will be logged in with the changed binding IP. Otherwise, the user has to log in again.
 
 ### Import Data
 * After selecting the replication group, click the other actions button(⋯), then the **Import Data** to import the data.
