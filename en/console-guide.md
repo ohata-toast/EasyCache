@@ -10,7 +10,7 @@ To enable EasyCache, it is required to create a replication group first.
 
 1. From **Replication Group** on **Console > Database > EasyCache**, click **Create** and a popup for **Create Replication Groups** shows.
 
-![rep_001.PNG](https://static.toastoven.net/prod_easycache/20.08.07/rep_create_001.PNG)
+![rep_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/rep_create_001.png)
 
 2. Enter all requirements on the setting window and click **Create** at the bottom. 
 
@@ -24,7 +24,6 @@ To enable EasyCache, it is required to create a replication group first.
     - Max Memory:  Adjust the max memory to prevent memory shortage from synchronization or backup.
       - You may change the volume of max memory for a Redis server. 
       - If required, memory volume can be flexibly secured for management. 
-    - Availability Area:  Select an area to create a replication group. 
     - Configuration Profile: Select a configuration file for Redis.
       - Provides default profile. 
       - More configuration profiles can be added for selection.
@@ -47,16 +46,14 @@ By creating a replica node supported by Redis, availability can be raised.
 
 1. To create a replica node, select an original replication group and click **Add Nodes**. 
 
-![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_node_add_002.PNG)
+![nod_ad_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/rep_node_add_002.png)
 
 2. To see if the master node has gone down, set wait time for health check response. Default is 3000ms.  
 
-3. Select an availability area to create a replica node. By selecting a different availability area from the original master node, the availability goes higher. 
+3. Master node information can be checked.
 
-4. Find out information of the master node. 
-
-5. Click **Add**, and a replica node is created. 
-6. To check information of the node, go to **Replication Groups > Node Information**. 
+4. Click **Add**, and a replica node is created. 
+5. To check information of the node, go to **Replication Groups > Node Information**. 
    Replication relation is automatically set while it is created. 
 
 The replica node has the same server specifications as the original master node. 
@@ -64,7 +61,8 @@ It may take more time to create a replica node, in proportion to the size of the
 
 ##### Constraints 
 
-- An original master node can create only one replica node. 
+- On the original master node, a maximum of 2 replica nodes can be created.
+- If an abnormal Replica node is present, delete it first before adding a new Replica node.
 - A replica node cannot create its own replica nodes under it. 
 
 #### High Availability (HA)
@@ -77,9 +75,11 @@ By adding a replica node to the standalone master node, high availability is aut
 
 ##### Constraints
 
-- If it fails to set up high availability while adding a replica node, go to **Replication Groups > Basic Information** and click **Reconfigure HA** so as to re-configure high availability. 
+- If HA setting fails when adding 1 replica node, click the **Update HA** button in **Replication Group > Basic Information** to update the HA settings. 
 
 ![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_ha_error_001.PNG)
+
+- If HA settings fails to update when adding 2 replica node, click the **Update HA** button in **Replication Group > Basic Information ** to update the HA settings again.
 
 - With a failover, the existing master node in which error occurred is suspended. When the failed node is deleted, it is changed into a general standalone master node in which high availability is not enabled. 
 - By adding a replica node to the standalone master node, high availability can be newly specified. 
@@ -104,7 +104,7 @@ By adding a replica node to the standalone master node, high availability is aut
 	- Backup Time: Backup to start randomly between start time and a specific time, from 1 hour up to 3 hours. 
 
 3. Check changes and click **Change**. 
-    Service port, Redis Version, Instance Type, and Availability Area cannot be changed, once they're configured. 
+    Service port, Redis Version, Instance Type, and Availability Area cannot be changed, once they're configured.     
 ### Auto Backups
 
 - Memory data (RDB file) is automatically backed up at a specific time once every day. 
@@ -136,6 +136,48 @@ You may create a backup for replication group at a time of choice. Even if a rep
 
 ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_public_domain_001.png)
 
+### Read-only domain setup
+* After selecting target duplicate group where a Replica node is added to, click other action button (⋯) and click Read-only Domain Setup to set up a read-only domain.
+* The read-only domain you set is a private domain that can be logged in from the VPC subnet you selected when creating a duplicate group, and this is where the IP of the Replica node is bound to.
+* Go to **Duplicate Group > Login Information** if you want to check the read-only domain you set.
+* If failover occurs due to the fault of the Master node
+    * When there is 1 replica node
+        * Until the old master node is recovered with the replica node or a new replica node is added after deleting the old one, the read-only domain retains the IP of the old replica node that has been promoted to the master node due to the failover.
+        * If the old master node is recovered with the replica node or a new replica node is added after deleting the old one, the binding of the read-only domain changes to the IP of the new replica node.
+            * If binding  fails, manually try again in Replication Group > Access Information.
+    * When there are 2 replica nodes
+        * The IP of the old replica node promoted to new master node is excluded from binding
+        * When recovering an old master node that has been changed to a replica node or adding a new replica node after manually deleting it, the IP of the new replica node is added to the read-only domain.
+
+* If Replica node fails or is deleted
+    * When there is 1 replica node
+        * The binding of the read-only domain changes to the IP of the master node.
+        * When recovering a replica node or adding a new replica node after manually deleting it, the read-only domain binding changes to the IP of the new replica node.
+            * If binding fails, manually try again in Replication Group > Access Information.
+    * When there are 2 replica nodes
+        * The IP of the replica node is excluded from the read-only domain.
+        * When recovering a replica node or adding a new replica node after manually deleting it, the IP of the new replica node is added to the read-only domain binding.
+
+* When deleting the replication group or disabling the service while set to read-only domain, the read-only domain is disabled.
+
+##### Constraints
+* When the binding of the read-only domain is changed
+    * When binding is changed without login interruption (for instance, when new Replica node is added after failover of the Master node)
+        * If the client logged in as a read-only domain supports the detection of binding change in domains or such logic is implemented, user will be logged in again using the changed binding IP. Otherwise, the user has to terminate the current login and log in again.
+    * When binding change results in disconnection (e.g. when Replica node fails or is deleted)
+        * If the client supports automatic relogin or such logic is implemented, user will be logged in with the changed binding IP. Otherwise, the user has to log in again.
+
+### Import Data
+* After selecting the replication group, click the other actions button(⋯), then the **Import Data** to import the data.
+
+![data_import_001.png](https://static.toastoven.net/prod_easycache/21.06.14/data_import_001.png)
+
+* The RDB file in the user’s object storage can be imported to the node in use. The region of the object storage and EasyCache must be the same.
+* When importing the data, the API endpoint settings of object storage, container, and the path to the RDB file is needed. 
+* After **Import Data**, back up is recommended before the previous data of the node gets deleted. 
+* Node cannot be used while executing **Import Data**. The execution status can be checked in events. 
+* Only the RDB files created in the same or previous version of EasyCache Redis can be imported. RDB file created in a newer version than the EasyCache Redis cannot be imported.
+
 ### Change Instance Types 
 
 * It is available to change the instance type of a node in service.  
@@ -158,13 +200,13 @@ Details of a replication group, such as basic, access, node, and monitoring, can
 
 Select a created replication group, press **Basic Information** and check details of the replication group. 
 
-![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_detail_002.PNG)
+![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/rep_detail_002.png)
 
 Following items can be found: 
 
 - Name, description, type, version, service port, and instance type of replication group 
 - Max memory, availability area, and configuration profile 
-- VPC subnet, creation date, and auto backup configuration 
+- VPC Subnet(subnetwork), creation date, automatic backup settings, number of nodes 
 
 Following items can be found when there's a replica node: 
 
@@ -192,9 +234,9 @@ Select a created replication group and click **Access Information**.
 
 Select a created replication group and press **Node Information**, and you can check node details of the replication group and promote a replica node to the master node.  
 
-![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_node_info_002.PNG)
+![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/rep_node_info_002.png)
 
-- Select a replica node and press Promote to Master, and the selected replica node is promoted to the master node. Then, the existing master node is changed to a replica node. 
+- Clicking - **Master Promotion** button will promote the replica node to a master node. The master node then changes to a replica node.
 - Following items can be found: 
   - Name, type, IP, availability area, date of creation, and status of node 
 
@@ -268,7 +310,7 @@ On the **Backup** tab, you may  back up or delete backups. Since performance may
 Memory data can be restored by using retained backup files. 
 
 1. To restore, select a backup file and click **Restore Replication Groups**. For restoration, a new node with same or different specifications can be created without changing the origin node. 
-   ![restore_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/restore_001.PNG)
+   ![restore_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/restore_001.png)
 
 2. On the **Restore Replication Groups** window, enter the following and click **Create**. Find created replication groups on the **Replication Group** tab. 
   - Name of Backup: Backup file name to restore 
@@ -285,7 +327,6 @@ Memory data can be restored by using retained backup files.
   - Max Memory: Max memory can be adjusted to prevent memory shortage from synchronization or backup. 
     - Volume of the max memory can be changed for Redis server. 
     - Since max memory volume is changeable, management memory can be flexibly secured. 
-  - Availability Area: Select an area in which a replication group is to be created. 
   - Configuration Profile: Shows Redis configuration file of a replication group bound for backup. 
     - Configuration can be changed by adding more profiles. 
   - VPC Subnet: Shows VPC subnet of a replication group for backup. 
@@ -449,6 +490,8 @@ Alarm recipients can be managed under each group.
 |             | Modify | Started, Failed, Closed |
 |             | Restart | Started, Failed, Closed |
 |             | Change Group Instance | Started, Failed, Closed |
+|             |  Import Data | Start, Failed to set up user OBS, Failed to download data file, Damaged files or unsupported file format, Failed to restart node, Failed to synchronize replica, Terminate |
+|             |  Update HA Settings | Start, Fail, Terminate |
 | **Publicly Credited Domain** | Set | Started, Failed, Closed |
 |             | Cancel | Started, Failed, Closed |
 | **Cache Instance** | Connect | Successful, Failed |

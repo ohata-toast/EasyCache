@@ -1,5 +1,20 @@
 ## Database > EasyCache > Release Notes
 
+### 2021. 06. 29.
+
+#### Feature Updates
+
+* Added feature to choose between bytes, MB, or GB if the graph on the detailed screen of EasyCache monitoring is in a unit of bytes
+* Added feature to choose the node to be displayed on the detailed screen of EasyCache monitoring
+* Added feature to (import) data of Redis used externally to EasyCache
+* Added Multi Replica feature to distribute read function
+* Added the current time to the screen to the right of the event search period calendar
+
+#### Bug Fixes
+
+* Fixed to expose the name in the replication group profile modification failure popup
+* Fixed a bug where after deleting the replication group node and clicking the Delete button of another replication group node, the Delete button becomes inactive if no node is selected
+
 ### 2021. 05. 25.
 
 #### Feature Updates
