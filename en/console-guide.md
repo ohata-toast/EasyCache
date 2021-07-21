@@ -137,7 +137,7 @@ You may create a backup for replication group at a time of choice. Even if a rep
 ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_public_domain_001.png)
 
 ### Read-only domain setup
-* After selecting target duplicate group where a Replica node is added to, click other action button (⋯) and click Read-only Domain Setup to set up a read-only domain.
+* After selecting target duplicate group where a Replica node is added to, click other action button (⋯) and click **Read-only Domain Setup** to set up a read-only domain.
 * The read-only domain you set is a private domain that can be logged in from the VPC subnet you selected when creating a duplicate group, and this is where the IP of the Replica node is bound to.
 * Go to **Duplicate Group > Login Information** if you want to check the read-only domain you set.
 * If failover occurs due to the fault of the Master node
@@ -173,10 +173,21 @@ You may create a backup for replication group at a time of choice. Even if a rep
 ![data_import_001.png](https://static.toastoven.net/prod_easycache/21.06.14/data_import_001.png)
 
 * The RDB file in the user’s object storage can be imported to the node in use. The region of the object storage and EasyCache must be the same.
-* When importing the data, the API endpoint settings of object storage, container, and the path to the RDB file is needed. 
+* When importing the data, the API endpoint settings of object storage, container, and the path to the RDB file is needed.
+* For container and RDB file paths, only uppercase and lowercase letters, numbers, and special symbols -,_,/,. can be entered.
 * After **Import Data**, back up is recommended before the previous data of the node gets deleted. 
 * Node cannot be used while executing **Import Data**. The execution status can be checked in events. 
 * Only the RDB files created in the same or previous version of EasyCache Redis can be imported. RDB file created in a newer version than the EasyCache Redis cannot be imported.
+
+### Export Data
+* After selecting the duplicate group, click Other Actions button(⋯), then the **Export Data** to export the data.
+
+![data_export_001.png](https://static.toastoven.net/prod_easycache/21.07.02/data_export_001.png)
+
+* You can export the data of the EasyCache duplicate groups to the user’s object storage. In this case, the object storage and EasyCache must be in the same region.
+* When exporting data, set the API endpoint for object storage and enter the path to the container to which the data will be exported and the prefix required to create a file name. 
+* For container paths and prefix, only uppercase and lowercase letters, numbers, and special symbols -,_,/,. can be entered.
+* If the data in the EasyCache duplicate group is larger than 1 gigabyte, a segment object is automatically created when exporting to object storage.
 
 ### Change Instance Types 
 
@@ -191,7 +202,13 @@ You may create a backup for replication group at a time of choice. Even if a rep
 ##### Constraints 
 
 - Redundant manual backup is unavailable. Try again after current manual backup is done. 
-- Executing a manual backup during auto backup time may cause delays in the backup. 
+- Executing a manual backup during auto backup time may cause delays in the backup.
+
+### Change Master
+
+* After selecting the target duplicate group where a Replica node is added, click Other Action button(⋯) and click **Change Master** to change the master node of the duplicate group.
+* The Replica node is changed to Master node, and the existing Master node is changed to Replica node.
+* When there are 2 Replica nodes, change the Replica node appropriate for the system to Master node.
 
 ### Replication Group Details 
 
@@ -232,9 +249,9 @@ Select a created replication group and click **Access Information**.
 
 #### Node Information 
 
-Select a created replication group and press **Node Information**, and you can check node details of the replication group and promote a replica node to the master node.  
+Select the duplicate group created and click the ***\*Node Information\**** tab to check the details and logs of the duplicate group node. 
 
-![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/rep_node_info_002.png)
+![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/21.07.02/rep_node_info_002.png)
 
 - Clicking - **Master Promotion** button will promote the replica node to a master node. The master node then changes to a replica node.
 - Following items can be found: 
@@ -491,13 +508,14 @@ Alarm recipients can be managed under each group.
 |             | Restart | Started, Failed, Closed |
 |             | Change Group Instance | Started, Failed, Closed |
 |             |  Import Data | Start, Failed to set up user OBS, Failed to download data file, Damaged files or unsupported file format, Failed to restart node, Failed to synchronize replica, Terminate |
+|             |  Export Data | Start, failed to set user Object Storage Service, failed to create data file, failed to upload data file, end |
 |             |  Update HA Settings | Start, Fail, Terminate |
+|             | Change Master | Start, Fail, Terminate |
 | **Publicly Credited Domain** | Set | Started, Failed, Closed |
 |             | Cancel | Started, Failed, Closed |
 | **Cache Instance** | Connect | Successful, Failed |
 | **Node** | Delete | Started, Failed, Closed |
 |         | Add | Started, Failed, Closed |
-|         | Promote to Master | Started, Failed, Closed |
 |         | Status | Disabled, Enabled |
 |         | Change Node Instance | Started, Failed, Closed |
 | **Profile** | Modify | Started, Failed, Closed |
