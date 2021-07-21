@@ -165,7 +165,7 @@
 ### データのインポート
 * レプリケーショングループを選択した後、その他アクションボタン(⋯)をクリックして**データのインポート**をクリックしてデータをインポートできます。
 
-![data_import_001.png](https://static.toastoven.net/prod_easycache/21.07.02/data_import_001.png)
+![data_import_001.png](https://static.toastoven.net/prod_easycache/21.07.07/data_import_jp_001.png)
 
 * ユーザーのオブジェクトストレージにあるRDBファイルを使用中のノードにインポートできます。この時、オブジェクトストレージとEasyCacheのリージョンは同じである必要があります。
 * データをインポートする時、オブジェクトストレージのAPIエンドポイント設定、コンテナとRDBファイルパスが必要です。 
