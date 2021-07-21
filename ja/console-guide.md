@@ -177,7 +177,7 @@
 ### データエクスポート
 * レプリケーショングループを選択した後、その他アクションボタン(…)をクリックして**データエクスポート**をクリックするとデータをエクスポートできます。
 
-![data_export_001.png](https://static.toastoven.net/prod_easycache/21.07.02/data_export_001.png)
+![data_export_001.png](https://static.toastoven.net/prod_easycache/21.07.07/data_export_jp_001.png)
 
 * EasyCacheレプリケーショングループのデータをユーザーのオブジェクトストレージにエクスポートできます。この時、オブジェクトストレージとEasyCacheのリージョンは同じでなければいけません。
 * データをエクスポートする時、オブジェクトストレージのAPIエンドポイント設定、データをエクスポートするコンテナパス、ファイル名の作成に必要なPrefixを入力します。 
