@@ -253,7 +253,7 @@ Replicaノードがある場合、確認可能な項目は下記のとおりで�
 * また、ReplicaノードをMasterノードに昇格させることができます。
 - ノードのログを確認するには**ログ表示**ボタンを押します。
 
-![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/21.07.02/rep_node_info_002.png)
+![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/21.07.02/rep_node_info_001.png)
 
 * 確認可能な項目は下記のとおりです。
     * ノード名
