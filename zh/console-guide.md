@@ -253,7 +253,6 @@ Select the duplicate group created and click the ***\*Node Information\**** tab 
 
 ![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/21.07.02/rep_node_info_002.png)
 
-- Clicking - **Master Promotion** button will promote the replica node to a master node. The master node then changes to a replica node.
 - Following items can be found: 
   - Name, type, IP, availability area, date of creation, and status of node 
 
