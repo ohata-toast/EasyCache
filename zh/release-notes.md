@@ -1,5 +1,50 @@
 ## Database > EasyCache > Release Notes
 
+### 2021. 07. 27.
+
+#### Feature Updates
+
+* Add a feature to(Export) EasyCache data to Object Storage.
+* Modify `“Promote Master”` to `“Change Master”` and go to drop down menu.
+
+#### Bug Fixes
+
+* Corrected the condition that CIDRs that failed to register are displayed as duplicates in the access control information
+
+### 2021. 06. 29.
+
+#### Feature Updates
+
+* Added feature to choose between bytes, MB, or GB if the graph on the detailed screen of EasyCache monitoring is in a unit of bytes
+* Added feature to choose the node to be displayed on the detailed screen of EasyCache monitoring
+* Added feature to (import) data of Redis used externally to EasyCache
+* Added Multi Replica feature to distribute read function
+* Added the current time to the screen to the right of the event search period calendar
+
+#### Bug Fixes
+
+* Fixed to expose the name in the replication group profile modification failure popup
+* Fixed a bug where after deleting the replication group node and clicking the Delete button of another replication group node, the Delete button becomes inactive if no node is selected
+
+### 2021. 05. 25.
+
+#### Feature Updates
+
+* In monitoring, there was improvement by adjusting the size of each chart according to the size of the full screen.
+* The monitoring data storage period was changed from 1 month to 40 days
+
+#### Bug Fixes
+
+* When setting the search period in the View Log, an error message that used to appear was fixed.
+
+### April 27, 2021
+
+#### Feature Updates
+
+* Changed the system so that the nodes can only be deleted or restated when their status is 'unavailable'
+* Modified the system so that event categories and search time will be automatically searched when the respective button is selected
+* Modified the system so that the keyword will not remain when a notification event, duplicate group, or receiving group is searched for and its sub item list is selected in notification rules
+
 ### March 23, 2021
 
 #### Feature Updates

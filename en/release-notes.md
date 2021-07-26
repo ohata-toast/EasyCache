@@ -1,5 +1,16 @@
 ## Database > EasyCache > Release Notes
 
+### 2021. 07. 27.
+
+#### Feature Updates
+
+* Add a feature to(Export) EasyCache data to Object Storage.
+* Modify `“Promote Master”` to `“Change Master”` and go to drop down menu.
+
+#### Bug Fixes
+
+* Corrected the condition that CIDRs that failed to register are displayed as duplicates in the access control information
+
 ### 2021. 06. 29.
 
 #### Feature Updates
