@@ -5,7 +5,7 @@
 #### Feature Updates
 
 * Add a feature to(Export) EasyCache data to Object Storage.
-* Modify **Promote Master** to **Change Master** and go to drop down menu.
+* Modify **Promote Master** to **Change Master** and go to drop down menu. 
 
 #### Bug Fixes
 
