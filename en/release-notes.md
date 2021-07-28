@@ -5,7 +5,7 @@
 #### Feature Updates
 
 * Add a feature to(Export) EasyCache data to Object Storage.
-* Modify `“Promote Master”` to `“Change Master”` and go to drop down menu.
+* Modify **Promote Master** to **Change Master** and go to drop down menu.
 
 #### Bug Fixes
 
@@ -77,7 +77,7 @@
 #### Feature Updates
 
 - Changed Maxmemory default from 70% to 50% of available memory
-- Added `activedefrag`-related options in profile
+- Added **activedefrag** -related options in profile
 - **View Log**  dialog box UI improved
 
 #### Bug Fixes
