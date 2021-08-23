@@ -18,8 +18,7 @@ To enable EasyCache, it is required to create a replication group first.
     - Description: Enter description of the group.
     - Service Port: Enter port number of Redis. 
       - Setting is available between 10000 and 12000.  
-    - Version: Select a Redis version to create. 
-      - As of June 2020, only 5.0.8 is supported.
+    - Version: Select a Redis version to create.
     - Instance Type: Select specifications for the replication group. 
     - Max Memory:  Adjust the max memory to prevent memory shortage from synchronization or backup.
       - You may change the volume of max memory for a Redis server. 
@@ -137,9 +136,9 @@ You may create a backup for replication group at a time of choice. Even if a rep
 ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_public_domain_001.png)
 
 ### Read-only domain setup
-* After selecting target duplicate group where a Replica node is added to, click other action button (⋯) and click **Read-only Domain Setup** to set up a read-only domain.
-* The read-only domain you set is a private domain that can be logged in from the VPC subnet you selected when creating a duplicate group, and this is where the IP of the Replica node is bound to.
-* Go to **Duplicate Group > Login Information** if you want to check the read-only domain you set.
+* After selecting target replication group where a Replica node is added to, click other action button (⋯) and click **Read-only Domain Setup** to set up a read-only domain.
+* The read-only domain you set is a private domain that can be logged in from the VPC subnet you selected when creating a replication group, and this is where the IP of the Replica node is bound to.
+* Go to **Replication group > Login Information** if you want to check the read-only domain you set.
 * If failover occurs due to the fault of the Master node
     * When there is 1 replica node
         * Until the old master node is recovered with the replica node or a new replica node is added after deleting the old one, the read-only domain retains the IP of the old replica node that has been promoted to the master node due to the failover.
@@ -180,14 +179,14 @@ You may create a backup for replication group at a time of choice. Even if a rep
 * Only the RDB files created in the same or previous version of EasyCache Redis can be imported. RDB file created in a newer version than the EasyCache Redis cannot be imported.
 
 ### Export Data
-* After selecting the duplicate group, click Other Actions button(⋯), then the **Export Data** to export the data.
+* After selecting the replication group, click Other Actions button(⋯), then the **Export Data** to export the data.
 
 ![data_export_001.png](https://static.toastoven.net/prod_easycache/21.07.02/data_export_001.png)
 
-* You can export the data of the EasyCache duplicate groups to the user’s object storage. In this case, the object storage and EasyCache must be in the same region.
+* You can export the data of the EasyCache replication groups to the user’s object storage. In this case, the object storage and EasyCache must be in the same region.
 * When exporting data, set the API endpoint for object storage and enter the path to the container to which the data will be exported and the prefix required to create a file name. 
 * For container paths and prefix, only uppercase and lowercase letters, numbers, and special symbols -,_,/,. can be entered.
-* If the data in the EasyCache duplicate group is larger than 1 gigabyte, a segment object is automatically created when exporting to object storage.
+* If the data in the EasyCache replication group is larger than 1 gigabyte, a segment object is automatically created when exporting to object storage.
 
 ### Change Instance Types 
 
@@ -206,7 +205,7 @@ You may create a backup for replication group at a time of choice. Even if a rep
 
 ### Change Master
 
-* After selecting the target duplicate group where a Replica node is added, click Other Action button(⋯) and click **Change Master** to change the master node of the duplicate group.
+* After selecting the target replication group where a Replica node is added, click Other Action button(⋯) and click **Change Master** to change the master node of the replication group.
 * The Replica node is changed to Master node, and the existing Master node is changed to Replica node.
 * When there are 2 Replica nodes, change the Replica node appropriate for the system to Master node.
 
@@ -249,7 +248,7 @@ Select a created replication group and click **Access Information**.
 
 #### Node Information 
 
-Select the duplicate group created and click the ***\*Node Information\**** tab to check the details and logs of the duplicate group node. 
+Select the replication group created and click the ***\*Node Information\**** tab to check the details and logs of the replication group node. 
 
 ![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/21.07.02/rep_node_info_002.png)
 
@@ -325,18 +324,19 @@ On the **Backup** tab, you may  back up or delete backups. Since performance may
 
 Memory data can be restored by using retained backup files. 
 
-1. To restore, select a backup file and click **Restore Replication Groups**. For restoration, a new node with same or different specifications can be created without changing the origin node. 
-   ![restore_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/restore_001.png)
+#### Restore a new replication group
 
-2. On the **Restore Replication Groups** window, enter the following and click **Create**. Find created replication groups on the **Replication Group** tab. 
+* Select a backup file and click **Restore new replication group**. While restoring, it is possible to create a new node with the same or different specification without changing the original node.
+  ![restore_001.PNG](https://static.toastoven.net/prod_easycache/21.08.02/restore_001.png)
+
+* Enter the following item in the **Restore new replication group** dialog box and click the **Create** button. You can check the created replication group in the **Replication group** tab.
   - Name of Backup: Backup file name to restore 
   - Name of Replication Group: Enter name of a replication group. 
   - Description: Enter description of a replication group. 
   - Service Port: Shows the port of a replication group bound for backup. 
     - Port number of Redis can be changed. 
     - Available between 10000 and 12000. 
-  - Version: Shows the version of Redis of a replication group for backup. 
-    - As of June 2020, only 5.0.8 is supported. 
+  - Version: Shows the version of Redis of a replication group for backup.
   - Instance Type: Shows the specification of a replication group bound for backup. 
     - Shows instance types that are larger than cache of a backup only. 
     - Instance type can be changed. 
@@ -351,6 +351,15 @@ Memory data can be restored by using retained backup files.
     - Backup Retention Period: Available from 1 day up to days 
     - Backup Start Time: Specify start time of backup, by 30-minute interval. 
     - Backup Delay Time: To start randomly between backup start time and specified time. Available up to 3 hours. 
+
+#### Restore an existing replication group
+
+* Select a backup file and click **Restore existing replication group**. Change the data of selected replication group to the backup data.
+  ![restore_002.PNG](https://static.toastoven.net/prod_easycache/21.08.02/restore_002.png)
+
+* You cannot use nodes while restoring a replication group, and the existing data is deleted. You can check the progress from the event. 
+* You cannot select the replication group in unavailable status, and the maxmemory of the replication group must be larger than the cache size of the backup.
+* You can only restore to a replication group whose version is the same or higher than the version of the replication group from which the backup was made.
 
 ## Configuration Profiles
 
@@ -428,6 +437,8 @@ Check profile details like below.
   - stream-node-max-entries (added for redis 5.0)
   - client-query-buffer-limit (added for redis 5.0)
   - proto-max-bulk-len (added for redis 5.0)
+  - active-expire-effort(Redis 6.0 추가)
+  - lazyfree-lazy-user-del(Redis 6.0 추가)
 
 ## Alarms 
 
@@ -445,15 +456,20 @@ Specify the condition, target, and recipient group for an alarm.
 
 3. There are two alarm conditions: **Metric Condition** and **Event Condition**. 
 
-- **Metric Condition**: Alarm conditions are specified by using performance indicators (see monitoring items) that are collected from cache instances, like follows: 
-  - Metric name, operator, type of collection, frequency of evaluation, and threshold value 
-- **Event Condition**: Specify events to be alerted (see event items) out of all events occurred within service. 
+    - **Metric Condition**: You can specify alarm conditions using various performance indicators (see Monitoring) collected from the cache instance, and the following conditions can be specified.
+        - Metric name, operator, type of collection, frequency of evaluation, threshold value
+    - **Event Condition**: You can specify the event you want to be notified of among all events that occur within the service (see Event Items).
 
-4. Click **View Recipient Groups** to check recipient groups or add more. 
+4. If it is difficult to determine the settings required for the **Metric Condition** and **Event Condition**, consider using the default template provided in **Alarm Template**.
 
-5. Alarm rules are basically applied to all replication groups. To create an alarm rule only for a specific replication group, specify the replication group for **Target Replication Groups**. 
+    - **Default-Standalone**: Recommended alarm trigger conditions for replication groups operated as standalone
+    - **Default- HA**: Recommended alarm trigger conditions for replication groups operated as replication
+ 
+5. Click **View Recipient Groups** to check recipient groups or add more. 
 
-6. After setting is done, click **Create**. 
+6. Alarm rules are basically applied to all replication groups. To create an alarm rule only for a specific replication group, specify the replication group for **Target Replication Groups**. 
+
+7. After setting is done, click **Create**. 
 
 The created alarm rules can be temporarily disabled by setting the alarm to 'Disabled.'
 The alarm rules are applied to all regions. 
@@ -477,7 +493,7 @@ Alarm recipients can be managed under each group.
 - If there's only one recipient group for alarm rules, and if the group has been deleted from the detail recipient group page, no further alarms can be sent because its only recipient group is gone. 
 - Alarms for the creation of a replication group are sent for all replication groups, even if there's a target replication group. 
 - If a new user is added to a project, about an hour of wait time may be incurred until the user is synchronized to the list of project users of a recipient group.
-- Even when an alarm rule specifies a specific duplicate group in the target duplicate group, alarm rules without specified duplicate group will be synchronized in other regions and they will be applied to all regions.
+- Even when an alarm rule specifies a specific replication group in the target replication group, alarm rules without specified replication group will be synchronized in other regions and they will be applied to all regions.
 
 ## Events
 
@@ -508,6 +524,7 @@ Alarm recipients can be managed under each group.
 |             | Change Group Instance | Started, Failed, Closed |
 |             |  Import Data | Start, Failed to set up user OBS, Failed to download data file, Damaged files or unsupported file format, Failed to restart node, Failed to synchronize replica, Terminate |
 |             |  Export Data | Start, failed to set user Object Storage Service, failed to create data file, failed to upload data file, end |
+|             |   Restore Existing Replication Group | Start, Failed to download data file, Damaged files or unsupported file format, Failed to restart node, Failed to synchronize replica, Terminate |
 |             |  Update HA Settings | Start, Fail, Terminate |
 |             | Change Master | Start, Fail, Terminate |
 | **Publicly Credited Domain** | Set | Started, Failed, Closed |
