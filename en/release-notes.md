@@ -1,5 +1,14 @@
 ## Database > EasyCache > Release Notes
 
+### 2021. 08. 24.
+
+#### Feature Updates
+
+* Added support for Redis 6
+* Added a feature to restore a backup to the existing replication group
+* Added a feature to set the alarm trigger conditions using the alarm template when setting the alarm 
+* Changed the UI so that default network of the **Access Control Information** is not deletable
+
 ### 2021. 07. 27.
 
 #### Feature Updates
