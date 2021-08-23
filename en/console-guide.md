@@ -336,8 +336,7 @@ Memory data can be restored by using retained backup files.
   - Service Port: Shows the port of a replication group bound for backup. 
     - Port number of Redis can be changed. 
     - Available between 10000 and 12000. 
-  - Version: Shows the version of Redis of a replication group for backup. 
-    - As of June 2020, only 5.0.8 is supported. 
+  - Version: Shows the version of Redis of a replication group for backup.
   - Instance Type: Shows the specification of a replication group bound for backup. 
     - Shows instance types that are larger than cache of a backup only. 
     - Instance type can be changed. 
