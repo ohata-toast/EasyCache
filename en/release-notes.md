@@ -75,12 +75,6 @@
 
 * Fixed an issue where no replicated group is created if the maximum value is entered for a profile.
 
-### Nov 24, 2020
-
-#### Improvements/changes
-
-* View All Logs added
-
 ### January 26, 2021
 
 #### Feature Updates
@@ -109,6 +103,12 @@
 
 - Fixed an issue where the task of profile modification fails and made unavailable when changing the profile of a duplicate group if the profile before the change is modified
 - Fixed an issue of Korean filter option names were displayed when the website language is set to 'Japanese'
+
+### Nov 24, 2020
+
+#### Improvements/changes
+
+* View All Logs added
 
 ### October 27, 2020
 

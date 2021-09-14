@@ -27,6 +27,7 @@ To enable EasyCache, it is required to create a replication group first.
       - Provides default profile. 
       - More configuration profiles can be added for selection.
     - VPC Subnet: Select a subnet for Compute &  Network to allow private network communication; if not, a default network shall be configured. 
+    - 비밀번호 설정: 비밀번호 셜정 여부를 선택합니다. 기본값은 '비밀번호 설정'입니다.
     - Auto Backup Setting: Select whether to enable auto backup. 
       - Backup Retention Period: Available from 1 day up to 30 days.
       - Backup Start Time: Specify start time of backup, by 30-minute interval. 
@@ -35,6 +36,7 @@ To enable EasyCache, it is required to create a replication group first.
 
 4. Check inputs on the screen and click **Create**. 
    Along with a replication group, a master node is created. It takes a few minutes to create. 
+
 ##### Constraints
 - Service is restricted for such commands that may severely impact service. 
 - See developer's guide to find out the commands. 
@@ -96,12 +98,15 @@ By adding a replica node to the standalone master node, high availability is aut
 - Description: Description of a replication group can be changed. 
 - Configuration Profile: Redis setting can be changed. 
 - Max Memory: Volume of the maximum memory for usage can be changed. 
-- Master Down Time: Wait time can be configured for a health check response to see if the master node is down; default is 3000ms. 
+
 - Auto Backup Setting: Select whether to use auto backup. 
 	- Backup Retention Period: From 1 day, up to 30 days
 	- Backup Start Time: Specify start time of a backup, by 30-minute interval.
 	- Backup Time: Backup to start randomly between start time and a specific time, from 1 hour up to 3 hours. 
 
+- Replica 노드가 있을 때 확인할 수 있는 항목은 아래와 같습니다.
+  - Master Down Time: Wait time can be configured for a health check response to see if the master node is down; default is 3000ms. 
+  
 3. Check changes and click **Change**. 
     Service port, Redis Version, Instance Type, and Availability Area cannot be changed, once they're configured.     
 ### Auto Backups
@@ -122,7 +127,8 @@ You may create a backup for replication group at a time of choice. Even if a rep
 - If a replication group bound for backup is deleted, details of the group are not displayed for basic information. 
 
 1. To create manual backup files, select a replication group and click **Manual Backup**. 
-2. Enter information for **Manual Backup** and click **Backup**. It may take more time to create a backup in proportion to the size of data. 
+2. Enter information for **Manual Backup** and click **Backup**. 
+    It may take more time to create a backup in proportion to the size of data. 
     ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_manual_backup_001.PNG)
 
 - Backup Name: Enter name of a backup. 
@@ -130,7 +136,6 @@ You may create a backup for replication group at a time of choice. Even if a rep
 - Backup Retention Period: You may not delete, or retain backup from 1 day, up to 30 days. 
 
 ### Manage Domains
-
 * Access to a replication group is available only on instances sharing the same subnet; but to enable external access, configure public domain setting from domain management. 
 
 ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_public_domain_001.png)
@@ -254,6 +259,19 @@ Select the replication group created and click the ***\*Node Information\**** ta
 
 - Following items can be found: 
   - Name, type, IP, availability area, date of creation, and status of node 
+- 노드의 로그를 보려면 **로그 보기** 버튼을 클릭합니다.
+
+##### 로그 보기
+
+각 노드에서 최대 1개월간의 로그를 검색할 수 있습니다. 
+
+![node_log_view_001.png](https://static.toastoven.net/prod_easycache/20.10.30/node_log_view_001.png)
+
+- **1시간**, **24시간**, **1주**, **지정** 버튼을 클릭해 검색 기간을 변경할 수 있습니다. 
+- **지정** 버튼을 클릭하면 나타나는 캘린더에서 원하는 검색 기간을 지정할 수 있습니다. 
+- **현재 시간** 버튼을 클릭하면 현재 시간을 기준으로 선택한 검색 기간을 재검색합니다.
+- **현재 시간** 버튼의 오른쪽에 있는 화살표 버튼을 클릭하면 검색 기간 만큼의 이전 시간, 이후 시간을 검색할 수 있습니다.
+- **전체 화면 보기** 버튼을 클릭하면 새 창에서 1개월간의 모든 로그를 확인할 수 있습니다.
 
 ## Monitoring 
 
@@ -397,7 +415,6 @@ Redis configuration which is available for change can be registered as profile f
 | In Service       | Replication group is being created or changed with a profile. <br />After a replication group is created and completed, the status will be changed to normal. <br />Profile cannot be created or modified while in service. |
 
 ##### Constraints
-
 * Settings information can be changed while modifying or copying a profile or by clicking the **Detailed Settings**  button when creating a profile.
 * If you enter a value that is out of range or invalid, fault might occur. 
 * For the valid value or range, see [Redis document](https://redis.io/topics/config).
@@ -437,6 +454,13 @@ Check profile details like below.
   - stream-node-max-entries (added for redis 5.0)
   - client-query-buffer-limit (added for redis 5.0)
   - proto-max-bulk-len (added for redis 5.0)
+  - activedefrag(Redis 5.0 추가)
+  - active-defrag-ignore-bytes(Redis 5.0 추가)
+  - active-defrag-threshold-lower(Redis 5.0 추가)
+  - active-defrag-threshold-upper(Redis 5.0 추가)
+  - active-defrag-cycle-min(Redis 5.0 추가)
+  - active-defrag-cycle-max(Redis 5.0 추가)
+  - active-defrag-max-scan-fields(Redis 5.0 추가)
   - active-expire-effort(Redis 6.0 추가)
   - lazyfree-lazy-user-del(Redis 6.0 추가)
 
@@ -485,7 +509,8 @@ Alarm recipients can be managed under each group.
 - Available recipients to be specified by each group are confined to project members only. 
   - Messages can be mailed or texted to the email address or phone number registered for NHN Cloud membership. 
 - Note that, by deleting a current recipient group for alarm rules, no more alarms are to be sent, if there's no other recipient group.
-- The created receiver group can be used across all regions.
+
+The created receiver group can be used across all regions.
 
 ##### Constraints 
 
@@ -529,6 +554,8 @@ Alarm recipients can be managed under each group.
 |             | Change Master | Start, Fail, Terminate |
 | **Publicly Credited Domain** | Set | Started, Failed, Closed |
 |             | Cancel | Started, Failed, Closed |
+| **읽기 전용 도메인** | 설정 | 시작, 실패, 종료 |
+|             | 해제 | 시작, 실패, 종료 |
 | **Cache Instance** | Connect | Successful, Failed |
 | **Node** | Delete | Started, Failed, Closed |
 |         | Add | Started, Failed, Closed |
@@ -540,3 +567,68 @@ Alarm recipients can be managed under each group.
 | **Failover** |  | Successful |
 | **Backup** | Manual Backup | Started, Failed, Closed |
 |        | Auto Backup | Started, Failed, Closed |
+
+## 부록1. 하이퍼바이저 점검을 위한 EasyCache 재시작 가이드
+
+ * EasyCache 노드를 재시작하려면 콘솔에 있는 **재시작** 기능을 사용해야 합니다.
+ * 복제 그룹의 재시작 기능으로는 노드가 다른 하이퍼바이저로 이동하지 않습니다. 아래 가이드에 따라 콘솔에 있는 재시작 기능을 이용하시기 바랍니다.
+
+### 1. 점검 대상으로 지정된 노드가 있는 프로젝트로 이동합니다.
+
+### 2. 점검 대상 복제 그룹을 확인 합니다.
+
+* 복제 그룹 이름 옆에 **!재시작** 아이콘이 있는 복제 그룹이 점검 대상 노드가 포함된 복제 그룹 입니다.
+
+![migration_001.png](https://static.toastoven.net/prod_easycache/20.12.01/migration_001.png)
+
+* **!재시작** 아이콘 위에 마우스 커서를 올리시면 자세한 점검 일정을 확인할 수 있습니다.
+
+![migration_002.png](https://static.toastoven.net/prod_easycache/20.12.01/migration_002.png)
+
+### 3. 점검 대상 노드의 타입을 확인합니다.
+
+* 노드 타입 별 재시작에 따른 서비스 영향은 아래와 같습니다.
+  * MASTER: **복제 그룹 > 마스터 변경**을 선택해 Master 노드를 Replica 노드로 변경한 뒤 재시작 기능을 이용할 수 있습니다. Standalone의 경우에는 변경하지 않고 이용할 수 있습니다.
+  * REPLICA : 서비스에 영향은 없습니다.
+  * HA : 재시작되는 동안에 장애 조치(failover) 보장이 되지 않거나 장애 조치(failover) 이벤트가 발생할 수 있습니다.
+ 
+* 노드 이동으로 인해 서비스에 영향이 있다고 판단될 경우 NHN Cloud 고객 센터로 연락해 주시면 적합한 조치를 안내해 드리겠습니다.
+
+### 4. 4. 점검 대상 복제 그룹을 선택하고 오른쪽에 표시된 !재시작 아이콘을 클릭하여 점검 노드를 재시작합니다.
+
+![migration_003.png](https://static.toastoven.net/prod_easycache/20.12.01/migration_003.png)
+
+* 점검 노드가 여러 개일 때, 한 번에 노드 1개만 재시작됩니다. HA 노드 먼저 재식작되고, 이후 Replica 노드가 재시작됩니다.
+
+* Standalone의 경우 재시작을 하면 백업 시점의 데이터로 돌아가게 되며, 백업을 하지 않은 경우에는 데이터가 초기화 됩니다.
+
+* Replication의 Master 노드가 점검 대상이면 바로 이용할 수 없습니다. Master 노드를 Replica 노드로 변경한 뒤 재시작합니다.
+
+### 5. 복제 그룹의 상태 표시등이 파란색으로 변하고, !재시작 아이콘이 사라질 때까지 대기합니다.
+
+* 복제 그룹이 재시작되는 동안에는 해당 복제 그룹은 조작을 할 수 없습니다.
+
+## 부록2. 서버 점검을 위한 인터넷게이트웨이 재시작 가이드
+
+* 인터넷게이트웨이를 재시작하려면 콘솔에 있는 **인터넷 게이트웨이 재시작** 기능을 사용해야 합니다.
+* 아래 가이드에 따라 콘솔에 있는 재시작 기능을 이용하시기 바랍니다.
+
+### 1. 점검 대상으로 지정된 인터넷 게이트웨이가 있는 프로젝트로 이동합니다.
+
+![gm_001.png](https://static.toastoven.net/prod_easycache/20.12.01/gm_001.png)
+
+### 2. 점검 대상 복제 그룹 탭을 확인 합니다.
+
+* 복제 그룹 탭의 가장 오른쪽에 있는 **!인터넷 게이트웨이 재시작** 아이콘을 확인합니다.
+* **!인터넷게이트웨이 재시작** 아이콘 위에 마우스 커서를 올리시면 자세한 점검 일정을 확인할 수 있습니다.
+
+![gm_002.png](https://static.toastoven.net/prod_easycache/20.12.01/gm_002.png)
+
+### 3. 점검 대상 복제 그룹의 오른쪽에 표시된 !인터넷 게이트웨이 재시작 아이콘을 클릭하여 점검 노드를 재시작합니다.
+
+![gm_003.png](https://static.toastoven.net/prod_easycache/20.12.01/gm_003.png)
+
+### 4. !인터넷 게이트웨이 재시작 아이콘이 사라질 때까지 대기합니다.
+
+* 재시작되면 공인 도메인을 사용중인 노드는 외부 네트워크에 접속할 수 없습니다. 공인 도메인을 사용하지 않는 노드에는 영향이 없습니다.
+* 재시작에 걸리는 시간은 약 1분입니다. 재시작된 인터넷 게이트웨이는 점검이 완료된 장비에서 구동됩니다.
