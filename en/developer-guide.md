@@ -70,14 +70,14 @@ r.set('hoge', 'moge')
 
 ## Access EasyCache for Redis Server from an Instance
 
-A Redis server can be accessed only from within the same VPC subnet. 
+A Redis server can be accessed only from within the same VPC subnet.
 Create an instance in the same VPC subnet.
 
 To use a Redis client, you must install Redis for each OS.
 
 ```
 For CentOS:
-yum -y install epel-release   
+yum -y install epel-release
 yum -y install redis
 ```
 When the installation is finished, check that it is installed properly.
@@ -89,7 +89,7 @@ Select the replication group to access and click the **Access Information** tab 
  ![rep_de_005.PNG](https://static.toastoven.net/prod_easycache/19.12.06/rep_connection_info_001.PNG)
 
 * Select the one between private and public commands and click the **Copy** button to copy the command. Paste the copied command on the instance's command window.
-* Connect to the Redis server. 
+* Connect to the Redis server.
 * When you click **Show** button on the password, the password is displayed and the **Copy** button is enabled.
 * Click the **Copy** button to copy the password.
 * Authenticate using the AUTH command.
@@ -125,5 +125,5 @@ If the system memory usage exceeds 80%, you must do the following to prevent out
 * Enable activedefrag on the instance.
 * You should lower the maxmemory limit of the instance.
 * Choose an appropriate maxmemory-policy
-   * If you are storing volatile data, choose one of the volatile-* eviction policies. If you are storing non-volatile data, choose one of the allkeys-* policies.
+    * If you are storing volatile data, choose one of the volatile-* eviction policies. If you are storing non-volatile data, choose one of the allkeys-* policies.
 * Follow the instance scaling instructions to increase instance capacity.

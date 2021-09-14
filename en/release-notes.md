@@ -1,6 +1,6 @@
 ## Database > EasyCache > Release Notes
 
-### 2021. 09. 28.
+### September 28, 2021
 
 #### Feature Updates
 * Improved alarm rule creation screen.
@@ -12,7 +12,7 @@
 * Fixed an issue where the replication group status is not displayed as normal even when a replication was deleted in the replication unavailable status.
 * Fixed an issue where selectable replication groups are not displayed when restoring a backup in which a replication group has been deleted in the replication group restore.
 
-### 2021. 08. 24.
+### August 24, 2021
 
 #### Feature Updates
 
@@ -21,7 +21,7 @@
 * Added a feature to set the alarm trigger conditions using the alarm template when setting the alarm 
 * Changed the UI so that default network of the **Access Control Information** is not deletable
 
-### 2021. 07. 27.
+### July 27, 2021
 
 #### Feature Updates
 
@@ -32,7 +32,7 @@
 
 * Corrected the condition that CIDRs that failed to register are displayed as duplicates in the access control information
 
-### 2021. 06. 29.
+### June 29, 2021
 
 #### Feature Updates
 
@@ -47,7 +47,7 @@
 * Fixed to expose the name in the replication group profile modification failure popup
 * Fixed a bug where after deleting the replication group node and clicking the Delete button of another replication group node, the Delete button becomes inactive if no node is selected
 
-### 2021. 05. 25.
+### May 25, 2021
 
 #### Feature Updates
 
@@ -258,4 +258,4 @@
 
 #### New service release
 
-- NHN Cloud EasyCache is a service that provides Redis(REmote DIctionary Server)in a cloud environment.
+- NHN Cloud EasyCache is a service that provides Redis (REmote DIctionary Server) in a cloud environment.

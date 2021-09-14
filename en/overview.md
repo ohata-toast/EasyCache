@@ -1,6 +1,6 @@
 ## Database > EasyCache > Overview
 
-NHN Cloud EasyCache is a service that provides Redis (REmote DIctionary Server) in cloud environment.
+NHN Cloud EasyCache is a service that provides Redis (REmote DIctionary Server) in a cloud environment.
 You can use a highly available Redis server with simple settings.
 
 ## Characteristics and Features
@@ -44,7 +44,7 @@ You can use a highly available Redis server with simple settings.
 * Server specification supports 2-64 GB memory.
 * You can create a replication group with virtual devices of all specifications provided by the Compute & Network service of NHN Cloud.
 * You cannot access the operating system of a replication group directly. You can access a Redis server using the assigned domain and the port that you entered when creating a replication group.
-* You can create a replication group only when you select VPC subnect in the Compute & Network service, and you can communicate with the instance of the Compute & Network service through VPC subnet.
+* You can create a replication group only when you select VPC subnet in the Compute & Network service, and you can communicate with the instance of the Compute & Network service through VPC subnet.
 * A replication group is disconnected from external networks, except for the user's subnet. If connection from an external network is required, floating IP must be attached.
 * If you are using the Compute & Network service, you can configure a subnet for connection when you create a replication group.
 * Network connection is enabled between the replication group and the instance in the connected subnet.
