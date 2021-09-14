@@ -2,15 +2,15 @@
 
 ### 2021. 09. 28.
 
-#### 기능 개선/변경
-* 알람 규칙 생성 화면 개선
-* 서비스 이용 개시 처리 개선
+#### Feature Updates
+* Improved alarm rule creation screen.
+* Improved service usage start processing.
 
-#### 버그 수정
-* 대용량의 데이터가 있는 복제 그룹에서 노드를 추가할 경우, 노드 생성에 실패하던 문제 수정
-* 버전 5인 백업 파일을 신규 복제 그룹으로 복원할 때, 첫 복제 그룹 창에는 버전이 표시되나, 창을 닫았다 다시 열면 버전이 표시되지 않는 문제 수정
-* 레플리케이션 이용 불가 상태에서 레플리케이션을 삭제해도 복제 그룹 상태가 정상으로 표시되지 않는 문제 수정
-* 복제 그룹 복원에서 복제 그룹이 삭제된 백업을 복원할 때, 선택 가능한 복제 그룹이 표시되지 않는 문제 수정
+#### Bug Fixes
+* Fixed an issue where node creation fails when adding a node to a replication group with a large amount of data.
+* Fixed an issue where, when restoring a backup file with version 5 to a new replication group, the version is displayed in the first replication group window, but the version is not displayed when the window is closed and reopened.
+* Fixed an issue where the replication group status is not displayed as normal even when a replication was deleted in the replication unavailable status.
+* Fixed an issue where selectable replication groups are not displayed when restoring a backup in which a replication group has been deleted in the replication group restore.
 
 ### 2021. 08. 24.
 
@@ -91,30 +91,30 @@
 
 #### Feature Updates
 
-- Changed Maxmemory default from 70% to 50% of available memory
-- Added **activedefrag** -related options in profile
-- **View Log**  dialog box UI improved
+* Changed Maxmemory default from 70% to 50% of available memory
+* Added **activedefrag** -related options in profile
+* **View Log**  dialog box UI improved
 
 #### Bug Fixes
 
-- Fixed a bug where the date changes to January 2 when the time is changed in monitoring
+* Fixed a bug where the date changes to January 2 when the time is changed in monitoring
 
 ### December 29, 2020
 
 #### More Features
 
-- Added read-only domain feature
+* Added read-only domain feature
 
 #### Feature Updates
 
-- Improved the feature related to login control information
-- Improved to show guidance when mouse is hovered over the Change instance type button
-- Changed the dialog button name to OK.
+* Improved the feature related to login control information
+* Improved to show guidance when mouse is hovered over the Change instance type button
+* Changed the dialog button name to OK.
 
 #### Bug Fixes
 
-- Fixed an issue where the task of profile modification fails and made unavailable when changing the profile of a duplicate group if the profile before the change is modified
-- Fixed an issue of Korean filter option names were displayed when the website language is set to 'Japanese'
+* Fixed an issue where the task of profile modification fails and made unavailable when changing the profile of a duplicate group if the profile before the change is modified
+* Fixed an issue of Korean filter option names were displayed when the website language is set to 'Japanese'
 
 ### Nov 24, 2020
 
@@ -125,85 +125,84 @@
 ### October 27, 2020
 
 #### Bug Fixes
-
-- Modified node name to reflect changes in group name when changing name of duplicate group
-- Modified error message in cases where a quarter of CPU and RAM is exceeded
+* Modified node name to reflect changes in group name when changing name of duplicate group
+* Modified error message in cases where a quarter of CPU and RAM is exceeded
 
 ### September 22, 2020
 
 #### Feature Updates
 
-- Korea (Pyeongchon) region opened
-- Added log check feature
-- Sort and display VPC subnet list by name
-- Service use permissions response
+* Korea (Pyeongchon) region opened
+* Added log check feature
+* Sort and display VPC subnet list by name
+* Service use permissions response
 
 #### Bug Fixes
 
-- Modified unit of monitoring graph
-  - Input byte: byte -> bytes/1min
-  - Output byte: byte -> bytes/1min
-  - Processed commands per second: counts/seconds -> count/1sec
-- During profile modification, the bug where the status of a duplicate group using the profile currently being modified is displayed as normal rather than displaying modification in progress
+* Modified unit of monitoring graph
+    * Input byte: byte -> bytes/1min
+    * Output byte: byte -> bytes/1min
+    * Processed commands per second: counts/seconds -> count/1sec
+* During profile modification, the bug where the status of a duplicate group using the profile currently being modified is displayed as normal rather than displaying modification in progress
 
 ### August 25, 2020
 
 #### Feature Updates
 
-- Changed the password setting for Redis access as optional
+* Changed the password setting for Redis access as optional
 
 #### Bug Fixes
 
-- Fixed an issue where node promotion completion time and condition display does not accord when promoting replica nodes
+* Fixed an issue where node promotion completion time and condition display does not accord when promoting replica nodes
 
 ### July 28, 2020
 
 #### More Features
 
-- Instance type change feature added
+* Instance type change feature added
 
 #### Feature Updates
 
-- Deleted Compute Optimized type from supported instance type
+* Deleted Compute Optimized type from supported instance type
 
 #### Bug Fixes
 
-- Fixed an issue where clients connected from monitoring graph is displayed as an accumulation
-- Fixed a bug where, when restoring from Redis 3.2.12 duplicate group which used custom profile, the profile would be restored to Redis 3.2 default profile
+* Fixed an issue where clients connected from monitoring graph is displayed as an accumulation
+* Fixed a bug where, when restoring from Redis 3.2.12 duplicate group which used custom profile, the profile would be restored to Redis 3.2 default profile
 
 ### June 23, 2020
 
 #### Feature Updates
 
-- Registered events on CloudTrail service
+* Registered events on CloudTrail service
 
 #### Bug Fixes
 
-- Fixed an issue in which the operation duration (uptime_in_seconds) of INFO’s Redis server is displayed in values with additional 9 hours
-- Fixed an issue where, when users click the View button to check their passwords, nodes fail to acquire passwords during node failures
-- Fixed an issue where HA reset fails even after HA reset button is displayed and reset is executed
-- Fixed an issue where dates could not be selected freely from search period on the monitoring screen
+* Fixed an issue in which the operation duration (uptime_in_seconds) of INFO’s Redis server is displayed in values with additional 9 hours
+* Fixed an issue where, when users click the View button to check their passwords, nodes fail to acquire passwords during node failures
+* Fixed an issue where HA reset fails even after HA reset button is displayed and reset is executed
+* Fixed an issue where dates could not be selected freely from search period on the monitoring screen
 
 ### May 26, 2020
 
 #### Feature Updates
 
-- Redis 5.0 supported
-- Profile copying feature provided
-- Monitoring updated
-  - Moved query tab from duplicate group details screen to a separate tab on top of the initial screen
-  - Added Current Time button
-  - Added Auto Renew checkbox
-  - Added duplicate group selection drop-down menu
-  - Updated single graph to be displayed additionally as a pop-up to allow users to select statistical entries and aggregation duration
-- Changed features to allow user to modify values through detailed settings when creating or modifying profiles
+* Redis 5.0 supported
+* Profile copying feature provided
+* Monitoring updated
+    * Moved query tab from duplicate group details screen to a separate tab on top of the initial screen
+    * Added Current Time button
+    * Added Auto Renew checkbox
+    * Added duplicate group selection drop-down menu
+    * Updated single graph to be displayed additionally as a pop-up to allow users to select statistical entries and aggregation duration
+* Changed features to allow user to modify values through detailed settings when creating or modifying profiles
 
 #### Bug Fixes
 
-- Fixed an issue where the modification button is disabled when trying to modify duplicate groups with no nodes added after modifying duplicate groups with added nodes
-- Fixed a bug where 「Number of Connected Clients」 and 「Number of Blocked Clients」 on the monitoring option is displayed as an accumulation value
-- Fixed an issue where the profile list is not fully displayed after modification
-- Fixed an issue where the screen does not reload after modifying profiles currently being used by duplicate groups
+* Fixed an issue where the modification button is disabled when trying to modify duplicate groups with no nodes added after modifying duplicate groups with added nodes
+* Fixed a bug where 「Number of Connected Clients」 and 「Number of Blocked Clients」 on the monitoring option is displayed as an accumulation value
+* Fixed an issue where the profile list is not fully displayed after modification
+* Fixed an issue where the screen does not reload after modifying profiles currently being used by duplicate groups
 
 ### April 28, 2020
 
@@ -236,7 +235,6 @@
 - Modified messages when entering duplicated CIDR
 
 #### Bug Fixes
-
 - Fixed an issue where infinite loops of data synchronization occurs when replica node is added in presence of bulk data
 - Fixed an issue where node is displayed as creating on node alarm even after node creation failure within a duplicate group
 
@@ -247,7 +245,6 @@
 - Upgraded version of NHN Cloud user authentication module
 
 #### Bug Fixes
-
 - Fixed an issue where selection fails in cases of selecting VPC subnets of users that did not set up internet gateways when creating duplicate groups
 
 ### January 21, 2020
