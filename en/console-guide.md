@@ -2,32 +2,32 @@
 
 ## Getting Started
 
-To enable EasyCache, it is required to create a replication group first. 
+To use EasyCache, you must create a replication group first. 
 
-## Replication Groups
+## Replication Group
 
-### Create 
+### Create a Replication Group
 
-1. From **Replication Group** on **Console > Database > EasyCache**, click **Create** and a popup for **Create Replication Groups** shows.
+1. In the **Replication Group** tab on **Console > Database > EasyCache**, click **Create** and a **Create Replication Group** pop-up will show up.
 
 ![rep_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/rep_create_001.png)
 
-2. Enter all requirements on the setting window and click **Create** at the bottom. 
+2. Enter all required fields on the setting window and click **Create** at the bottom. 
 
-    - Name of Replication Group: Enter name of a replication group. 
+    - Replication Group Name: Enter name of a replication group. 
     - Description: Enter description of the group.
-    - Service Port: Enter port number of Redis. 
-      - Setting is available between 10000 and 12000.  
-    - Version: Select a Redis version to create.
+    - Service Port: Enter the port number of Redis. 
+      - It can be set to a value between 10000 and 12000.  
+    - Version: Select the version of Redis to create.
     - Instance Type: Select specifications for the replication group. 
-    - Max Memory:  Adjust the max memory to prevent memory shortage from synchronization or backup.
-      - You may change the volume of max memory for a Redis server. 
-      - If required, memory volume can be flexibly secured for management. 
+    - Max Memory: Adjust the max memory to prevent out-of-memory issues when running synchronization or backup.
+      - You can change the size of max memory for a Redis server. 
+      - The size of memory for management can be also secured flexibly when needed.
     - Configuration Profile: Select a configuration file for Redis.
-      - Provides default profile. 
+      - The default profile is provided. 
       - More configuration profiles can be added for selection.
-    - VPC Subnet: Select a subnet for Compute &  Network to allow private network communication; if not, a default network shall be configured. 
-    - 비밀번호 설정: 비밀번호 셜정 여부를 선택합니다. 기본값은 '비밀번호 설정'입니다.
+    - VPC Subnet: Select a subnet for Compute & Network to allow private network communication. Otherwise, it is set to the default network.
+    - Set Password: Select whether to set a password. The default value is 'Set Password' (selected).
     - Auto Backup Setting: Select whether to enable auto backup. 
       - Backup Retention Period: Available from 1 day up to 30 days.
       - Backup Start Time: Specify start time of backup, by 30-minute interval. 
@@ -87,10 +87,10 @@ By adding a replica node to the standalone master node, high availability is aut
 - The newly changed master node inherits the domain applied to access the existing master node. 
 - The existing node with failover becomes 'Disabled', under which, high availability is not enabled only with the new master node.  
 
-### Modify 
+### Modify a Replication Group
 
 1. Select an original replication group, and click **Modify**. 
-2. On the popup of **Modify Replication Group**, set name and backup period.  
+2. On the pop-up of **Modify Replication Group**, set name and backup period.  
 
 ![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_modify_002.PNG)
 
@@ -100,13 +100,13 @@ By adding a replica node to the standalone master node, high availability is aut
 - Max Memory: Volume of the maximum memory for usage can be changed. 
 
 - Auto Backup Setting: Select whether to use auto backup. 
-	- Backup Retention Period: From 1 day, up to 30 days
-	- Backup Start Time: Specify start time of a backup, by 30-minute interval.
-	- Backup Time: Backup to start randomly between start time and a specific time, from 1 hour up to 3 hours. 
+    - Backup Retention Period: From 1 day, up to 30 days
+    - Backup Start Time: Specify start time of a backup, by 30-minute interval.
+    - Backup Time: Backup to start randomly between start time and a specific time, from 1 hour up to 3 hours. 
 
-- Replica 노드가 있을 때 확인할 수 있는 항목은 아래와 같습니다.
+- The following is an item that can be found when a replica node is available.
   - Master Down Time: Wait time can be configured for a health check response to see if the master node is down; default is 3000ms. 
-  
+
 3. Check changes and click **Change**. 
     Service port, Redis Version, Instance Type, and Availability Area cannot be changed, once they're configured.     
 ### Auto Backups
@@ -135,13 +135,13 @@ You may create a backup for replication group at a time of choice. Even if a rep
 - Description: Enter description of a backup. 
 - Backup Retention Period: You may not delete, or retain backup from 1 day, up to 30 days. 
 
-### Manage Domains
+### Configure Public Domains
 * Access to a replication group is available only on instances sharing the same subnet; but to enable external access, configure public domain setting from domain management. 
 
 ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_public_domain_001.png)
 
 ### Read-only domain setup
-* After selecting target replication group where a Replica node is added to, click other action button (⋯) and click **Read-only Domain Setup** to set up a read-only domain.
+* To set up a read-only domain, after selecting target replication group where a Replica node is added, click other action button (⋯) and click **Read-only Domain Setup**.
 * The read-only domain you set is a private domain that can be logged in from the VPC subnet you selected when creating a replication group, and this is where the IP of the Replica node is bound to.
 * Go to **Replication group > Login Information** if you want to check the read-only domain you set.
 * If failover occurs due to the fault of the Master node
@@ -223,13 +223,13 @@ Select a created replication group, press **Basic Information** and check detail
 
 ![rep_detail_001.PNG](https://static.toastoven.net/prod_easycache/21.06.04/rep_detail_002.png)
 
-Following items can be found: 
+The following items can be found: 
 
 - Name, description, type, version, service port, and instance type of replication group 
 - Max memory, availability area, and configuration profile 
 - VPC Subnet(subnetwork), creation date, automatic backup settings, number of nodes 
 
-Following items can be found when there's a replica node: 
+The following items can be found when there's a replica node: 
 
 - Master down timer 
 
@@ -259,36 +259,36 @@ Select the replication group created and click the ***\*Node Information\**** ta
 
 - Following items can be found: 
   - Name, type, IP, availability area, date of creation, and status of node 
-- 노드의 로그를 보려면 **로그 보기** 버튼을 클릭합니다.
+- To view logs of the node, click the **View Log** button.
 
-##### 로그 보기
+##### View Log
 
-각 노드에서 최대 1개월간의 로그를 검색할 수 있습니다. 
+For each node, you can search for logs up to 1 month.
 
 ![node_log_view_001.png](https://static.toastoven.net/prod_easycache/20.10.30/node_log_view_001.png)
 
-- **1시간**, **24시간**, **1주**, **지정** 버튼을 클릭해 검색 기간을 변경할 수 있습니다. 
-- **지정** 버튼을 클릭하면 나타나는 캘린더에서 원하는 검색 기간을 지정할 수 있습니다. 
-- **현재 시간** 버튼을 클릭하면 현재 시간을 기준으로 선택한 검색 기간을 재검색합니다.
-- **현재 시간** 버튼의 오른쪽에 있는 화살표 버튼을 클릭하면 검색 기간 만큼의 이전 시간, 이후 시간을 검색할 수 있습니다.
-- **전체 화면 보기** 버튼을 클릭하면 새 창에서 1개월간의 모든 로그를 확인할 수 있습니다.
+- You can change a search period by clicking the **1 Hour**, **24 Hours**, **1 Week**, or **Custom** buttons. 
+- Click the **Custom** button to set the search period that you want in the displayed calendar.
+- Click the **Current Time** button to search again from the selected search period based on the current time.
+- Click the arrows on the right side of **Current Time** to search further backward or forward in the same amount of selected search period.
+- Click the **View Full Screen** button to view all logs for 1 month on a new window.
 
 ## Monitoring 
 
-EasyCache collects monitoring items that are required to run and use Redis at every minute and shows such data on a chart. 
+EasyCache collects monitoring items that are required to run and use Redis at every minute and shows collected data on charts. 
 
 ![monitoring_001.png](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_001.PNG)
 
-- With every click of the 1-hour or 24-hour button, it is updated as of the current time. 
+- Whenever you click the buttons such as 1 Hour, 24 Hours, and so on, the display is updated as of the current time. 
   - **1 Hour** shows data collected at every minute on a chart. 
   - **12 Hours** shows 10-minute average of collected data on a chart. 
   - **24 Hours** shows 10-minute average of collected data on a chart. 
   - **1 Month** shows 6-hour average of collected data on a chart. 
-  - Click **Specify** to specify a search period. 
-- Search period can be specified with clicks on the calendar.  
-  - Although a day or time is selected on the calendar, selected search period sustains. 
-- A click on the current time results in the re-search of a selected period as of the current time. 
-- With an arrow on the right of the current time button, you may search for time before or after, as much as the search period. 
+  - Click the **Custom** button to set your own search period. 
+- A search period can be set by clicking on the calendar.  
+  - Although a day or time is selected on the calendar, selected search period is maintained. 
+- Click the Current Time button to search again from the selected search period based on the current time.
+- Click the arrows on the right side of Current Time to search further backward or forward in the same amount of selected search period.
 - A replication group can be selected to show charts from the replication group dropdown. 
 - With Auto Update enabled, chart data can be updated at every 60 seconds. 
 - By clicking on the chart, it is expanded for display. 
@@ -333,9 +333,9 @@ On the **Backup** tab, you may  back up or delete backups. Since performance may
 
 - **Basic Information** has details of a backup file or a replication group. 
 ![backup_002.PNG](https://static.toastoven.net/prod_easycache/20.04.28/backup_003.PNG)
-	- Backup File Details 
+    - Backup File Details 
   Name, description, or type of backup; size of cache or backup file, backup retention period, last retention date, status, and backup start date 
-	- Replication Group Details 
+    - Replication Group Details 
   Name of replication group, type or version of instance, max memory, service port, and VPC subnet  
 
 ### Restore 
@@ -358,7 +358,7 @@ Memory data can be restored by using retained backup files.
   - Instance Type: Shows the specification of a replication group bound for backup. 
     - Shows instance types that are larger than cache of a backup only. 
     - Instance type can be changed. 
-  - Max Memory: Max memory can be adjusted to prevent memory shortage from synchronization or backup. 
+  - Max Memory: Adjust the max memory to prevent out-of-memory issues when running synchronization or backup.
     - Volume of the max memory can be changed for Redis server. 
     - Since max memory volume is changeable, management memory can be flexibly secured. 
   - Configuration Profile: Shows Redis configuration file of a replication group bound for backup. 
@@ -386,7 +386,7 @@ Memory data can be restored by using retained backup files.
 Redis configuration which is available for change can be registered as profile for management. 
 
 1. To register as profile, go to **Profile Configuration** and click **Create Profiles**. 
-2. On the popup for **Create Profiles**, select name, description, and version of a profile. 
+2. On the pop-up for **Create Profiles**, select name, description, and version of a profile. 
 
 ![pro_002.PNG](https://static.toastoven.net/prod_easycache/20.05.14/profile_001_ko.png)
 
@@ -408,11 +408,11 @@ Redis configuration which is available for change can be registered as profile f
 
 - You can check profile status. 
 
-| Status           | Description                                                  |
-| ---------------- | ------------------------------------------------------------ |
-| Normal           | Profile can be modified or deleted.                          |
+| Status         | Description                                                         |
+| ------------ | ------------------------------------------------------------ |
+| Normal         | Profile can be modified or deleted.                           |
 | Applying Changes | Changed profile and transmitting changes to each node. <br />Once changes are transmitted, the status is changed to normal. <br />While change is underway, you cannot create, modify, or delete a replication group. |
-| In Service       | Replication group is being created or changed with a profile. <br />After a replication group is created and completed, the status will be changed to normal. <br />Profile cannot be created or modified while in service. |
+| In Service      | Replication group is being created or changed with a profile. <br />After a replication group is created and completed, the status will be changed to normal. <br />Profile cannot be created or modified while in service. |
 
 ##### Constraints
 * Settings information can be changed while modifying or copying a profile or by clicking the **Detailed Settings**  button when creating a profile.
@@ -445,24 +445,24 @@ Check profile details like below.
   - timeout
   - zset-max-ziplist-entries
   - zset-max-ziplist-value
-  - replica-ignore-maxmemory (added for redis 5.0)
-  - lazyfree-lazy-eviction (added for redis 5.0)
-  - lazyfree-lazy-expire (added for redis 5.0)
-  - lazyfree-lazy-server-del (added for redis 5.0)
-  - repl-backlog-size (added for redis 5.0)
-  - stream-node-max-bytes (added for redis 5.0)
-  - stream-node-max-entries (added for redis 5.0)
-  - client-query-buffer-limit (added for redis 5.0)
-  - proto-max-bulk-len (added for redis 5.0)
-  - activedefrag(Redis 5.0 추가)
-  - active-defrag-ignore-bytes(Redis 5.0 추가)
-  - active-defrag-threshold-lower(Redis 5.0 추가)
-  - active-defrag-threshold-upper(Redis 5.0 추가)
-  - active-defrag-cycle-min(Redis 5.0 추가)
-  - active-defrag-cycle-max(Redis 5.0 추가)
-  - active-defrag-max-scan-fields(Redis 5.0 추가)
-  - active-expire-effort(Redis 6.0 추가)
-  - lazyfree-lazy-user-del(Redis 6.0 추가)
+  - replica-ignore-maxmemory (added in Redis 5.0)
+  - lazyfree-lazy-eviction (added in Redis 5.0)
+  - lazyfree-lazy-expire (added in Redis 5.0)
+  - lazyfree-lazy-server-del (added in Redis 5.0)
+  - repl-backlog-size (added in Redis 5.0)
+  - stream-node-max-bytes (added in Redis 5.0)
+  - stream-node-max-entries (added in Redis 5.0)
+  - client-query-buffer-limit (added in Redis 5.0)
+  - proto-max-bulk-len (added in Redis 5.0)
+  - activedefrag (added in Redis 5.0)
+  - active-defrag-ignore-bytes (added in Redis 5.0)
+  - active-defrag-threshold-lower (added in Redis 5.0)
+  - active-defrag-threshold-upper (added in Redis 5.0)
+  - active-defrag-cycle-min (added in Redis 5.0)
+  - active-defrag-cycle-max (added in Redis 5.0)
+  - active-defrag-max-scan-fields (added in Redis 5.0)
+  - active-expire-effort (added in Redis 6.0)
+  - lazyfree-lazy-user-del (added in Redis 6.0)
 
 ## Alarms 
 
@@ -475,7 +475,7 @@ EasyCache sends alarms on a particular event occurred from a resource of choice 
 Specify the condition, target, and recipient group for an alarm. 
 1. To set alarms you need, go to **Notification** and click **Create Alarm Rules**. 
 
-2. On the popup for **Create Alarm Rules**, specify the condition of sending an alarm and recipient groups. 
+2. On the pop-up for **Create Alarm Rules**, specify the condition of sending an alarm and recipient groups. 
 ![eve_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/alarm_002.PNG)
 
 3. There are two alarm conditions: **Metric Condition** and **Event Condition**. 
@@ -488,7 +488,7 @@ Specify the condition, target, and recipient group for an alarm.
 
     - **Default-Standalone**: Recommended alarm trigger conditions for replication groups operated as standalone
     - **Default- HA**: Recommended alarm trigger conditions for replication groups operated as replication
- 
+
 5. Click **View Recipient Groups** to check recipient groups or add more. 
 
 6. Alarm rules are basically applied to all replication groups. To create an alarm rule only for a specific replication group, specify the replication group for **Target Replication Groups**. 
@@ -540,27 +540,27 @@ The created receiver group can be used across all regions.
 
 ##### Event Items 
 
-|Type | Event | Event Details |
+|Type | Event   | Event Details |
 |-----| ------ | ---------------- |
-| **Replication Group** | Delete | Started, Failed, Closed |
-|             | Create | Started, Failed, Closed |
-|             | Modify | Started, Failed, Closed |
-|             | Restart | Started, Failed, Closed |
-|             | Change Group Instance | Started, Failed, Closed |
+| **Replication Group** | Delete   | Started, Failed, Closed |
+|             | Create   | Started, Failed, Closed |
+|             |  Modify   | Started, Failed, Closed |
+|             |  Restart | Started, Failed, Closed |
+|             |  Change Group Instance | Started, Failed, Closed |
 |             |  Import Data | Start, Failed to set up user OBS, Failed to download data file, Damaged files or unsupported file format, Failed to restart node, Failed to synchronize replica, Terminate |
 |             |  Export Data | Start, failed to set user Object Storage Service, failed to create data file, failed to upload data file, end |
-|             |   Restore Existing Replication Group | Start, Failed to download data file, Damaged files or unsupported file format, Failed to restart node, Failed to synchronize replica, Terminate |
+|             |  Restore Existing Replication Group | Start, Failed to download data file, Damaged files or unsupported file format, Failed to restart node, Failed to synchronize replica, Terminate |
 |             |  Update HA Settings | Start, Fail, Terminate |
 |             | Change Master | Start, Fail, Terminate |
 | **Publicly Credited Domain** | Set | Started, Failed, Closed |
 |             | Cancel | Started, Failed, Closed |
-| **읽기 전용 도메인** | 설정 | 시작, 실패, 종료 |
-|             | 해제 | 시작, 실패, 종료 |
+| **Read-Only Domain** | Set | Started, Failed, Closed |
+|             | Cancel | Started, Failed, Closed |
 | **Cache Instance** | Connect | Successful, Failed |
 | **Node** | Delete | Started, Failed, Closed |
 |         | Add | Started, Failed, Closed |
 |         | Status | Disabled, Enabled |
-|         | Change Node Instance | Started, Failed, Closed |
+|         |  Change Node Instance | Started, Failed, Closed |
 | **Profile** | Modify | Started, Failed, Closed |
 | **Auto HA** | Delete | Started, Closed |
 |            | Set | Started, Failed, Closed |
@@ -568,67 +568,67 @@ The created receiver group can be used across all regions.
 | **Backup** | Manual Backup | Started, Failed, Closed |
 |        | Auto Backup | Started, Failed, Closed |
 
-## 부록1. 하이퍼바이저 점검을 위한 EasyCache 재시작 가이드
+## Appendix 1. Guide for EasyCache Restart for Hypervisor Maintenance
 
- * EasyCache 노드를 재시작하려면 콘솔에 있는 **재시작** 기능을 사용해야 합니다.
- * 복제 그룹의 재시작 기능으로는 노드가 다른 하이퍼바이저로 이동하지 않습니다. 아래 가이드에 따라 콘솔에 있는 재시작 기능을 이용하시기 바랍니다.
+ * To restart a EasyCache node, use the **Restart** feature in the console.
+ * With the restart feature of a replication group, the node is not moved to a different hypervisor. Use the restart feature in the console according to the following guideline.
 
-### 1. 점검 대상으로 지정된 노드가 있는 프로젝트로 이동합니다.
+### 1. Go to a project where the node specified as a maintenance target is included.
 
-### 2. 점검 대상 복제 그룹을 확인 합니다.
+### 2. Check the maintenance target replication group.
 
-* 복제 그룹 이름 옆에 **!재시작** 아이콘이 있는 복제 그룹이 점검 대상 노드가 포함된 복제 그룹 입니다.
+* The replication group with **!Restart** icon on the side is the replication group including the maintenance target node.
 
 ![migration_001.png](https://static.toastoven.net/prod_easycache/20.12.01/migration_001.png)
 
-* **!재시작** 아이콘 위에 마우스 커서를 올리시면 자세한 점검 일정을 확인할 수 있습니다.
+* By hovering the mouse cursor on the **!Restart** icon, you can see the detailed maintenance schedule.
 
 ![migration_002.png](https://static.toastoven.net/prod_easycache/20.12.01/migration_002.png)
 
-### 3. 점검 대상 노드의 타입을 확인합니다.
+### 3. Check the type of the maintenance target node.
 
-* 노드 타입 별 재시작에 따른 서비스 영향은 아래와 같습니다.
-  * MASTER: **복제 그룹 > 마스터 변경**을 선택해 Master 노드를 Replica 노드로 변경한 뒤 재시작 기능을 이용할 수 있습니다. Standalone의 경우에는 변경하지 않고 이용할 수 있습니다.
-  * REPLICA : 서비스에 영향은 없습니다.
-  * HA : 재시작되는 동안에 장애 조치(failover) 보장이 되지 않거나 장애 조치(failover) 이벤트가 발생할 수 있습니다.
- 
-* 노드 이동으로 인해 서비스에 영향이 있다고 판단될 경우 NHN Cloud 고객 센터로 연락해 주시면 적합한 조치를 안내해 드리겠습니다.
+* Depending on the node type, the impact of restart on service is as follows:
+  * MASTER: The restart feature can be used after changing the master node to replica node by selecting **Replication Group > Change Master**. Standalone type can be used without change.
+  * REPLICA : No impact on service.
+  * HA : During restart, failover might not be guaranteed or a failover event might occur.
 
-### 4. 4. 점검 대상 복제 그룹을 선택하고 오른쪽에 표시된 !재시작 아이콘을 클릭하여 점검 노드를 재시작합니다.
+* If it is determined that the service is affected by the node move, please contact the NHN Cloud customer center and we will guide you through the appropriate action.
+
+### 4. Select the maintenance target replication group, and click the !Restart icon on the right side to restart the maintenance node.
 
 ![migration_003.png](https://static.toastoven.net/prod_easycache/20.12.01/migration_003.png)
 
-* 점검 노드가 여러 개일 때, 한 번에 노드 1개만 재시작됩니다. HA 노드 먼저 재식작되고, 이후 Replica 노드가 재시작됩니다.
+* When there are multiple maintenance nodes, only one node is restarted at a time. The HA node is restarted first and then the Replica node is restarted.
 
-* Standalone의 경우 재시작을 하면 백업 시점의 데이터로 돌아가게 되며, 백업을 하지 않은 경우에는 데이터가 초기화 됩니다.
+* In case of a standalone type, when restart occurs, it returns to the data at the time of backup. If backup was not performed, data is reset.
 
-* Replication의 Master 노드가 점검 대상이면 바로 이용할 수 없습니다. Master 노드를 Replica 노드로 변경한 뒤 재시작합니다.
+* If the replication's master node is the maintenance target, it cannot be used immediately. Change the master node to a replica node and restart it.
 
-### 5. 복제 그룹의 상태 표시등이 파란색으로 변하고, !재시작 아이콘이 사라질 때까지 대기합니다.
+### 5. Wait until the status indicator of the replication group changes to blue color and !Restart icon disappears.
 
-* 복제 그룹이 재시작되는 동안에는 해당 복제 그룹은 조작을 할 수 없습니다.
+* While a replication group is being restarted, the replication group cannot be operated.
 
-## 부록2. 서버 점검을 위한 인터넷게이트웨이 재시작 가이드
+## Appendix 2. Guide for Internet Gateway Restart for Server Maintenance
 
-* 인터넷게이트웨이를 재시작하려면 콘솔에 있는 **인터넷 게이트웨이 재시작** 기능을 사용해야 합니다.
-* 아래 가이드에 따라 콘솔에 있는 재시작 기능을 이용하시기 바랍니다.
+* To restart a internet gateway, use the **Restart Internet Gateway** feature in the console.
+* Use the restart feature in the console according to the following guideline.
 
-### 1. 점검 대상으로 지정된 인터넷 게이트웨이가 있는 프로젝트로 이동합니다.
+### 1. Go to a project where the internet gateway specified as a maintenance target is included.
 
 ![gm_001.png](https://static.toastoven.net/prod_easycache/20.12.01/gm_001.png)
 
-### 2. 점검 대상 복제 그룹 탭을 확인 합니다.
+### 2. Check the maintenance target replication group tab.
 
-* 복제 그룹 탭의 가장 오른쪽에 있는 **!인터넷 게이트웨이 재시작** 아이콘을 확인합니다.
-* **!인터넷게이트웨이 재시작** 아이콘 위에 마우스 커서를 올리시면 자세한 점검 일정을 확인할 수 있습니다.
+* Check the **!Restart Internet Gateway** icon on the far right of the Replication Groups tab.
+* By hovering the mouse cursor on the **!Restart Internet Gateway** icon, you can see the detailed maintenance schedule.
 
 ![gm_002.png](https://static.toastoven.net/prod_easycache/20.12.01/gm_002.png)
 
-### 3. 점검 대상 복제 그룹의 오른쪽에 표시된 !인터넷 게이트웨이 재시작 아이콘을 클릭하여 점검 노드를 재시작합니다.
+### 3. Click the !Restart Internet Gateway icon displayed on the right side of the maintenance target replication group to restart the maintenance node.
 
 ![gm_003.png](https://static.toastoven.net/prod_easycache/20.12.01/gm_003.png)
 
-### 4. !인터넷 게이트웨이 재시작 아이콘이 사라질 때까지 대기합니다.
+### 4. Wait until the !Restart Internet Gateway icon disappears.
 
-* 재시작되면 공인 도메인을 사용중인 노드는 외부 네트워크에 접속할 수 없습니다. 공인 도메인을 사용하지 않는 노드에는 영향이 없습니다.
-* 재시작에 걸리는 시간은 약 1분입니다. 재시작된 인터넷 게이트웨이는 점검이 완료된 장비에서 구동됩니다.
+* After restart, nodes using public domain cannot access external networks. Nodes that are not using public domain are not affected.
+* The time required for restart is approximately 1 minute. The restarted internet gateway runs on a device where maintenance has been completed.
