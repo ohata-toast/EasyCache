@@ -476,7 +476,7 @@ Specify the condition, target, and recipient group for an alarm.
 1. To set alarms you need, go to **Notification** and click **Create Alarm Rules**. 
 
 2. On the pop-up for **Create Alarm Rules**, specify the condition of sending an alarm and recipient groups. 
-![eve_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/alarm_002.PNG)
+![eve_001.PNG](https://static.toastoven.net/prod_easycache/21.09.16/alarm_002.png)
 
 3. There are two alarm conditions: **Metric Condition** and **Event Condition**. 
 

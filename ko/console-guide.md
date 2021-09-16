@@ -476,7 +476,7 @@ EasyCache에서는 원하는 리소스에서 발생하는 특정 이벤트의 �
 1. 원하는 알람을 설정하려면 **알람** 탭에서 **알람 규칙 생성** 버튼을 클릭합니다.
 
 2. **알람 규칙 생성** 대화 상자에서 알람 발생 조건과 알람을 수신할 수신 그룹을 지정합니다.
-![eve_001.PNG](https://static.toastoven.net/prod_easycache/21.08.02/alarm_002.png)
+![eve_001.PNG](https://static.toastoven.net/prod_easycache/21.09.16/alarm_002.png)
 
 3. 알람 발생 조건에는 **메트릭 조건**과 **이벤트 조건**, 2가지가 있습니다.
 
