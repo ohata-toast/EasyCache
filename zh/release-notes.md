@@ -1,5 +1,10 @@
 ## Database > EasyCache > Release Notes
 
+### October 26, 2021
+
+#### Bug Fixes
+* Fixed an issue where configuration profiles could be modified while performing import, export, or manual backup of data.
+
 ### September 28, 2021
 
 #### Feature Updates
@@ -18,7 +23,7 @@
 
 * Added support for Redis 6
 * Added a feature to restore a backup to the existing replication group
-* Added a feature to set the alarm trigger conditions using the alarm template when setting the alarm
+* Added a feature to set the alarm trigger conditions using the alarm template when setting the alarm 
 * Changed the UI so that default network of the **Access Control Information** is not deletable
 
 ### July 27, 2021
@@ -26,7 +31,7 @@
 #### Feature Updates
 
 * Add a feature to(Export) EasyCache data to Object Storage.
-* Modify **Promote Master** to **Change Master** and go to drop down menu.
+* Modify **Promote Master** to **Change Master** and go to drop down menu. 
 
 #### Bug Fixes
 
@@ -118,7 +123,7 @@
 
 ### Nov 24, 2020
 
-#### Improvements/changes
+#### Feature Updates
 
 * View All Logs added
 
@@ -140,9 +145,9 @@
 #### Bug Fixes
 
 * Modified unit of monitoring graph
-  * Input byte: byte -> bytes/1min
-  * Output byte: byte -> bytes/1min
-  * Processed commands per second: counts/seconds -> count/1sec
+    * Input byte: byte -> bytes/1min
+    * Output byte: byte -> bytes/1min
+    * Processed commands per second: counts/seconds -> count/1sec
 * During profile modification, the bug where the status of a duplicate group using the profile currently being modified is displayed as normal rather than displaying modification in progress
 
 ### August 25, 2020
@@ -190,11 +195,11 @@
 * Redis 5.0 supported
 * Profile copying feature provided
 * Monitoring updated
-  * Moved query tab from duplicate group details screen to a separate tab on top of the initial screen
-  * Added Current Time button
-  * Added Auto Renew checkbox
-  * Added duplicate group selection drop-down menu
-  * Updated single graph to be displayed additionally as a pop-up to allow users to select statistical entries and aggregation duration
+    * Moved query tab from duplicate group details screen to a separate tab on top of the initial screen
+    * Added Current Time button
+    * Added Auto Renew checkbox
+    * Added duplicate group selection drop-down menu
+    * Updated single graph to be displayed additionally as a pop-up to allow users to select statistical entries and aggregation duration
 * Changed features to allow user to modify values through detailed settings when creating or modifying profiles
 
 #### Bug Fixes

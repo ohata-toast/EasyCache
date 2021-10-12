@@ -1,5 +1,10 @@
 ## Database > EasyCache > Release Notes
 
+### October 26, 2021
+
+#### Bug Fixes
+* Fixed an issue where configuration profiles could be modified while performing import, export, or manual backup of data.
+
 ### September 28, 2021
 
 #### Feature Updates
@@ -118,7 +123,7 @@
 
 ### Nov 24, 2020
 
-#### Improvements/changes
+#### Feature Updates
 
 * View All Logs added
 
