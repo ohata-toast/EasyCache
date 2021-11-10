@@ -14,32 +14,32 @@ To use EasyCache, you must create a replication group first.
 
 2. Enter all required fields on the setting window and click **Create** at the bottom. 
 
-    - Replication Group Name: Enter name of a replication group. 
-    - Description: Enter description of the group.
-    - Service Port: Enter the port number of Redis. 
-        - It can be set to a value between 10000 and 12000.  
-    - Version: Select the version of Redis to create.
-    - Instance Type: Select specifications for the replication group. 
-    - Max Memory: Adjust the max memory to prevent out-of-memory issues when running synchronization or backup.
-        - You can change the size of max memory for a Redis server. 
-        - The size of memory for management can be also secured flexibly when needed.
-    - Configuration Profile: Select a configuration file for Redis.
-        - The default profile is provided. 
-        - More configuration profiles can be added for selection.
-    - VPC Subnet: Select a subnet for Compute & Network to allow private network communication. Otherwise, it is set to the default network.
-    - Set Password: Select whether to set a password. The default value is 'Set Password' (selected).
-    - Auto Backup Setting: Select whether to enable auto backup. 
-        - Backup Retention Period: Available from 1 day up to 30 days.
-        - Backup Start Time: Specify start time of backup, by 30-minute interval. 
-        - Backup Time: Backup starts randomly between start time and specified time. Available from 1 hour up to 3 hours. 
+    * Replication Group Name: Enter name of a replication group. 
+    * Description: Enter description of the group.
+    * Service Port: Enter the port number of Redis. 
+        * Available between 10000 and 12000. 
+    * Version: Select the version of Redis to create.
+    * Instance Type: Select specifications for the replication group. 
+    * Max Memory: Adjust the max memory to prevent out-of-memory issues when running synchronization or backup.
+        * You can change the size of max memory for a Redis server. 
+        * The size of memory for management can be also secured flexibly when needed.
+    * Configuration Profile: Select a configuration file for Redis.
+        * The default profile is provided. 
+        * More configuration profiles can be added for selection.
+    * VPC Subnet: Select a subnet for Compute & Network to allow private network communication. Otherwise, it is set to the default network.
+    * Set Password: Select whether to set a password. The default value is 'Set Password' (selected).
+    * Auto Backup Setting: Select whether to use auto backup. 
+        * Backup Retention Period: Available from 1 day up to 30 days 
+        * Backup Start Time: Specify start time of backup, by 30-minute interval. 
+        * Backup Time: Backup starts randomly between start time and specified time. Available from 1 hour up to 3 hours. 
 3. Click **Create**. 
 
 4. Check inputs on the screen and click **Create**. 
    Along with a replication group, a master node is created. It takes a few minutes to create. 
 
-##### Constraints
-- Service is restricted for such commands that may severely impact service. 
-- See developer's guide to find out the commands. 
+##### Constraints 
+* Service is restricted for such commands that may severely impact service. 
+* See developer's guide to find out the commands. 
 
 ### Replicate (Add Nodes)
 
@@ -62,30 +62,30 @@ It may take more time to create a replica node, in proportion to the size of the
 
 ##### Constraints 
 
-- On the original master node, a maximum of 2 replica nodes can be created.
-- If an abnormal Replica node is present, delete it first before adding a new Replica node.
-- A replica node cannot create its own replica nodes under it. 
+* On the original master node, a maximum of 2 replica nodes can be created.
+* If an abnormal Replica node is present, delete it first before adding a new Replica node.
+* A replica node cannot create its own replica nodes under it. 
 
 #### High Availability (HA)
 
 By adding a replica node to the standalone master node, high availability is automatically configured. 
 
-- By setting an auto failover, downtime can be reduced to the minimum when an error occurs on the master node. 
-- Failover refers to detecting a master node in which error has occurred and thereby automatically promoting a replica node to the master. 
-- You may find events on failure and status of the master or replica node. 
+* By setting an auto failover, downtime can be reduced to the minimum when an error occurs on the master node. 
+* Failover refers to detecting a master node in which error has occurred and thereby automatically promoting a replica node to the master. 
+* You may find events on failure and status of the master or replica node. 
 
-##### Constraints
+##### Constraints 
 
-- If HA setting fails when adding 1 replica node, click the **Update HA** button in **Replication Group > Basic Information** to update the HA settings. 
+* If HA setting fails when adding 1 replica node, click the **Update HA** button in **Replication Group > Basic Information** to update the HA settings. 
 
 ![rep_ha_error_001.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_ha_error_001.PNG)
 
-- If HA settings fails to update when adding 2 replica node, click the **Update HA** button in **Replication Group > Basic Information ** to update the HA settings again.
+* If HA settings fails to update when adding 2 replica node, click the **Update HA** button in **Replication Group > Basic Information ** to update the HA settings again.
 
-- With a failover, the existing master node in which error occurred is suspended. When the failed node is deleted, it is changed into a general standalone master node in which high availability is not enabled. 
-- By adding a replica node to the standalone master node, high availability can be newly specified. 
-- The newly changed master node inherits the domain applied to access the existing master node. 
-- The existing node with failover becomes 'Disabled', under which, high availability is not enabled only with the new master node.  
+* With a failover, the existing master node in which error occurred is suspended. When the failed node is deleted, it is changed into a general standalone master node in which high availability is not enabled. 
+* By adding a replica node to the standalone master node, high availability can be newly specified. 
+* The newly changed master node inherits the domain applied to access the existing master node. 
+* The existing node with failover becomes 'Disabled', under which, high availability is not enabled only with the new master node.  
 
 ### Modify a Replication Group
 
@@ -94,46 +94,46 @@ By adding a replica node to the standalone master node, high availability is aut
 
 ![rep_mo_001.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_modify_002.PNG)
 
-- Name of Replication Group: Name of a replication group can be changed. 
-- Description: Description of a replication group can be changed. 
-- Configuration Profile: Redis setting can be changed. 
-- Max Memory: Volume of the maximum memory for usage can be changed. 
+* Name of Replication Group: Name of a replication group can be changed. 
+* Description: Description of a replication group can be changed. 
+* Configuration Profile: Redis setting can be changed. 
+* Max Memory: Volume of the maximum memory for usage can be changed. 
 
-- Auto Backup Setting: Select whether to use auto backup. 
-    - Backup Retention Period: From 1 day, up to 30 days
-    - Backup Start Time: Specify start time of a backup, by 30-minute interval.
-    - Backup Time: Backup to start randomly between start time and a specific time, from 1 hour up to 3 hours. 
+* Auto Backup Setting: Select whether to use auto backup. 
+    * Retention Period: Available from 1 day up to 30 days.
+    * Backup Start Time: Specify start time of a backup, by 30-minute interval.
+    * Backup Time: Backup to start randomly between start time and a specific time, from 1 hour up to 3 hours. 
 
 - The following is an item that can be found when a replica node is available.
     - Master Down Time: Wait time can be configured for a health check response to see if the master node is down; default is 3000ms. 
 
 3. Check changes and click **Change**. 
     Service port, Redis Version, Instance Type, and Availability Area cannot be changed, once they're configured.     
-### Auto Backups
+### Auto Backup
 
-- Memory data (RDB file) is automatically backed up at a specific time once every day. 
-- To manage auto backups that are created, go to **Backup**. 
-- When a replication group bound for backup is deleted, backup files are deleted altogether. 
-- After a backup retention period, backup files will be automatically deleted. 
-- Auto backup is to start randomly between start time and backup time. 
+* Memory data (RDB file) is automatically backed up at a specific time once every day. 
+* To manage auto backups that are created, go to **Backup**. 
+* When a replication group bound for backup is deleted, backup files are deleted altogether. 
+* After a backup retention period, backup files will be automatically deleted. 
+* Auto backup is to start randomly between start time and backup time. 
 
 ### Create Manual Backups 
 
 You may create a backup for replication group at a time of choice. Even if a replication group bound for backup is deleted, manual backup files cannot be deleted. 
 
-- Manage created manual backups from the **Backup** tab. 
-- Performance may be degraded while backup is executed. 
-- After a backup retention period, backup files will be automatically deleted. 
-- If a replication group bound for backup is deleted, details of the group are not displayed for basic information. 
+* Manage created manual backups from the **Backup** tab. 
+* Performance may be degraded while backup is executed. 
+* After a backup retention period, backup files will be automatically deleted. 
+* If a replication group bound for backup is deleted, details of the group are not displayed for basic information. 
 
 1. To create manual backup files, select a replication group and click **Manual Backup**. 
 2. Enter information for **Manual Backup** and click **Backup**. 
     It may take more time to create a backup in proportion to the size of data. 
     ![manual_backup_001.png](https://static.toastoven.net/prod_easycache/20.07.09/rep_manual_backup_001.PNG)
 
-- Backup Name: Enter name of a backup. 
-- Description: Enter description of a backup. 
-- Backup Retention Period: You may not delete, or retain backup from 1 day, up to 30 days. 
+* Backup Name: Enter name of a backup. 
+* Description: Enter description of a backup. 
+* Backup Retention Period: You may not delete, or retain backup from 1 day, up to 30 days. 
 
 ### Configure Public Domains
 * Access to a replication group is available only on instances sharing the same subnet; but to enable external access, configure public domain setting from domain management. 
@@ -205,8 +205,29 @@ You may create a backup for replication group at a time of choice. Even if a rep
 
 ##### Constraints 
 
-- Redundant manual backup is unavailable. Try again after current manual backup is done. 
-- Executing a manual backup during auto backup time may cause delays in the backup.
+* Redundant manual backup is unavailable. Try again after current manual backup is done. 
+* Executing a manual backup during auto backup time may cause delays in the backup.
+
+### Upgrade a Version
+* You can upgrade an existing replication group that is Redis version 5 to Redis version 6.
+* To run a version upgrade, select a target replication group that is Redis version 5, click the more actions button (⋯) and click **Upgrade Version**.
+* In the **Upgrade Version** dialog, you can select the configuration profile that will be applied when upgrading the version.
+* Performing data backup before running a version upgrade lets you protect against data loss and other contingencies.
+* Running a version upgrade when the replication group's network traffic is low can increase the speed and reliability of the upgrade.
+
+![version_up_001.png](https://static.toastoven.net/prod_easycache/21.10.29/version_up_001.png)
+
+##### Constraints 
+* If the existing replication group to upgrade the Redis version has a custom configuration profile other than the default configuration profile applied, and you want to apply the same configuration profile when upgrading, create a custom configuration profile with Redis version 6 in **Profile Settings** in advance and select the corresponding configuration profile when upgrading the version.
+* If a read-only domain is set, you can upgrade the version after clearing the read-only domain setting.
+* For **standalone** type replication groups
+    * Write operations to the replication group that occur during a version upgrade are excluded from data restoration target after upgrade.
+    * If the Redis server is restarted during a version upgrade, read and write operations to the replication group become temporarily unavailable.
+* For **replication** type replication groups
+    * The master node is changed after a version upgrade.
+    * During a version upgrade, read and write operations to the replication group are temporarily unavailable while the master change required for the upgrade is performed, and a failover event may occur.
+    * Failover is not guaranteed while an HA node is being upgraded during a version upgrade.
+* If the version upgrade fails, you can run the version upgrade again by clicking **Replication Group > ⋯ > Upgrade Version**.
 
 ### Change Master
 
@@ -225,13 +246,13 @@ Select a created replication group, press **Basic Information** and check detail
 
 The following items can be found: 
 
-- Name, description, type, version, service port, and instance type of replication group 
-- Max memory, availability area, and configuration profile 
-- VPC Subnet(subnetwork), creation date, automatic backup settings, number of nodes 
+* Name, description, type, version, service port, and instance type of replication group 
+* Max memory, availability area, and configuration profile 
+* VPC Subnet(subnetwork), creation date, automatic backup settings, number of nodes 
 
 The following items can be found when there's a replica node: 
 
-- Master down timer 
+* Master down timer 
 
 #### Access to Replication Groups 
 
@@ -239,17 +260,17 @@ Select a created replication group and click **Access Information**.
 
 ![rep_de_002.PNG](https://static.toastoven.net/prod_easycache/20.07.09/rep_connection_info_kr.png)
 
-- To see encrypted password, click **View**. 
-- Press **Copy** to copy password. 
-- Check available domain information. 
-- A Redis node without public domain setting does not allow external access. 
-- Click **Copy** to copy domain. 
-- Access information is available on an application of node connected with same VPC subnet. 
-- Commands are executable on nodes connected with same VPC subnet. 
-- Access Control Information: Enter accessible users to a replication group in the CIDR format. 
-    - **Show My IP**: Displays local IPs in the CIDR format.  
-    - Press **Create** to register. 
-    - Cannot access with IPs that are not registered for access control information. 
+* To see encrypted password, click **View**. 
+* Press **Copy** to copy password. 
+* Check available domain information. 
+* A Redis node without public domain setting does not allow external access. 
+* Click **Copy** to copy domain. 
+* Access information is available on an application of node connected with same VPC subnet. 
+* Commands are executable on nodes connected with same VPC subnet. 
+* Access Control Information: Enter accessible users to a replication group in the CIDR format. 
+    * **Show My IP**: Displays local IPs in the CIDR format.  
+    * Press **Create** to register. 
+    * Cannot access with IPs that are not registered for access control information. 
 
 #### Node Information 
 
@@ -257,9 +278,9 @@ Select the replication group created and click the ***\*Node Information\**** ta
 
 ![rep_node_info_001.PNG](https://static.toastoven.net/prod_easycache/21.07.02/rep_node_info_002.png)
 
-- Following items can be found: 
-    - Name, type, IP, availability area, date of creation, and status of node 
-- To view logs of the node, click the **View Log** button.
+* The following items can be found: 
+    * Name, type, IP, availability area, date of creation, and status of node 
+* To view logs of the node, click the **View Log** button.
 
 ##### View Log
 
@@ -267,76 +288,76 @@ For each node, you can search for logs up to 1 month.
 
 ![node_log_view_001.png](https://static.toastoven.net/prod_easycache/20.10.30/node_log_view_001.png)
 
-- You can change a search period by clicking the **1 Hour**, **24 Hours**, **1 Week**, or **Custom** buttons. 
-- Click the **Custom** button to set the search period that you want in the displayed calendar.
-- Click the **Current Time** button to search again from the selected search period based on the current time.
-- Click the arrows on the right side of **Current Time** to search further backward or forward in the same amount of selected search period.
-- Click the **View Full Screen** button to view all logs for 1 month on a new window.
+* You can change a search period by clicking the **1 Hour**, **24 Hours**, **1 Week**, or **Custom** buttons. 
+* Click the **Custom** button to set the search period that you want in the displayed calendar.
+* Click the **Current Time** button to search again from the selected search period based on the current time.
+* Click the arrows on the right side of **Current Time** to search further backward or forward in the same amount of selected search period.
+* Click the **View Full Screen** button to view all logs for 1 month on a new window.
 
-## Monitoring 
+## Monitoring
 
 EasyCache collects monitoring items that are required to run and use Redis at every minute and shows collected data on charts. 
 
 ![monitoring_001.png](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_001.PNG)
 
-- Whenever you click the buttons such as 1 Hour, 24 Hours, and so on, the display is updated as of the current time. 
-    - **1 Hour** shows data collected at every minute on a chart. 
-    - **12 Hours** shows 10-minute average of collected data on a chart. 
-    - **24 Hours** shows 10-minute average of collected data on a chart. 
-    - **1 Month** shows 6-hour average of collected data on a chart. 
-    - Click the **Custom** button to set your own search period. 
-- A search period can be set by clicking on the calendar.  
-    - Although a day or time is selected on the calendar, selected search period is maintained. 
-- Click the Current Time button to search again from the selected search period based on the current time.
-- Click the arrows on the right side of Current Time to search further backward or forward in the same amount of selected search period.
-- A replication group can be selected to show charts from the replication group dropdown. 
-- With Auto Update enabled, chart data can be updated at every 60 seconds. 
-- By clicking on the chart, it is expanded for display. 
-- On an expanded chart, statistics and collection period may be changed for display. 
-    - Statistical method is applied to show accumulated data, and if the collection time is 1 minute, same value will be displayed even with changed statistics, since low data is applied. 
-- The data storage period for monitoring is 40 days.
+* Whenever you click the buttons such as 1 Hour, 24 Hours, and so on, the display is updated as of the current time. 
+    * **1 Hour** shows data collected at every minute on a chart. 
+    * **12 Hours** shows 10-minute average of collected data on a chart. 
+    * **24 Hours** shows 10-minute average of collected data on a chart. 
+    * **1 Month** shows 6-hour average of collected data on a chart. 
+    * Click the **Custom** button to set your own search period. 
+* A search period can be set by clicking on the calendar.  
+    * Although a day or time is selected on the calendar, selected search period is maintained. 
+* Click the Current Time button to search again from the selected search period based on the current time.
+* Click the arrows on the right side of Current Time to search further backward or forward in the same amount of selected search period.
+* A replication group can be selected to show charts from the replication group dropdown. 
+* With Auto Update enabled, chart data can be updated at every 60 seconds. 
+* By clicking on the chart, it is expanded for display. 
+* On an expanded chart, statistics and collection period may be changed for display. 
+    * Statistical method is applied to show accumulated data, and if the collection time is 1 minute, same value will be displayed even with changed statistics, since low data is applied. 
+* The data storage period for monitoring is 40 days.
 
 ![monitoring_002.PNG](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_002.PNG)
-- In monitoring, you may opt to show selected items only from **Filter Conditions**. 
-- Find out the monitoring items as follows: 
-    - CPU Usage Ratio
-    - System Memory 
-    - Connected Client 
-    - Blocked Client 
-    - Redis Memory Usage Volume 
-    - Redis Resident Set Size (rss)
-    - Memory Fragmentation Ratio 
-    - Command Count per Second 
-    - Input Byte
-    - Output Byte 
-    - Expired Key Count 
-    - Evicted Key Count 
-    - Successful Query Count 
-    - Failed Query Count 
-    - Successful Query Rate 
-    - Key Count 
-    - get Execution Count 
-    - get usec/get calls 
-    - set Execution Count 
-    - set usec/get calls
+* In monitoring, you may opt to show selected items only from **Filter Conditions**. 
+* Find out the monitoring items as follows: 
+    * CPU Usage Ratio
+    * System Memory 
+    * Connected Client 
+    * Blocked Client 
+    * Redis Memory Usage Volume 
+    * Redis Resident Set Size (rss)
+    * Memory Fragmentation Ratio 
+    * Command Count per Second 
+    * Input Byte
+    * Output Byte 
+    * Expired Key Count 
+    * Evicted Key Count 
+    * Successful Query Count 
+    * Failed Query Count 
+    * Successful Query Rate 
+    * Key Count 
+    * get Execution Count 
+    * get usec/get calls 
+    * set Execution Count 
+    * set usec/get calls
 
 
-## Backups 
+## Backup
 
-On the **Backup** tab, you may  back up or delete backups. Since performance may be degraded during a backup, it is recommended to execute backup while service load is low. 
+On the **Backup** tab, you may back up or delete backups. Since performance may be degraded during a backup, it is recommended to execute backup while service load is low. 
 
 ![backup_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/backup_001.PNG)
 
-- You may select one or many backup files to delete. 
-- Enter name of a backup or a replication group on the search window, and press **Search** to find the result. 
-- With **Refresh**, update the list of backup files and find information. 
+* You may select one or many backup files to delete. 
+* Enter name of a backup or a replication group on the search window, and press **Search** to find the result. 
+* With **Refresh**, update the list of backup files and find information. 
 
-- **Basic Information** has details of a backup file or a replication group. 
+* **Basic Information** has details of a backup file or a replication group. 
     ![backup_002.PNG](https://static.toastoven.net/prod_easycache/20.04.28/backup_003.PNG)
-    - Backup File Details 
-        - Name, description, or type of backup; size of cache or backup file, backup retention period, last retention date, status, and backup start date 
-    - Replication Group Details 
-        - Name of replication group, type or version of instance, max memory, service port, and VPC subnet  
+    * Backup File Details 
+        * Name, description, or type of backup; size of cache or backup file, backup retention period, last retention date, status, and backup start date 
+    * Replication Group Details 
+        * Name of replication group, type or version of instance, max memory, service port, and VPC subnet  
 
 ### Restore 
 
@@ -348,27 +369,27 @@ Memory data can be restored by using retained backup files.
     ![restore_001.PNG](https://static.toastoven.net/prod_easycache/21.08.02/restore_001.png)
 
 * Enter the following item in the **Restore new replication group** dialog box and click the **Create** button. You can check the created replication group in the **Replication group** tab.
-    - Name of Backup: Backup file name to restore 
-    - Name of Replication Group: Enter name of a replication group. 
-    - Description: Enter description of a replication group. 
-    - Service Port: Shows the port of a replication group bound for backup. 
-        - Port number of Redis can be changed. 
-        - Available between 10000 and 12000. 
-    - Version: Shows the version of Redis of a replication group for backup.
-    - Instance Type: Shows the specification of a replication group bound for backup. 
-        - Shows instance types that are larger than cache of a backup only. 
-        - Instance type can be changed. 
-    - Max Memory: Adjust the max memory to prevent out-of-memory issues when running synchronization or backup.
-        - Volume of the max memory can be changed for Redis server. 
-        - Since max memory volume is changeable, management memory can be flexibly secured. 
-    - Configuration Profile: Shows Redis configuration file of a replication group bound for backup. 
-        - Configuration can be changed by adding more profiles. 
-    - VPC Subnet: Shows VPC subnet of a replication group for backup. 
-        - Select a subnet for Compute & Network to allow private network communication. 
-    - Auto Backup Setting: Select whether to enable auto backup. 
-        - Backup Retention Period: Available from 1 day up to days 
-        - Backup Start Time: Specify start time of backup, by 30-minute interval. 
-        - Backup Delay Time: To start randomly between backup start time and specified time. Available up to 3 hours. 
+    * Name of Backup: Backup file name to restore 
+    * Replication Group Name: Enter name of a replication group. 
+    * Description: Enter description of the group.
+    * Service Port: Shows the port of a replication group bound for backup. 
+        * Port number of Redis can be changed. 
+        * Available between 10000 and 12000. 
+    * Version: Shows the version of Redis of a replication group for backup.
+    * Instance Type: Shows the specification of a replication group bound for backup. 
+        * Shows instance types that are larger than cache of a backup only. 
+        * Instance type can be changed. 
+    * Max Memory: Adjust the max memory to prevent out-of-memory issues when running synchronization or backup.
+        * You can change the size of max memory for a Redis server. 
+        * Since max memory volume is changeable, management memory can be flexibly secured. 
+    * Configuration Profile: Shows Redis configuration file of a replication group bound for backup. 
+        * Configuration can be changed by adding more profiles. 
+    * VPC Subnet: Shows VPC subnet of a replication group for backup. 
+        * Select a subnet for Compute & Network to allow private network communication. 
+    * Auto Backup Setting: Select whether to use auto backup. 
+        * Backup Retention Period: Available from 1 day up to 30 days 
+        * Backup Start Time: Specify start time of a backup, by 30-minute interval.
+        * Backup Delay Time: To start randomly between backup start time and specified time. Available up to 3 hours. 
 
 #### Restore an existing replication group
 
@@ -396,17 +417,17 @@ Redis configuration which is available for change can be registered as profile f
 
 4. Click **Create** and register profile. 
 
-- Modify registered profile and it is also applied to nodes in service. 
+    * Modify registered profile and it is also applied to nodes in service. 
 
-- You may delete a registered profile, unless it has a node in service. 
+    * You may delete a registered profile, unless it has a node in service. 
 
-- You may copy a registered profile for use. Item values may be changed when copied. 
+    * You may copy a registered profile for use. Item values may be changed when copied. 
 
-- Basic profile with default setting information is provided. 
+    * Basic profile with default setting information is provided. 
 
-- Default profile cannot be modified or deleted. 
+    * Default profile cannot be modified or deleted. 
 
-- You can check profile status. 
+    * You can check profile status. 
 
 | Status         | Description                                                         |
 | ------------ | ------------------------------------------------------------ |
@@ -425,44 +446,44 @@ Check profile details like below.
 
 ![profile_detail_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/profile_002.PNG)
 
-- Profile Details 
-    - Item name 
-    - Example of Input: Example of item input
-    - Item: Actual set value 
-    - Description: Description on items 
-- Profile Items 
-    - hash-max-ziplist-entries
-    - hash-max-ziplist-value
-    - latency-monitor-threshold
-    - list-compress-depth
-    - list-max-ziplist-size
-    - maxmemory-policy
-    - maxmemory-samples
-    - set-max-intset-entries
-    - slowlog-log-slower-than
-    - slowlog-max-len
-    - tcp-keepalive
-    - timeout
-    - zset-max-ziplist-entries
-    - zset-max-ziplist-value
-    - replica-ignore-maxmemory (added in Redis 5.0)
-    - lazyfree-lazy-eviction (added in Redis 5.0)
-    - lazyfree-lazy-expire (added in Redis 5.0)
-    - lazyfree-lazy-server-del (added in Redis 5.0)
-    - repl-backlog-size (added in Redis 5.0)
-    - stream-node-max-bytes (added in Redis 5.0)
-    - stream-node-max-entries (added in Redis 5.0)
-    - client-query-buffer-limit (added in Redis 5.0)
-    - proto-max-bulk-len (added in Redis 5.0)
-    - activedefrag (added in Redis 5.0)
-    - active-defrag-ignore-bytes (added in Redis 5.0)
-    - active-defrag-threshold-lower (added in Redis 5.0)
-    - active-defrag-threshold-upper (added in Redis 5.0)
-    - active-defrag-cycle-min (added in Redis 5.0)
-    - active-defrag-cycle-max (added in Redis 5.0)
-    - active-defrag-max-scan-fields (added in Redis 5.0)
-    - active-expire-effort (added in Redis 6.0)
-    - lazyfree-lazy-user-del (added in Redis 6.0)
+* Profile Details 
+    * Item name 
+    * Example of Input: Example of item input
+    * Item: Actual set value 
+    * Description: Description on items 
+* Profile Items 
+    * hash-max-ziplist-entries
+    * hash-max-ziplist-value
+    * latency-monitor-threshold
+    * list-compress-depth
+    * list-max-ziplist-size
+    * maxmemory-policy
+    * maxmemory-samples
+    * set-max-intset-entries
+    * slowlog-log-slower-than
+    * slowlog-max-len
+    * tcp-keepalive
+    * timeout
+    * zset-max-ziplist-entries
+    * zset-max-ziplist-value
+    * replica-ignore-maxmemory (added in Redis 5.0)
+    * lazyfree-lazy-eviction (added in Redis 5.0)
+    * lazyfree-lazy-expire (added in Redis 5.0)
+    * lazyfree-lazy-server-del (added in Redis 5.0)
+    * repl-backlog-size (added in Redis 5.0)
+    * stream-node-max-bytes (added in Redis 5.0)
+    * stream-node-max-entries (added in Redis 5.0)
+    * client-query-buffer-limit (added in Redis 5.0)
+    * proto-max-bulk-len (added in Redis 5.0)
+    * activedefrag (added in Redis 5.0)
+    * active-defrag-ignore-bytes (added in Redis 5.0)
+    * active-defrag-threshold-lower (added in Redis 5.0)
+    * active-defrag-threshold-upper (added in Redis 5.0)
+    * active-defrag-cycle-min (added in Redis 5.0)
+    * active-defrag-cycle-max (added in Redis 5.0)
+    * active-defrag-max-scan-fields (added in Redis 5.0)
+    * active-expire-effort (added in Redis 6.0)
+    * lazyfree-lazy-user-del (added in Redis 6.0)
 
 ## Alarms 
 
@@ -480,14 +501,14 @@ Specify the condition, target, and recipient group for an alarm.
 
 3. There are two alarm conditions: **Metric Condition** and **Event Condition**. 
 
-    - **Metric Condition**: You can specify alarm conditions using various performance indicators (see Monitoring) collected from the cache instance, and the following conditions can be specified.
-        - Metric name, operator, type of collection, frequency of evaluation, threshold value
-    - **Event Condition**: You can specify the event you want to be notified of among all events that occur within the service (see Event Items).
+    * **Metric Condition**: You can specify alarm conditions using various performance indicators (see Monitoring) collected from the cache instance, and the following conditions can be specified.
+        * Metric name, operator, type of collection, frequency of evaluation, threshold value
+    * **Event Condition**: You can specify the event you want to be notified of among all events that occur within the service (see Event Items).
 
 4. If it is difficult to determine the settings required for the **Metric Condition** and **Event Condition**, consider using the default template provided in **Alarm Template**.
 
-    - **Default-Standalone**: Recommended alarm trigger conditions for replication groups operated as standalone
-    - **Default- HA**: Recommended alarm trigger conditions for replication groups operated as replication
+    * **Default-Standalone**: Recommended alarm trigger conditions for replication groups operated as standalone
+    * **Default- HA**: Recommended alarm trigger conditions for replication groups operated as replication
 
 5. Click **View Recipient Groups** to check recipient groups or add more. 
 
@@ -504,21 +525,21 @@ Alarm recipients can be managed under each group.
 
 ![not_re_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/alarm_004.PNG)
 
-- To check recipient groups, click **View Recipient Groups**. 
-- If you don't have a group in need, click **Create Recipient Groups** to create a new group. 
-- Available recipients to be specified by each group are confined to project members only. 
-    - Messages can be mailed or texted to the email address or phone number registered for NHN Cloud membership. 
-- Note that, by deleting a current recipient group for alarm rules, no more alarms are to be sent, if there's no other recipient group.
+* To check recipient groups, click **View Recipient Groups**. 
+* If you don't have a group in need, click **Create Recipient Groups** to create a new group. 
+* Available recipients to be specified by each group are confined to project members only. 
+    * Messages can be mailed or texted to the email address or phone number registered for NHN Cloud membership. 
+* Note that, by deleting a current recipient group for alarm rules, no more alarms are to be sent, if there's no other recipient group.
 
 The created receiver group can be used across all regions.
 
 ##### Constraints 
 
-- If there's only one replication group as the target of alarm rules, and if the group has been deleted from the replication group page, further alarms are to be sent to all replication groups because its only replication group is gone. 
-- If there's only one recipient group for alarm rules, and if the group has been deleted from the detail recipient group page, no further alarms can be sent because its only recipient group is gone. 
-- Alarms for the creation of a replication group are sent for all replication groups, even if there's a target replication group. 
-- If a new user is added to a project, about an hour of wait time may be incurred until the user is synchronized to the list of project users of a recipient group.
-- Even when an alarm rule specifies a specific replication group in the target replication group, alarm rules without specified replication group will be synchronized in other regions and they will be applied to all regions.
+* If there's only one replication group as the target of alarm rules, and if the group has been deleted from the replication group page, further alarms are to be sent to all replication groups because its only replication group is gone. 
+* If there's only one recipient group for alarm rules, and if the group has been deleted from the detail recipient group page, no further alarms can be sent because its only recipient group is gone. 
+* Alarms for the creation of a replication group are sent for all replication groups, even if there's a target replication group. 
+* If a new user is added to a project, about an hour of wait time may be incurred until the user is synchronized to the list of project users of a recipient group.
+* Even when an alarm rule specifies a specific replication group in the target replication group, alarm rules without specified replication group will be synchronized in other regions and they will be applied to all regions.
 
 ## Events
 
@@ -530,13 +551,13 @@ The created receiver group can be used across all regions.
 
 ![eve_002.PNG](https://static.toastoven.net/prod_easycache/20.04.28/event_001.PNG)
 
-- Search by time or date is available. 
-- Event data can be retained for a month. 
-- Event type refers to a resource type from which an event has occurred. 
-    - ALL: Events related to NODE and REPLICATION_GROUP. 
-    - NODE: Events related to NODE. 
-    - REPLICATION_GROUP: Events related to REPLICATION_GROUP. 
-    - PROFILE: Events related to PROFILE. 
+* Search by time or date is available. 
+* Event data can be retained for a month. 
+* Event type refers to a resource type from which an event has occurred. 
+    * ALL: Events related to NODE and REPLICATION_GROUP. 
+    * NODE: Events related to NODE. 
+    * REPLICATION_GROUP: Events related to REPLICATION_GROUP. 
+    * PROFILE: Events related to PROFILE. 
 
 ##### Event Items 
 
@@ -550,8 +571,9 @@ The created receiver group can be used across all regions.
 |             |  Import Data | Start, Failed to set up user OBS, Failed to download data file, Damaged files or unsupported file format, Failed to restart node, Failed to synchronize replica, Terminate |
 |             |  Export Data | Start, failed to set user Object Storage Service, failed to create data file, failed to upload data file, end |
 |             |  Restore Existing Replication Group | Start, Failed to download data file, Damaged files or unsupported file format, Failed to restart node, Failed to synchronize replica, Terminate |
-|             |  Update HA Settings | Start, Fail, Terminate |
-|             | Change Master | Start, Fail, Terminate |
+|             |  Update HA Settings | Started, Failed, Closed |
+|             |  Upgrade Version | Started, Failed, Closed |
+|             | Change Master | Started, Failed, Closed |
 | **Publicly Credited Domain** | Set | Started, Failed, Closed |
 |             | Cancel | Started, Failed, Closed |
 | **Read-Only Domain** | Set | Started, Failed, Closed |
@@ -590,7 +612,7 @@ The created receiver group can be used across all regions.
 * Depending on the node type, the impact of restart on service is as follows:
     * MASTER: The restart feature can be used after changing the master node to replica node by selecting **Replication Group > Change Master**. Standalone type can be used without change.
     * REPLICA : No impact on service.
-    * HA : During restart, failover might not be guaranteed or a failover event might occur.
+    * HA: During restart, failover is not guaranteed and a failover event may occur.
 
 * If it is determined that the service is affected by the node move, please contact the NHN Cloud customer center and we will guide you through the appropriate action.
 
