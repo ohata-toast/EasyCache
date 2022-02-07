@@ -3,7 +3,7 @@
 ### 2022. 02. 22.
 
 #### 기능 개선
-* maxmemory-policy의 디폴트 값을 volatile-lru에서 allkeys-lru으로 변경
+* maxmemory-policy의 기본값을 volatile-lru에서 allkeys-lru로 변경
 
 ### 2021. 11. 23.
 
