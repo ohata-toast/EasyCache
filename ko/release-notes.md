@@ -1,5 +1,10 @@
 ## Database > EasyCache > 릴리스 노트
 
+### 2022. 02. 22.
+
+#### 기능 개선
+* maxmemory-policy의 기본값을 volatile-lru에서 allkeys-lru로 변경
+
 ### 2021. 11. 23.
 
 #### 기능 추가
