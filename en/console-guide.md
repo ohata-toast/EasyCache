@@ -135,6 +135,8 @@ You may create a backup for replication group at a time of choice. Even if a rep
 * Description: Enter description of a backup. 
 * Backup Retention Period: You may not delete, or retain backup from 1 day, up to 30 days. 
 
+> [Caution] EasyCache, as a Redis-based cache service, does not provide any features for data persistence other than the automatic and manual backup provided by the web console page. Therefore, in case of data loss due to restart or unexpected failure, the data cannot be recovered if there is no backup data created by automatic and manual backup.
+
 ### Configure Public Domains
 * Access to a replication group is available only on instances sharing the same subnet; but to enable external access, configure public domain setting from domain management. 
 
