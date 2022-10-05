@@ -1,5 +1,8 @@
 ## Database > EasyCache > 릴리스 노트
 
+### 2022. 10. 11.
+* 복제 그룹의 접속을 위한 도메인을 easycache.cloud.toast.com에서 easycache.nhncloudservice.com으로 변경
+
 ### 2022. 02. 22.
 
 #### 기능 개선
