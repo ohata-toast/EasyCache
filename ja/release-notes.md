@@ -1,5 +1,8 @@
 ## Database > EasyCache > リリースノート
 
+### 2022. 10. 11.
+* レプリケーショングループの接続のためのドメインをeasycache.cloud.toast.comからeasycache.nhncloudservice.comに変更
+
 ### 2022. 02. 22.
 
 #### 機能改善
