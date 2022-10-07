@@ -1,5 +1,9 @@
 ## Database > EasyCache > Release Notes
 
+### October 11, 2022
+
+* Changed the domain for replication groups to connect from easycache.cloud.toast.com to easycache.nhncloudservice.com
+
 ### February 22, 2022
 
 #### Feature Updates
