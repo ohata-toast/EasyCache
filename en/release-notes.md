@@ -1,5 +1,11 @@
 ## Database > EasyCache > Release Notes
 
+### November 15, 2022
+
+#### Bug Fixes
+* Fixed an issue where an error message occurs when registering connection information in bulk
+* Fixed an issue where HA restoration does not work properly when adding a node fails
+
 ### October 11, 2022
 
 * Changed the domain for replication groups to connect from easycache.cloud.toast.com to easycache.nhncloudservice.com
