@@ -1,5 +1,14 @@
 ## Database > EasyCache > Release Notes
 
+### January 10, 2023
+
+#### Feature Updates
+* Added support for Redis 7.0.7
+* Improved to display the protected-mode item in Profile
+
+#### Bug Fixes
+* Fixed an issue where version upgrade retry fails under certain conditions
+
 ### November 15, 2022
 
 #### Bug Fixes
