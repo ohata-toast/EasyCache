@@ -1,5 +1,10 @@
 ## Database > EasyCache > Release Notes
 
+### February 14, 2023
+
+#### Feature Updates
+* Improved internal performance
+
 ### January 10, 2023
 
 #### Feature Updates
