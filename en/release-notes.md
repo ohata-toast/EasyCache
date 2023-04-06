@@ -1,5 +1,10 @@
 ## Database > EasyCache > Release Notes
 
+### April 11, 2023
+
+#### Bug Fixes
+* Fixed an issue where alarms in some value ranges do not occur under system memory metrics conditions
+
 ### March 14, 2023
 
 #### Feature Updates
