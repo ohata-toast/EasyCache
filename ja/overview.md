@@ -10,6 +10,7 @@ NHN Cloud EasyCacheは、Redis(REmote DIctionary Server)をクラウド環境で
 
 * 必要な時に即時に作成できるRedisサーバーです。 
 * 管理機能を使用できます。
+* 証明書を利用して安全に使用できます。
 
 ### モニタリング
 
