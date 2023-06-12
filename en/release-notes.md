@@ -1,5 +1,12 @@
 ## Database > EasyCache > Release Notes
 
+### June 13, 2023
+
+#### Feature Updates
+
+* Terminated the feature to create new replication groups in Redis 5.0.8
+* Added a feature to communicate using TLS certificates
+
 ### April 11, 2023
 
 #### Bug Fixes
