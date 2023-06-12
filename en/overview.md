@@ -11,6 +11,7 @@ You can use a highly available Redis server with simple settings.
 
 * A Redis server that can be created instantly when you want.
 * You can use management features.
+* You can use replication group securely using certificates.
 
 ### Monitoring
 

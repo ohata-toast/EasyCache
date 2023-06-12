@@ -32,9 +32,17 @@ To use EasyCache, you must create a replication group first.
         * Backup Retention Period: Available from 1 day up to 30 days 
         * Backup Start Time: Specify start time of backup, by 30-minute interval. 
         * Backup Time: Backup starts randomly between start time and specified time. Available from 1 hour up to 3 hours. 
-3. Click **Create**. 
+    * TLS Certificate Setting: Select one of the certificates stored in Certificate Manager to communicate with TLS certificate. If you decide to use a TLS certificate at the time of replication group creation, you can't change it later.
+        * TLS Service Port: Port for connections using a TLS certificate. The port must be set between 10000 and 12000, differently with the service port.
+        * Use TLS Service Port Only: You can enable connections using only the TLS service port. If you enable this feature, you won't be able to connect using regular service ports.
+        * Select Certificate: Select one of the TLS certificates stored in Certificate Manager. You must enter the Appkey of Certificate Manager product.
+        * **redis requires a public key, a secret key, and a CA public key.**
+        Therefore, for the certificate to use, relevant keys must be included. For how to create a key, see [Certificate Manager > Trouble Shooting Guide](https://docs.nhncloud.com/en/Management/Certificate%20Manager/en/troubleshooting-guide/).
 
-4. Check inputs on the screen and click **Create**. 
+
+3. Click **Create**.
+
+4. After confirming what is entered in the screen, click **Create**.
    Along with a replication group, a master node is created. It takes a few minutes to create. 
 
 ##### Constraints 
@@ -237,6 +245,14 @@ You may create a backup for replication group at a time of choice. Even if a rep
 * The Replica node is changed to Master node, and the existing Master node is changed to Replica node.
 * When there are 2 Replica nodes, change the Replica node appropriate for the system to Master node.
 
+### Replace Certificate
+
+* To replace the certificate for a replication group that uses a TLS certificate, select the replication group that currently uses the TLS certificate, and then click the Options button (⋯) > **Replace Certificate**.
+* Enter the appkey for your Certificate Manager product to get TLS certificates.
+* Select a TLS certificate you want and proceed to change the certificate.
+
+> [Caution] When you replace the certificate, the replication group is restarted to return to the data at the time of the backup, or if no backup was performed, the data is initialized.
+
 ### Replication Group Details 
 
 Details of a replication group, such as basic, access, node, and monitoring, can be found. 
@@ -250,7 +266,8 @@ The following items can be found:
 
 * Name, description, type, version, service port, and instance type of replication group 
 * Max memory, availability area, and configuration profile 
-* VPC Subnet(subnetwork), creation date, automatic backup settings, number of nodes 
+* VPC Subnet(subnetwork), creation date, automatic backup settings, number of nodes
+* Whether TLS certificate enabled, TLS service port, TLS certificate name
 
 The following items can be found when there's a replica node: 
 
@@ -266,7 +283,18 @@ Select a created replication group and click **Access Information**.
 * Press **Copy** to copy password. 
 * Check available domain information. 
 * A Redis node without public domain setting does not allow external access. 
-* Click **Copy** to copy domain. 
+* Click **Copy** to copy domain.
+* For replication groups with TLS certificate, must add the following options.
+    * --tls: Select whether to use TLS.
+    * --cert {Path for public key}: Enter the public key extracted from a certificate used for connection.
+    * --key {Path for secret key}: Enter the secret key extracted from a certificate used for connection.
+    * --cacert {Path for CA key}: Enter the CA key extracted from a certificate used for connection.
+    * **redis requires a public key, a secret key, and a CA public key.**  Therefore, for the certificate to use, relevant keys must be included. For how to create a key, see [Certificate Manager > Trouble Shooting Guide](https://docs.nhncloud.com/en/Management/Certificate%20Manager/en/troubleshooting-guide/).
+
+```
+ex) redis-cli -h {IP or domain} -p {TLS service port} --tls --cert {Path for public key} --key {Path for secret key} --cacert {Path for CA key}
+```
+
 * Access information is available on an application of node connected with same VPC subnet. 
 * Commands are executable on nodes connected with same VPC subnet. 
 * Access Control Information: Enter accessible users to a replication group in the CIDR format. 
