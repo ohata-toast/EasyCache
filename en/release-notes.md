@@ -9,7 +9,7 @@
 
 #### Bug Fixes
 
-* Fixed an issue where HA reset  fails under certain conditions
+* Fixed an issue where HA reset fails under certain conditions
 
 ### June 13, 2023
 
