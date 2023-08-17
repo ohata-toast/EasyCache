@@ -1,5 +1,16 @@
 ## Database > EasyCache > Release Notes
 
+### August 17, 2023
+
+#### Feature Updates
+
+* Modified the access port information for replication groups using TLS certificate in accordance with TLS access port format.
+
+
+#### Bug Fixes
+
+* Fixed an issue where HA reset fails under certain conditions
+
 ### June 13, 2023
 
 #### Feature Updates
