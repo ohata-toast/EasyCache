@@ -1,5 +1,15 @@
 ## Database > EasyCache > Release Notes
 
+### September 12, 2023
+
+#### Feature Updates
+
+* Improved internal performance
+
+#### Bug Fixes
+
+* Fixed an issue where the profile field appears as empty after Redis version upgrade
+
 ### August 17, 2023
 
 #### Feature Updates
