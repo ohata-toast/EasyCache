@@ -1,5 +1,11 @@
 ## Database > EasyCache > Release Notes
 
+### October 17, 2023
+
+#### Bug Fixes
+
+* Fixed an issue where the time for deleting auto backups could differ from the expected time by up to 3 hours.
+
 ### September 12, 2023
 
 #### Feature Updates
