@@ -1,5 +1,11 @@
 ## Database > EasyCache > Release Notes
 
+### November 14, 2023
+
+#### Feature Udpates
+
+* Added a note that the service is scheduled for End of Life in Japan (Tokyo) region when creating replication groups
+
 ### October 17, 2023
 
 #### Bug Fixes
