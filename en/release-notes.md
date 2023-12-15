@@ -1,5 +1,17 @@
 ## Database > EasyCache > Release Notes
 
+### December 19, 2023
+
+#### Feature Updates
+
+* Ended service in Japan (Tokyo) region
+
+#### Bug Fixes
+
+* Fixed a bug with excessive sending of emails and text messages in response to event occurrence
+* Fixed a bug where changing TLS certificate fails intermittently
+
+
 ### November 14, 2023
 
 #### Feature Udpates
