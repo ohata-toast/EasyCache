@@ -1,5 +1,11 @@
 ## Database > EasyCache > Release Notes
 
+### December 19, 2023
+
+#### Feature Updates
+
+* Ended service in Japan (Tokyo) region
+
 ### November 14, 2023
 
 #### Feature Udpates
