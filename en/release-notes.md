@@ -1,5 +1,17 @@
 ## Database > EasyCache > Release Notes
 
+### January 23, 2024
+
+#### Feature Updates
+
+* Improved internal library
+
+#### Bug Fixes
+
+* Fixed an issue where duplicate event conditions are exposed on the alarm rule creation screen
+* Fixed aexcessive alarm occurrence
+* Fixed master down judgment time error that occurred under certain conditions
+
 ### December 19, 2023
 
 #### Feature Updates
