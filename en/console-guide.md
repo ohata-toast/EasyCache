@@ -31,7 +31,7 @@ To use EasyCache, you must create a replication group first.
     * Auto Backup Setting: Select whether to use auto backup. 
         * Backup Retention Period: Available from 1 day up to 30 days 
         * Backup Start Time: Specify start time of backup, by 30-minute interval. 
-        * Backup Time: Backup starts randomly between start time and specified time. Available from 1 hour up to 3 hours. 
+        * Backup Window: Backup starts randomly between start time and backup window. Available from 1 hour up to 3 hours. 
     * TLS Certificate Setting: Select one of the certificates stored in Certificate Manager to communicate with TLS certificate. If you decide to use a TLS certificate at the time of replication group creation, you can't change it later.
         * TLS Service Port: Port for connections using a TLS certificate. The port must be set between 10000 and 12000, differently with the service port.
         * Use TLS Service Port Only: You can enable connections using only the TLS service port. If you enable this feature, you won't be able to connect using regular service ports.
@@ -110,7 +110,7 @@ By adding a replica node to the standalone master node, high availability is aut
 * Auto Backup Setting: Select whether to use auto backup. 
     * Retention Period: Available from 1 day up to 30 days.
     * Backup Start Time: Specify start time of a backup, by 30-minute interval.
-    * Backup Time: Backup to start randomly between start time and a specific time, from 1 hour up to 3 hours. 
+    * Backup window: Backup to start randomly between start time and backup window, from 1 hour up to 3 hours. 
 
 - The following is an item that can be found when a replica node is available.
     - Master Down Time: Wait time can be configured for a health check response to see if the master node is down; default is 3000ms. 
@@ -123,7 +123,7 @@ By adding a replica node to the standalone master node, high availability is aut
 * To manage auto backups that are created, go to **Backup**. 
 * When a replication group bound for backup is deleted, backup files are deleted altogether. 
 * After a backup retention period, backup files will be automatically deleted. 
-* Auto backup is to start randomly between start time and backup time. 
+* Backup starts randomly between start time and backup window.
 
 ### Create Manual Backups 
 
