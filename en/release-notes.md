@@ -1,13 +1,15 @@
 ## Database > EasyCache > Release Notes
 
-### January 23, 2024
+### February 22, 2024
 
 #### Feature Updates
 
-* Improved internal library
+* Replaced internal library
+* Added support for Redis 7.2.3
 
 #### Bug Fixes
 
+* Fixed an error where some metric conditions are not displayed correctly when viewing alarm details.
 * Fixed an issue where duplicate event conditions are exposed on the alarm rule creation screen
 * Fixed aexcessive alarm occurrence
 * Fixed master down judgment time error that occurred under certain conditions
