@@ -5,7 +5,6 @@
 #### Feature Updates
 
 * Replaced internal library
-* Added support for Redis 7.2.3
 
 #### Bug Fixes
 
