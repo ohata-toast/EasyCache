@@ -1,5 +1,11 @@
 ## Database > EasyCache > Release Notes
 
+### March 12, 2024
+
+#### Feature Updates
+
+* Added support for Redis 7.2.3
+
 ### February 22, 2024
 
 #### Feature Updates
