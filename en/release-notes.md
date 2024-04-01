@@ -4,7 +4,7 @@
 
 #### Feature Updates
 
-* Added support for Redis 7.2.3
+* Added support for Redis 7.2.4
 
 ### February 22, 2024
 
