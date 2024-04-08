@@ -228,6 +228,7 @@ You may create a backup for replication group at a time of choice. Even if a rep
 ![version_up_001.png](https://static.toastoven.net/prod_easycache/21.10.29/version_up_001.png)
 
 ##### Constraints 
+* Redis versions below 7.0.7 can be upgraded to the next version after a one-time upgrade to 7.0.7.
 * If the existing replication group to upgrade the Redis version has a custom configuration profile other than the default configuration profile applied, and you want to apply the same configuration profile when upgrading, create a custom configuration profile with Redis version 6 in **Profile Settings** in advance and select the corresponding configuration profile when upgrading the version.
 * If a read-only domain is set, you can upgrade the version after clearing the read-only domain setting.
 * For **standalone** type replication groups
