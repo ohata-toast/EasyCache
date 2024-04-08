@@ -1,10 +1,16 @@
 ## Database > EasyCache > Release Notes
 
+### April 9, 2024
+
+#### Bug Fixes
+
+* Fixed an issue where abnormal replication group loading status lasts infinitely
+
 ### March 12, 2024
 
 #### Feature Updates
 
-* Added support for Redis 7.2.3
+* Added support for Redis 7.2.4
 
 ### February 22, 2024
 
