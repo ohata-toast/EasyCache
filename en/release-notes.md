@@ -1,5 +1,11 @@
 ## Database > EasyCache > Release Notes
 
+### May 14, 2024
+
+#### Bug Fixes
+
+* Fixed an issue where, when selecting a certificate, the certificate list cannot be extended above a certain height
+  
 ### April 9, 2024
 
 #### Bug Fixes
