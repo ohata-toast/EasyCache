@@ -218,27 +218,45 @@ You may create a backup for replication group at a time of choice. Even if a rep
 * Redundant manual backup is unavailable. Try again after current manual backup is done. 
 * Executing a manual backup during auto backup time may cause delays in the backup.
 
-### Upgrade a Version
-* You can upgrade an existing replication group that is Redis version 5 to Redis version 6.
-* To run a version upgrade, select a target replication group that is Redis version 5, click the more actions button (⋯) and click **Upgrade Version**.
-* In the **Upgrade Version** dialog, you can select the configuration profile that will be applied when upgrading the version.
-* Performing data backup before running a version upgrade lets you protect against data loss and other contingencies.
-* Running a version upgrade when the replication group's network traffic is low can increase the speed and reliability of the upgrade.
+### Upgrade Engine Version
+* You can upgrade an existing replication group that is Redis version 5 to the latest Redis version.
+* To run a version upgrade, select a target replication group that is Redis version 5, click the more actions button (⋯) and click **Upgrade Engine Version**.
+* In the **Upgrade Engine Version** window, you can select the configuration profile that will be applied when upgrading the version.
+* Performing data backup before running engine version upgrade lets you protect against data loss and other contingencies.
+* Running the engine version upgrade when the replication group's network traffic is low can increase the speed and reliability of the upgrade.
 
 ![version_up_001.png](https://static.toastoven.net/prod_easycache/21.10.29/version_up_001.png)
 
 ##### Constraints 
 * Redis versions below 7.0.7 can be upgraded to the next version after a one-time upgrade to 7.0.7.
-* If the existing replication group to upgrade the Redis version has a custom configuration profile other than the default configuration profile applied, and you want to apply the same configuration profile when upgrading, create a custom configuration profile with Redis version 6 in **Profile Settings** in advance and select the corresponding configuration profile when upgrading the version.
+* For replication groups with customization profiles applied, you must pre-create the appropriate version of the customization profile in **Profile Settings** to apply a customization profile that is similar to your existing settings and is specific to the version you are upgrading to. Then, when you upgrade your Redis version, select the pre-created customization profile.
 * If a read-only domain is set, you can upgrade the version after clearing the read-only domain setting.
 * For **standalone** type replication groups
-    * Write operations to the replication group that occur during a version upgrade are excluded from data restoration target after upgrade.
-    * If the Redis server is restarted during a version upgrade, read and write operations to the replication group become temporarily unavailable.
+    * Write operations to the replication group that occur during engine version upgrade are excluded from data restoration target after upgrade.
+    * If the Redis server is restarted during engine version upgrade, read and write operations to the replication group become temporarily unavailable.
 * For **replication** type replication groups
-    * The master node is changed after a version upgrade.
-    * During a version upgrade, read and write operations to the replication group are temporarily unavailable while the master change required for the upgrade is performed, and a failover event may occur.
-    * Failover is not guaranteed while an HA node is being upgraded during a version upgrade.
+    * The master node is changed after engine version upgrade.
+    * During engine version upgrade, read and write operations to the replication group are temporarily unavailable while the master change required for the upgrade is performed, and a failover event may occur.
+    * Failover is not guaranteed while an HA node is being upgraded during engine version upgrade.
 * If the version upgrade fails, you can run the version upgrade again by clicking **Replication Group > ⋯ > Upgrade Version**.
+
+### Upgrade OS Version
+* For security reasons or customer needs, you can upgrade the version of the OS being used on the nodes that make up the replication group to the latest version offered by the EasyCache service (Ubuntu 22.04 as of August 13, 2024).
+* To upgrade the OS version, select the replication group to which the node with the lower OS version belongs, click the More actions button (⋯), and then click **Upgrade OS version**.
+* In the **Upgrade OS Version** window, you can select the nodes to upgrade the OS version.
+* Upgrading the OS version essentially creates a new node to replace the existing node, but retains the name and IP information of the existing node.
+* Performing a data backup before running an OS version upgrade helps you prepare for contingencies such as data loss.
+* Running OS version upgrades when network traffic in the replication group is low can increase upgrade speed and reliability.
+
+![version_up_001.png](https://static.toastoven.net/prod_easycache/21.10.29/version_up_001.png)
+
+##### Constraints
+* For replication groups of type **standalone** 
+    * Because OS version upgrades are performed by replacing nodes, there may be a loss of job information during the time that the master node's OS version is being upgraded due to a loss of communication.
+* For replication groups of type **replication**
+    * Only replica nodes, not master nodes, can upgrade the OS version.
+    * To upgrade a master node, you must first change the master using the Change Master feature, and then select an existing master node to proceed with the OS upgrade.
+    * If the HA node in the replication group to which the node whose OS version you are upgrading is part of does not have the latest OS version, the OS upgrade will also occur at the same time, which can take longer in some cases.
 
 ### Change Master
 
@@ -372,6 +390,107 @@ EasyCache collects monitoring items that are required to run and use Redis at ev
     * set Execution Count 
     * set usec/get calls
 
+## Server Dashboard
+
+Server Dashboard helps to visualize performance metrics on a chart. The charts are arranged according to a preset layout. Metrics are collected at every minute and retained for up to 5 years. Metric data are collected by the average of 5 minutes, 30 minutes, 2 hours, or 1 day. Each collecting unit provides different retention period like below:
+
+| Collecting Unit | Retention Period |
+|-------|-------|
+| 1 minute    | 7 days    |
+| 5 minutes    | 1 month   |
+| 30 minutes   | 6 months   |
+| 2 hours   | 2 years    |
+| 1 day    | 5 years    |
+
+### Layout
+
+You can use layouts to indicate the size and position of the chart. The `default`layout provides `default system metrics` and `default Redis metrics`when you activate the service. You cannot change or delete the default layouts. You also cannot add charts, or change or delete charts that have been added. If you want to see information in a chart that is not included in the default layouts, you can create a new layout to add the chart.
+
+![server-dashboard-layout](https://static.toastoven.net/prod_rds_postgres/20240611/server-dashboard-layout-ko.png)
+
+❶ Click **Manage Layout**to bring up a pop-up screen to manage your layouts.
+You can create a layout by clicking ❷ **+ Create Layout**.
+- Enter a name for the layout and press **Create** to create the layout.
+Click the ❸ button to change the added layout.
+Click the ❹ button to delete the added layout.
+
+#### Add a chart to a layout
+
+![server-dashboard-chart-add](https://static.toastoven.net/prod_rds_postgres/20240611/server-dashboard-chart-add-ko.png)
+
+❶ Select the layout you want.
+❷ Click **+ Add chart** to show a pop-up window where you can add a chart.
+❸ You can select multiple indicators to add by checking the checkboxes.
+❹ Click the indicator name and the chart will appear in the left preview area.
+❺ Click **Add** to add all the selected charts.
+
+#### Change and delete charts in a layout
+
+![server-dashboard-chart-manage](https://static.toastoven.net/prod_rds_postgres/20240611/server-dashboard-chart-manage-ko.png)
+
+❶ You can click and drag and drop the top area of the chart to reposition it.
+❷ You can change the size of the chart by dragging and dropping the bottom right area of the chart.
+❸ Click **x** at the top-right the chart to delete the chart from the layout.
+
+### Chart
+
+You can view various performance metrics for your nodes in the form of charts. Each performance metric is organized into a different type of chart. In addition to basic system metrics, Redis provides various performance metrics in charts. The following are the metrics that can be viewed by chart.
+
+| Chart                 | Metric (Unit)                                                               | Note                                |
+|--------------------|----------------------------------------------------------------------|-----------------------------------|
+| CPU Usage            | cpu used (%)                                                         |                                   |
+| CPU Details             | cpu user (%)<br/>cpu system (%)<br/>cpu nice (%)<br/>cpu IO wait (%) |                                   |
+| CPU load average          | 1m<br/>5m<br/>15m                                                    |                                   |
+| Memory Usage            | memory used (%)                                                      |                                   |
+| Memory Details             | memory used (bytes)<br/>memory free (bytes)                          |                                   |
+| Swap usage             | swap used (bytes)<br> swap total (bytes)                             |                                   |
+| Storage usage        | storage used (%)                                                     |                                   |
+| Storage Free Usage     | storage free (%)                                                     |                                   |
+| Storage IO         | disk read (bytes)<br> disk write (bytes)                             |                                   |
+| Network data transfer       | nic incoming (bytes)<br> nic outgoing (bytes)                        | Basic network transports used by Redis occur. |
+| Data storage defects        | disk fault status                                                    | Abnormal: 0, Normal: 1                     |
+| Redis memory usage      | Redis memory usage (bytes)                                                |                                   |
+| Redis memory usage (rss) | Redsis memory usage rss (bytes)                                           |                                   |
+| Memory fragmentation rate         | Memory fragmentation rate (%)                                                       |                                   |
+| Commands processed per second        | Commands processed per second (ops/1sec)                                               |                                   |
+| Input bytes             | Input bytes (bytes)                                                       |                                   |
+| Output bytes             | Output bytes (bytes)                                                       |                                   |
+| Number of expired keys (expired)   | Number of expired keys (counts)                                                     |                                   |
+| Number of keys evicted (evicted)   | Number of keys evicted (counts)                                                     |                                   |
+| Number of successful views            | Number of successful hits (counts)                                                     |                                   |
+| Number of failed lookups            | Number of failed lookups (counts)                                                     |                                   |
+| Lookup success rate             | Lookup success rate (%)                                                           |                                   |
+| Number of keys               | Key counts (counts)                                                        |                                   |
+| GET execution count          | GET Execution count (counts)                                                   |                                   |
+| Number of hget executions         | Number of hget executions                                                  |                                   |
+| get usec/get calls | get usec/get calls (counts)                                          |                                   |
+| Number of set executions          | set execution count (counts)                                                   |                                   |
+| Number of hset executions         | Number of hset executions (counts)                                                  |                                   |
+| set usec/get calls | set usec/get calls (counts)                                          |                                   |
+
+### Server Groups
+
+Server groups allow you to view performance metrics for multiple nodes in a single chart. Performance metrics for each node in a server group appear in a single chart. Charts with multiple performance metrics all change to individual performance metrics in a server group.
+
+#### Create a Server Group
+
+![server-dashboard-group-add](https://static.toastoven.net/prod_rds_postgres/20240611/server-dashboard-group-add-ko.png)
+
+❶ Click **+ Add Group to**bring up a pop-up screen where you can create a group.
+❷ Select the nodes you want to add to the server group.
+
+#### Setting Server Groups
+
+Nodes and server groups appear together in the list of servers on the left side of the servers dashboard.
+
+![server-dashboard-group-manage](https://static.toastoven.net/prod_rds_postgres/20240611/server-dashboard-group-manage-ko.png)
+
+❶ You can expand or close the server group by pressing **+**, \*\*-**.
+❷ Click on a node that belongs to a server group shows a color selection popup that allows you to change the color that will be displayed in the chart.
+
+![server-dashboard-group-menu](https://static.toastoven.net/prod_rds_postgres/20240611/server-dashboard-group-menu-ko.png)
+
+❶ \*\*:**You can change or delete a server group by clicking the menu icon that appears to the right of each entry in the server list.
 
 ## Backup
 
@@ -533,7 +652,9 @@ Specify the condition, target, and recipient group for an alarm.
 3. There are two alarm conditions: **Metric Condition** and **Event Condition**. 
 
     * **Metric Condition**: You can specify alarm conditions using various performance indicators (see Monitoring) collected from the cache instance, and the following conditions can be specified.
-        * Metric name, operator, type of collection, frequency of evaluation, threshold value
+        * A metric notification consists of a monitoring item, comparison method, threshold, and duration.
+        * Compares the performance metric value of the watch item to the threshold value to determine if the condition is met. If the condition is met for at least the duration, a notification is sent. For example, if the threshold for CPU utilization is greater than or equal to 90% and the duration is 5 minutes, notifications are sent to users defined in the user group when a node associated with that notification group has CPU utilization greater than or equal to 90% for more than 5 minutes. Even if CPU utilization is above 90%, if it drops below 90% within 5 minutes, no notification is triggered.
+
     * **Event Condition**: You can specify the event you want to be notified of among all events that occur within the service (see Event Items).
 
 4. If it is difficult to determine the settings required for the **Metric Condition** and **Event Condition**, consider using the default template provided in **Alarm Template**.
@@ -547,22 +668,21 @@ Specify the condition, target, and recipient group for an alarm.
 
 7. After setting is done, click **Create**. 
 
-The created alarm rules can be temporarily disabled by setting the alarm to 'Disabled.'
-The alarm rules are applied to all regions. 
+The created alarm rules can be temporarily disabled by setting the alarm to 'Disabled.' 
 
 ### Recipient Groups 
 
-Alarm recipients can be managed under each group. 
+Alarm recipients can be managed under each group. The recipient of the notification must be enrolled as a project member. If a user in a user group is removed as a project member, they won't receive the notification, even if they belong to the user group.
 
+> [Caution]
+>  If you don't have your phone information because you haven't verified your real name, you won't receive SMS notifications.
 ![not_re_001.PNG](https://static.toastoven.net/prod_easycache/20.04.28/alarm_004.PNG)
 
 * To check recipient groups, click **View Recipient Groups**. 
 * If you don't have a group in need, click **Create Recipient Groups** to create a new group. 
 * Available recipients to be specified by each group are confined to project members only. 
-    * Messages can be mailed or texted to the email address or phone number registered for NHN Cloud membership. 
-* Note that, by deleting a current recipient group for alarm rules, no more alarms are to be sent, if there's no other recipient group.
-
-The created receiver group can be used across all regions.
+    * You can send emails or SMS to the email address and phone number registered in your NHN Cloud membership information 
+* If you delete a recipient group that is in use in an alarm rule, it will no longer send alarms for alarm rules that have no other recipient groups.
 
 ##### Constraints 
 
