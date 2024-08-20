@@ -1,5 +1,17 @@
 ## Database > EasyCache > Release Notes
 
+### August 27, 2024
+
+#### Added Features
+
+* Added the server dashboard page
+* Added the OS version upgrade feature
+* Added the feature to record event logs when notifications are sent
+
+#### Feature Updates
+
+* Changed the default OS to Ubuntu
+
 ### May 14, 2024
 
 #### Bug Fixes
