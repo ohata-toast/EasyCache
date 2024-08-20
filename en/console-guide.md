@@ -241,7 +241,7 @@ You may create a backup for replication group at a time of choice. Even if a rep
 * If the version upgrade fails, you can run the version upgrade again by clicking **Replication Group > ⋯ > Upgrade Version**.
 
 ### Upgrade OS Version
-* For security reasons or customer needs, you can upgrade the version of the OS being used on the nodes that make up the replication group to the latest version offered by the EasyCache service (Ubuntu 22.04 as of August 13, 2024).
+* For security reasons or customer needs, you can upgrade the version of the OS being used on the nodes that make up the replication group to the latest version offered by the EasyCache service (Ubuntu 22.04 as of August 27, 2024).
 * To upgrade the OS version, select the replication group to which the node with the lower OS version belongs, click the More actions button (⋯), and then click **Upgrade OS version**.
 * In the **Upgrade OS Version** window, you can select the nodes to upgrade the OS version.
 * Upgrading the OS version essentially creates a new node to replace the existing node, but retains the name and IP information of the existing node.

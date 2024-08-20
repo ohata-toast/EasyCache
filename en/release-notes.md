@@ -1,6 +1,6 @@
 ## Database > EasyCache > Release Notes
 
-### August 13, 2024
+### August 27, 2024
 
 #### Added Features
 
