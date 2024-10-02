@@ -255,7 +255,7 @@ Standalone의 Master 노드에 Replica 노드를 추가하면 자동으로 고�
 * **replication** 타입의 복제 그룹의 경우
     * 마스터 노드가 아닌 복제 노드만 OS 버전을 업그레이드할 수 있습니다.
     * 마스터 노드를 업그레이드하려면 먼저 마스터 변경 기능을 이용해 마스터를 변경한 뒤 기존 마스터 노드를 선택하여 OS 업그레이드를 진행해야 합니다.
-    * OS 버전을 업그레이드할 노드가 속한 복제 그룹의 HA 노드가 최신 OS 버전을 사용하지 않을 경우 OS 업그레이드도 같이 진행되므로 경우에 따라 시간이 좀 더 오래 걸릴 수 있습니다.
+    * OS 버전을 업그레이드할 노드가 속한 복제 그룹의 HA 노드가 최신 OS 버전을 사용하지 않을 경우 HA 노드의 OS 버전 업그레이드도 같이 진행되므로 경우에 따라 시간이 좀 더 오래 걸릴 수 있습니다.
 
 ### 마스터 변경
 
@@ -342,53 +342,6 @@ ex) redis-cli -h {IP or 도메인} -p {TLS 서비스 포트} --tls --cert {공�
 * **현재 시간** 버튼의 오른쪽에 있는 화살표 버튼을 클릭하면 검색 기간 만큼의 이전 시간, 이후 시간을 검색할 수 있습니다.
 * **전체 화면 보기** 버튼을 클릭하면 새 창에서 1개월간의 모든 로그를 확인할 수 있습니다.
 
-## 모니터링
-
-EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 마다 수집하고 있으며, 수집한 데이터를 차트로 보여줍니다.  
-
-![monitoring_001.png](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_001.PNG)
-
-* 1시간, 24시간 등의 버튼을 누를 때마다 현재 시각을 기준으로 계산하여 갱신합니다.
-    * **1시간** 버튼은 1분마다 수집한 데이터를 차트에 표시합니다.
-    * **12시간** 버튼은 수집한 데이터의 10분간의 평균값을 차트에 표시합니다.
-    * **24시간** 버튼은 수집한 데이터의 10분간의 평균값을 차트에 표시합니다.
-    * **1개월** 버튼은 수집한 데이터의 6시간의 평균값을 차트에 표시합니다.
-    * **지정** 버튼을 클릭해 직접 검색 기간을 지정할 수 있습니다.
-* 캘린터를 클릭하여 검색 시점을 지정할 수 있습니다.
-    * 캘린더에서 날짜나 시간을 선택하여도 선택한 검색 기간은 유지됩니다.
-* 현재 시간 버튼을 클릭하면 현재시간을 기준으로 선택한 검색 기간을 재검색 합니다.
-* 현재 시간 버튼의 오른쪽에 있는 화살표 버튼을 이용하여 검색 기간 만큼의 이전 시간, 이후 시간을 검색할 수 있습니다.
-* 복제 그룹 드롭다운에서 차트를 표시할 복제 그룹을 선택할 수 있습니다.
-* 자동 갱신 을 체크하면 60초 마다 차트 데이터를 갱신합니다.
-* 차트를 클릭하면 차트를 확대하여 표시할 수 있습니다.
-* 확대한 차트에서는 통계와 집계 기간을 변경하여 표시할 수 있습니다.
-    * 통계 방법은 합산 데이터를 표시할 경우 사용되며 집계 기간이 1분이 경우에는 로우 데이터를 사용하므로 통계를 변경하여도 같은 값을 표시하게 됩니다.
-* 모니터링 데이터 보존 기간은 40일입니다.
-
-![monitoring_002.PNG](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_002.PNG)
-* 모니터링 항목은 **필터 조건**에서 원하는 항목만을 표시하도록 선택할 수 있습니다.
-* 모니터링 항목은 다음과 같습니다.
-    * CPU 이용률
-    * 시스템 메모리
-    * 연결된 클라이언트
-    * 블록된 클라이언트
-    * Redis 메모리 사용량
-    * Redis 메모리 사용량(rss)
-    * 메모리 파편화 비율
-    * 초당 처리한 명령 수
-    * 입력 바이트
-    * 출력 바이트
-    * 만료된 키 수(expired)
-    * 삭제된 키 수(evicted)
-    * 조회 성공 수
-    * 조회 실패 수
-    * 조회 성공률
-    * 키 개수
-    * get 실행 횟수
-    * get usec/get calls
-    * set 실행 횟수
-    * set usec/get calls
-
 ## 서버 대시보드
 
 서버 대시보드에서 성능 지표를 차트 형태로 시각화해 볼 수 있습니다. 차트는 미리 설정된 레이아웃에 따라 배치됩니다. 지표는 1분에 한 번씩 수집되며 최대 5년간 보관됩니다. 지표 데이터는 5분, 30분, 2시간, 1일 단위의 평균값으로 집계됩니다. 집계 단위별 보관 기간은 아래와 같습니다.
@@ -435,37 +388,40 @@ EasyCache는 Redis 운영 및 사용에 필요한 모니터링 항목을 1분 �
 
 노드의 각종 성능 지표를 차트 형태로 볼 수 있습니다. 성능 지표마다 각기 다른 형태의 차트로 구성되어 있습니다. 기본적인 시스템 지표 이외에 Redis에서 제공하는 각종 성능 지표를 차트로 제공하고 있습니다. 차트별로 확인할 수 있는 지표는 아래와 같습니다.
 
-| 차트                 | 지표(단위)                                                               | 비고                                |
-|--------------------|----------------------------------------------------------------------|-----------------------------------|
-| CPU 사용률            | cpu used (%)                                                         |                                   |
-| CPU 상세             | cpu user (%)<br/>cpu system (%)<br/>cpu nice (%)<br/>cpu IO wait (%) |                                   |
-| CPU 평균 부하          | 1m<br/>5m<br/>15m                                                    |                                   |
-| 메모리 사용량            | memory used (%)                                                      |                                   |
-| 메모리 상세             | memory used (bytes)<br/>memory free (bytes)                          |                                   |
-| 스왑 사용량             | swap used (bytes)<br> swap total (bytes)                             |                                   |
-| 스토리지 사용량        | storage used (%)                                                     |                                   |
-| 스토리지 남은 사용량     | storage free (%)                                                     |                                   |
-| 스토리지 IO         | disk read (bytes)<br> disk write (bytes)                             |                                   |
-| 네트워크 데이터 송수신       | nic incoming (bytes)<br> nic outgoing (bytes)                        | Redis에서 사용하는 기본적인 네트워크 전송이 발생합니다. |
-| 데이터 스토리지 결함        | disk fault status                                                    | 비정상: 0, 정상: 1                     |
-| Redis 메모리 사용량      | Redis 메모리 사용량 (bytes)                                                |                                   |
-| Redis 메모리 사용량(rss) | Redsis 메모리 사용량 rss (bytes)                                           |                                   |
-| 메모리 파편화 비율         | 메모리 파편화 비율 (%)                                                       |                                   |
-| 초당 처리한 명령 수        | 초당 처리한 명령 수 (ops/1sec)                                               |                                   |
-| 입력 바이트             | 입력 바이트 (bytes)                                                       |                                   |
-| 출력 바이트             | 출력 바이트 (bytes)                                                       |                                   |
-| 만료된 키 개수(expired)   | 만료된 키 개수 (counts)                                                     |                                   |
-| 삭제된 키 개수(evicted)   | 삭제된 키 개수 (counts)                                                     |                                   |
-| 조회 성공 수            | 조회 성공 수 (counts)                                                     |                                   |
-| 조회 실패 수            | 조회 실패 수 (counts)                                                     |                                   |
-| 조회 성공률             | 조회 성공률 (%)                                                           |                                   |
-| 키 개수               | 키 개수 (counts)                                                        |                                   |
-| get 실행 횟수          | get 실행 횟수 (counts)                                                   |                                   |
-| hget 실행 횟수         | hget 실행 횟수 (counts)                                                  |                                   |
-| get usec/get calls | get usec/get calls (counts)                                          |                                   |
-| set 실행 횟수          | set 실행 횟수 (counts)                                                   |                                   |
-| hset 실행 횟수         | hset 실행 횟수 (counts)                                                  |                                   |
-| set usec/get calls | set usec/get calls (counts)                                          |                                   |
+| 차트                 | 지표(단위)                                                                                           | 비고                                |
+|--------------------|--------------------------------------------------------------------------------------------------|-----------------------------------|
+| CPU 사용률            | cpu used (%)                                                                                     |                                   |
+| CPU 상세             | cpu user (%)<br/>cpu system (%)<br/>cpu nice (%)<br/>cpu IO wait (%)                             |                                   |
+| CPU 평균 부하          | 1m<br/>5m<br/>15m                                                                                |                                   |
+| 메모리 사용량            | memory used (%)                                                                                  |                                   |
+| 메모리 상세             | memory used (bytes)<br/>memory free (bytes)<br/>memory cached (bytes)<br/>memory buffers (bytes) |                                   |
+| 스왑 사용량             | swap used (bytes)<br> swap total (bytes)                                                         |                                   |
+| Storage 사용량        | storage used (%)                                                                                 |                                   |
+| Storage 남은 사용량     | storage free (%)                                                                                 |                                   |
+| Storage IO         | disk read (bytes)<br> disk write (bytes)                                                         |                                   |
+| 네트워크 데이터 송수신       | nic incoming (bytes)<br> nic outgoing (bytes)                                                    | Redis에서 사용하는 기본적인 네트워크 전송이 발생합니다. |
+| 데이터 스토리지 결함        | disk fault status                                                                                | 비정상: 0, 정상: 1                     |
+| Redis 메모리 사용량      | Redis 메모리 사용량(bytes)                                                                            |                                   |
+| Redis 메모리 사용량(rss) | Redis 메모리 사용량 rss (bytes)                                                                       |                                   |
+| 연결된 클라이언트 수        | 연결된 클라이언트 수(counts)                                                                             |                                   |
+| 연결된 복제 수           | 연결된 복제 수(counts)                                                                                |                                   |
+| 블록된 클라이언트 수        | 블록된 클라이언트 수(counts)                                                                             |                                   |
+| 메모리 파편화 비율         | 메모리 파편화 비율(%)                                                                                   |                                   |
+| 초당 처리한 명령 수        | 초당 처리한 명령 수(ops/1sec)                                                                           |                                   |
+| 입력 바이트             | 입력 바이트(bytes)                                                                                   |                                   |
+| 출력 바이트             | 출력 바이트(bytes)                                                                                   |                                   |
+| 만료된 키 수(expired)   | 만료된 키 수(counts)                                                                                 |                                   |
+| 삭제된 키 수(evicted)   | 삭제된 키 수(counts)                                                                                 |                                   |
+| 조회 성공 수            | 조회 성공 수(counts)                                                                                 |                                   |
+| 조회 실패 수            | 조회 실패 수(counts)                                                                                 |                                   |
+| 조회 성공률             | 조회 성공률(%)                                                                                       |                                   |
+| 키 갯수               | 키 개수(counts)                                                                                    |                                   |
+| get 실행 횟수          | get 실행 횟수(counts)                                                                               |                                   |
+| hget 실행 횟수         | hget 실행 횟수(counts)                                                                              |                                   |
+| get usec/get calls | get usec/get calls (counts)                                                                      |                                   |
+| set 실행 횟수          | set 실행 횟수(counts)                                                                               |                                   |
+| hset 실행 횟수         | hset 실행 횟수(counts)                                                                              |                                   |
+| set usec/get calls | set usec/get calls (counts)                                                                      |
 
 ### 서버 그룹
 
