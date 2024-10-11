@@ -248,8 +248,6 @@ You may create a backup for replication group at a time of choice. Even if a rep
 * Performing a data backup before running an OS version upgrade helps you prepare for contingencies such as data loss.
 * Running OS version upgrades when network traffic in the replication group is low can increase upgrade speed and reliability.
 
-![version_up_001.png](https://static.toastoven.net/prod_easycache/21.10.29/version_up_001.png)
-
 ##### Constraints
 * For replication groups of type **standalone** 
     * Because OS version upgrades are performed by replacing nodes, there may be a loss of job information during the time that the master node's OS version is being upgraded due to a loss of communication.
