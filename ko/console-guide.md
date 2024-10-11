@@ -394,11 +394,11 @@ ex) redis-cli -h {IP or 도메인} -p {TLS 서비스 포트} --tls --cert {공�
 | 메모리 사용량            | memory used (%)                                                                                  |                                   |
 | 메모리 상세             | memory used (bytes)<br/>memory free (bytes)<br/>memory cached (bytes)<br/>memory buffers (bytes) |                                   |
 | 스왑 사용량             | swap used (bytes)<br> swap total (bytes)                                                         |                                   |
-| Storage 사용량        | storage used (%)                                                                                 |                                   |
-| Storage 남은 사용량     | storage free (%)                                                                                 |                                   |
-| Storage IO         | disk read (bytes)<br> disk write (bytes)                                                         |                                   |
+| 스토리지 사용량        | storage used (%)                                                                                 |                                   |
+| 스토리지 남은 사용량     | storage free (%)                                                                                 |                                   |
+| 스토리지 IO         | disk read (bytes)<br> disk write (bytes)                                                         |                                   |
 | 네트워크 데이터 송수신       | nic incoming (bytes)<br> nic outgoing (bytes)                                                    | Redis에서 사용하는 기본적인 네트워크 전송이 발생합니다. |
-| 데이터 스토리지 결함        | disk fault status                                                                                | 비정상: 0, 정상: 1                     |
+| 스토리지 결함        | disk fault status                                                                                | 비정상: 0, 정상: 1                     |
 | Redis 메모리 사용량      | Redis 메모리 사용량(bytes)                                                                            |                                   |
 | Redis 메모리 사용량(rss) | Redis 메모리 사용량 rss (bytes)                                                                       |                                   |
 | 연결된 클라이언트 수        | 연결된 클라이언트 수(counts)                                                                             |                                   |

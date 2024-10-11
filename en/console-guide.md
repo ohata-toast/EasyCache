@@ -400,7 +400,7 @@ You can view various performance metrics for your nodes in the form of charts. E
 | Storage Free Usage     | storage free (%)                                                     |                                   |
 | Storage IO         | disk read (bytes)<br> disk write (bytes)                             |                                   |
 | Network data transfer       | nic incoming (bytes)<br> nic outgoing (bytes)                        | Basic network transports used by Redis occur. |
-| Data storage defects        | disk fault status                                                    | Abnormal: 0, Normal: 1                     |
+| Storage defects        | disk fault status                                                    | Abnormal: 0, Normal: 1                     |
 | Redis memory usage      | Redis memory usage (bytes)                                                |                                   |
 | Redis memory usage (rss) | Redsis memory usage rss (bytes)                                           |                                   |
 | Number of connected clients     | Number of connected clients (counts)                                         |                                   |
