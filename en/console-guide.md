@@ -248,8 +248,6 @@ You may create a backup for replication group at a time of choice. Even if a rep
 * Performing a data backup before running an OS version upgrade helps you prepare for contingencies such as data loss.
 * Running OS version upgrades when network traffic in the replication group is low can increase upgrade speed and reliability.
 
-![version_up_001.png](https://static.toastoven.net/prod_easycache/21.10.29/version_up_001.png)
-
 ##### Constraints
 * For replication groups of type **standalone** 
     * Because OS version upgrades are performed by replacing nodes, there may be a loss of job information during the time that the master node's OS version is being upgraded due to a loss of communication.
@@ -343,52 +341,6 @@ For each node, you can search for logs up to 1 month.
 * Click the arrows on the right side of **Current Time** to search further backward or forward in the same amount of selected search period.
 * Click the **View Full Screen** button to view all logs for 1 month on a new window.
 
-## Monitoring
-
-EasyCache collects monitoring items that are required to run and use Redis at every minute and shows collected data on charts. 
-
-![monitoring_001.png](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_001.PNG)
-
-* Whenever you click the buttons such as 1 Hour, 24 Hours, and so on, the display is updated as of the current time. 
-    * **1 Hour** shows data collected at every minute on a chart. 
-    * **12 Hours** shows 10-minute average of collected data on a chart. 
-    * **24 Hours** shows 10-minute average of collected data on a chart. 
-    * **1 Month** shows 6-hour average of collected data on a chart. 
-    * Click the **Custom** button to set your own search period. 
-* A search period can be set by clicking on the calendar.  
-    * Although a day or time is selected on the calendar, selected search period is maintained. 
-* Click the Current Time button to search again from the selected search period based on the current time.
-* Click the arrows on the right side of Current Time to search further backward or forward in the same amount of selected search period.
-* A replication group can be selected to show charts from the replication group dropdown. 
-* With Auto Update enabled, chart data can be updated at every 60 seconds. 
-* By clicking on the chart, it is expanded for display. 
-* On an expanded chart, statistics and collection period may be changed for display. 
-    * Statistical method is applied to show accumulated data, and if the collection time is 1 minute, same value will be displayed even with changed statistics, since low data is applied. 
-* The data storage period for monitoring is 40 days.
-
-![monitoring_002.PNG](https://static.toastoven.net/prod_easycache/20.05.14/monitoring_002.PNG)
-* In monitoring, you may opt to show selected items only from **Filter Conditions**. 
-* Find out the monitoring items as follows: 
-    * CPU Usage Ratio
-    * System Memory 
-    * Connected Client 
-    * Blocked Client 
-    * Redis Memory Usage Volume 
-    * Redis Resident Set Size (rss)
-    * Memory Fragmentation Ratio 
-    * Command Count per Second 
-    * Input Byte
-    * Output Byte 
-    * Expired Key Count 
-    * Evicted Key Count 
-    * Successful Query Count 
-    * Failed Query Count 
-    * Successful Query Rate 
-    * Key Count 
-    * get Execution Count 
-    * get usec/get calls 
-    * set Execution Count 
-    * set usec/get calls
 
 ## Server Dashboard
 
@@ -448,9 +400,12 @@ You can view various performance metrics for your nodes in the form of charts. E
 | Storage Free Usage     | storage free (%)                                                     |                                   |
 | Storage IO         | disk read (bytes)<br> disk write (bytes)                             |                                   |
 | Network data transfer       | nic incoming (bytes)<br> nic outgoing (bytes)                        | Basic network transports used by Redis occur. |
-| Data storage defects        | disk fault status                                                    | Abnormal: 0, Normal: 1                     |
+| Storage defects        | disk fault status                                                    | Abnormal: 0, Normal: 1                     |
 | Redis memory usage      | Redis memory usage (bytes)                                                |                                   |
 | Redis memory usage (rss) | Redsis memory usage rss (bytes)                                           |                                   |
+| Number of connected clients     | Number of connected clients (counts)                                         |                                   |
+| Number of connected replications           | Number of connected replications (counts)                                                                                |                                   |
+| Number of blocked clients        | Number of blocked clients (counts)                                                                             |                                   |
 | Memory fragmentation rate         | Memory fragmentation rate (%)                                                       |                                   |
 | Commands processed per second        | Commands processed per second (ops/1sec)                                               |                                   |
 | Input bytes             | Input bytes (bytes)                                                       |                                   |
