@@ -1,5 +1,15 @@
 ## Database > EasyCache > Release Notes
 
+### October 15, 2024
+
+#### Feature Updates
+- Added a notification to remind users to select either email or SMS when creating notification groups
+
+#### Bug Fixes
+- Fixed a status phrase that appears when performing engine version upgrades
+- Fixed an announcement phrase that appears immediately after requesting engine version upgrades
+- Fixed an issue where some event phrases are not displayed in English and Japanese in the console
+
 ### August 27, 2024
 
 #### Added Features
