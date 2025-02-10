@@ -345,7 +345,7 @@ ex) redis-cli -h {IP or 도메인} -p {TLS 서비스 포트} --tls --cert {공�
 ##### ACL 사용자 생성
 * ACL 사용자를 생성합니다.
 * ACL 사용자는 복제그룹 단위가 아니라 노드 단위로 관리됩니다.
-* ACL 표현식 규칙은 [ACL 공식 문서](https://valkey.io/topics/acl/)를 참고하여 설정합니다.
+* ACL 표현식 규칙은 [ACL 공식 문서](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/)를 참고하여 설정합니다.
 * 비밀번호는 ACL 사용자 당 1개만 설정할 수 있습니다.
 ##### ACL 사용자 수정
 * 비밀번호를 분실한 경우 비밀번호 수정 기능을 통해 새로운 비밀번호를 설정해야합니다.
