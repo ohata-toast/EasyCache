@@ -340,16 +340,20 @@ ex) redis-cli -h {IP or 도메인} -p {TLS 서비스 포트} --tls --cert {공�
 * **현재 시간** 버튼의 오른쪽에 있는 화살표 버튼을 클릭하면 검색 기간 만큼의 이전 시간, 이후 시간을 검색할 수 있습니다.
 * **전체 화면 보기** 버튼을 클릭하면 새 창에서 1개월간의 모든 로그를 확인할 수 있습니다.
 ##### ACL 사용자 조회
+![backup_002.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_get.png)
 * ACL 사용자 목록을 확인합니다.
 * default 사용자는 Redis 생성시 기본적으로 생성되는 사용자입니다.
 ##### ACL 사용자 생성
+![backup_002.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_create.png)
 * ACL 사용자를 생성합니다.
 * ACL 사용자는 복제그룹 단위가 아니라 노드 단위로 관리됩니다.
 * ACL 표현식 규칙은 [ACL 공식 문서](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/)를 참고하여 설정합니다.
 * 비밀번호는 ACL 사용자 당 1개만 설정할 수 있습니다.
 ##### ACL 사용자 수정
+![backup_002.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_modify.png)
 * 비밀번호를 분실한 경우 비밀번호 수정 기능을 통해 새로운 비밀번호를 설정해야합니다.
 ##### ACL 사용자 삭제
+![backup_002.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_delete.png)
 * 삭제된 사용자는 복구가 불가능합니다.
 ##### ACL 사용자 저장
 * 기본적으로 ACL 사용자 정보는 redis 재부팅시에는 유지되지 않기 때문에, ACL 사용자 저장 기능을 통해 사용자 정보를 파일에 저장해 Redis를 재시작한 후에도 사용자 정보를 유지할 수 있습니다.
