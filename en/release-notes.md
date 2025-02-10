@@ -1,5 +1,22 @@
 ## Database > EasyCache > Release Notes
 
+### January 21, 2025
+
+#### Added Features
+- Added support for Redis 7.2.6
+
+#### Bug Fixes
+- Fixed an issue where an incorrect OS version upgrade success message are displayed
+- Fixed an issue where the Modify button is not enabled when only changing the user group name
+
+### November 26, 2024
+
+#### Feature Updates
+- Improved display string and sorting for user group creation and modification dates
+
+#### Bug Fixes
+- Fixed an issue where metric conditions are not modified
+
 ### October 15, 2024
 
 #### Feature Updates
