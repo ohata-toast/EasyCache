@@ -343,26 +343,26 @@ ex) redis-cli -h {IP or 도메인} -p {TLS 서비스 포트} --tls --cert {공�
 ##### ACL 사용자 조회
 ![user_get.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_get.png)
 * ACL 사용자 목록을 확인합니다.
-* default 사용자는 Redis 생성시 기본적으로 생성되는 사용자입니다.
+* default 사용자는 Redis 생성 시 기본적으로 생성되는 사용자입니다.
 ##### ACL 사용자 생성
 ![user_create.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_create.png)
 * ACL 사용자를 생성합니다.
-* ACL 사용자는 복제그룹 단위가 아니라 노드 단위로 관리됩니다.
+* ACL 사용자는 복제 그룹 단위가 아니라 노드 단위로 관리됩니다.
 * ACL 표현식 규칙은 [ACL 공식 문서](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/)를 참고하여 설정합니다.
-* 비밀번호는 ACL 사용자 당 1개만 설정할 수 있습니다.
+* 비밀번호는 ACL 사용자당 1개만 설정할 수 있습니다.
 ##### ACL 사용자 수정
 ![user_modify.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_modify.png)
-* 비밀번호를 분실한 경우 비밀번호 수정 기능을 통해 새로운 비밀번호를 설정해야합니다.
+* 비밀번호를 분실한 경우 비밀번호 수정 기능을 이용해 새로운 비밀번호를 설정해야 합니다.
 ##### ACL 사용자 삭제
 ![user_delete.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_delete.png)
 * 삭제된 사용자는 복구가 불가능합니다.
 ##### ACL 사용자 저장
-* 기본적으로 ACL 사용자 정보는 redis 재부팅시에는 유지되지 않기 때문에, ACL 사용자 저장 기능을 통해 사용자 정보를 파일에 저장해 Redis를 재시작한 후에도 사용자 정보를 유지할 수 있습니다.
+* 기본적으로 Redis를 재부팅하면 ACL 사용자 정보는 유지되지 않습니다. ACL 사용자 저장 기능을 이용해 사용자 정보를 파일에 저장하면 Redis를 재시작한 뒤에도 사용자 정보를 유지할 수 있습니다.
 * 이 기능을 사용하려면 프로필 탭에서 acl-save-enabled 옵션을 yes로 설정해야 합니다.
   * 단, acl-save-enabled 옵션이 변경되면 노드 재시작이 필요합니다.
 
-> [주의] acl-save-enabled 설정을 활성화 한 상태에서 직접 ACL 명령어를 실행하여 default 사용자의 비밀번호를 변경하면 변경된 비밀번호가 콘솔 화면에 반영되지 않습니다.
-> [주의] acl-save-enabled 설정을 활성화 한 상태에서 직접 ACL 명령어를 싱행하여 default 사용자의 비밀번호를 직접 변경한 다음 다시 acl-save-enabled 설정을 비활성화할 경우, acl-save-enabled 설정을 활성화하기 이전 비밀번호로 원복됩니다.
+> [주의] acl-save-enabled 설정을 활성화한 상태에서 직접 ACL 명령어를 실행하여 default 사용자의 비밀번호를 변경하면 변경된 비밀번호가 콘솔 화면에 반영되지 않습니다.
+> [주의] acl-save-enabled 설정을 활성화한 상태에서 직접 ACL 명령어를 실행하여 default 사용자의 비밀번호를 직접 변경한 다음 다시 acl-save-enabled 설정을 비활성화할 경우, acl-save-enabled 설정을 활성화하기 이전 비밀번호로 원복됩니다.
 
 ## 서버 대시보드
 
