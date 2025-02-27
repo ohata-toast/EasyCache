@@ -364,6 +364,7 @@ For each node, you can search for logs up to 1 month.
 
 > [Caution] If you change the password of the default user by running a direct ACL command with the acl-save-enabled setting enabled, the changed password is not reflected on the console screen.
 > [Caution] If you enable the acl-save-enabled setting, run a direct ACL command to directly change the password for the default user, and then disable the acl-save-enabled setting again, the password will be reverted to the password before you enabled the acl-save-enabled setting.
+> [Caution] When a change to the master occurs with the acl-save-enabeld setting disabled, user information is automatically saved to the Redis configuration file by the Redis default specification. Even if you create, modify, or delete a user in this state, a restart will revert to the user information at the time of the master change.
 
 ## Server Dashboard
 
