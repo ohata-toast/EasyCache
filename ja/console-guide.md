@@ -338,6 +338,30 @@ ex) redis-cli -h {IP orドメイン} -p {TLSサービスポート} --tls --cert 
 * **現在時間**ボタンの右にある矢印ボタンを押すと、検索期間の以前の時間、以降の時間を検索できます。
 * **全体画面表示**ボタンを押すと、新しいウィンドウで1か月間のすべてのログを確認できます。
 
+##### ACLユーザー照会
+![user_get.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_get.png)
+* ACLユーザーリストを確認します。
+* defaultユーザーはRedis作成時、デフォルトで作成されるユーザーです。
+##### ACLユーザー作成
+![user_create.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_create.png)
+* ACLユーザーを作成します。
+* ACLユーザーはレプリケーショングループ単位ではなく、ノード単位で管理されます。
+* ACL表現式ルールは[ACL公式文書](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/)を参考にして設定します。
+* パスワードはACLユーザーごとに1つだけ設定できます。
+##### ACLユーザー修正
+![user_modify.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_modify.png)
+* パスワードを紛失した場合、パスワード修正機能を利用して新しいパスワードを設定する必要があります。
+##### ACLユーザー削除
+![user_delete.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_delete.png)
+* 削除されたユーザーは復旧ができません。
+##### ACLユーザー保存
+* 基本的にRedisを再起動すると、ACLユーザー情報は維持されません。 ACLユーザー保存機能を利用してユーザー情報をファイルに保存すると、Redisを再起動した後でもユーザー情報を維持できます。
+* この機能を使用するには、プロフィールタブでacl-save-enabledオプションをyesに設定する必要があります。
+  * ただし、acl-save-enabledオプションが変更されるとノード再起動が必要です。
+
+> [注意] acl-save-enabled設定を有効にした状態で直接ACLコマンドを実行してdefaultユーザーのパスワードを変更すると、変更された パスワードがコンソール画面に反映されません。
+> [注意] acl-save-enabled設定を有効にした状態で直接 ACL コマンドを実行して default ユーザーのパスワードを直接変更した後、再度 acl-save-enabled 設定を無効にすると、acl-save-enabled 設定を有効にする前のパスワードに戻ります。
+
 ## サーバーダッシュボード
 
 サーバーダッシュボードでパフォーマンス指標をチャート形式で視覚化できます。チャートはあらかじめ設定されたレイアウトに従って配置されます。指標は1分に1回収集され、最大5年間保管されます。指標データは5分、30分、2時間、1日単位の平均値で集計されます。集計単位別の保管期間は次のとおりです。
