@@ -341,6 +341,30 @@ For each node, you can search for logs up to 1 month.
 * Click the arrows on the right side of **Current Time** to search further backward or forward in the same amount of selected search period.
 * Click the **View Full Screen** button to view all logs for 1 month on a new window.
 
+##### Retrieve ACL User
+![user_get.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_get.png)
+* Retrieves a list of ACL users.
+* The default user is the user that is created by default when Redis is created.
+##### Create ACL User
+![user_create.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_create.png)
+* Creates an ACL user.
+* ACL users are managed per node, not per replication group.
+* ACL expression rules are set up by referring to the official [ACL documentation](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/).
+* You can set only one password per ACL user.
+##### Modify an ACL user.
+![user_modify.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_modify.png)
+* If you forget your password, you'll need to set up a new password using the forgot password feature.
+##### Delete ACL User
+![user_delete.PNG](https://static.toastoven.net/prod_easycache/25.02.25/user_delete.png)
+* Deleted users cannot be recovered.
+##### Save ACL User
+* By default, ACL user information is not retained after rebooting Redis. You can use the Save ACL User feature to save user information to a file, so that the user information is retained after restarting Redis.
+* To use this feature, you must set the acl-save-enabled option to yes on the Profile tab.
+  * However, if the acl-save-enabled option is changed, a node restart is required.
+
+> [Caution] If you change the password of the default user by running a direct ACL command with the acl-save-enabled setting enabled, the changed password is not reflected on the console screen.
+> [Caution] If you enable the acl-save-enabled setting, run a direct ACL command to directly change the password for the default user, and then disable the acl-save-enabled setting again, the password will be reverted to the password before you enabled the acl-save-enabled setting.
+> [Caution] When a change to the master occurs with the acl-save-enabeld setting disabled, user information is automatically saved to the Redis configuration file by the Redis default specification. Even if you create, modify, or delete a user in this state, a restart will revert to the user information at the time of the master change.
 
 ## Server Dashboard
 
