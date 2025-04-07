@@ -1,7 +1,7 @@
 ## Database > EasyCache > 개요
 
-NHN Cloud EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에서 제공하는 서비스입니다.
-간단한 설정으로 고가용성의 Redis 서버를 사용할 수 있습니다.
+NHN Cloud EasyCache는 Redis(REmote DIctionary Server) 또는 Valkey 를 클라우드 환경에서 제공하는 서비스입니다.
+간단한 설정으로 고가용성의 인메모리 캐시 서버를 사용할 수 있습니다.
 
 ## 특징 및 기능
 
@@ -9,13 +9,13 @@ NHN Cloud EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에
 
 ### 복제 그룹
 
-* 원하는 즉시 생성할 수 있는 Redis 서버입니다.
+* 원하는 즉시 생성할 수 있는 인메모리 캐시 서버 그룹입니다.
 * 관리 기능를 사용할 수 있습니다.
 * 인증서를 이용하여 안전하게 사용할 수 있습니다.
 
 ### 모니터링
 
-* Redis 서버의 캐시 성능을 모니터링하기 위한 측정치를 그래프로 확인할 수 있습니다.
+* 서버의 캐시 성능을 모니터링하기 위한 측정치를 그래프로 확인할 수 있습니다.
 
 ### 백업
 
@@ -26,7 +26,8 @@ NHN Cloud EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에
 
 ### 프로필 설정
 
-* Redis 서버의 설정 정보를 프로필로 관리할 수 있습니다.
+* Redis 및 Valkey 서버의 설정 정보를 프로필로 관리할 수 있습니다.
+* 기본(default) 프로필과 사용자 프로필 중 설정할 수 있습니다.
 
 ### 알람
 
@@ -66,8 +67,3 @@ NHN Cloud EasyCache는 Redis(REmote DIctionary Server)를 클라우드 환경에
 ### 고가용성(자동HA)
 
 * 고가용성 기능을 사용하면 복제 그룹의 master를 감시하고 장애를 감지해 자동으로 장애 조치(failover)를 수행합니다. 서비스의 다운타임(가동 중지 시간)을 최대한 단축할 수 있습니다.
-
-### 프로필
-
-* Redis 서버의 설정입니다.
-* 기본(default) 프로필과 사용자 프로필 중 설정할 수 있습니다.
