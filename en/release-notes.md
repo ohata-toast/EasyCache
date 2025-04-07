@@ -1,5 +1,13 @@
 ## Database > EasyCache > Release Notes
 
+### February 25, 2025
+
+#### Added Features
+- Added the Redis ACL feature
+
+#### Bug Fixes
+- Fixed incorrect button names on some screens
+
 ### January 21, 2025
 
 #### Added Features
