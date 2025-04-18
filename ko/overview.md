@@ -1,6 +1,6 @@
 ## Database > EasyCache > 개요
 
-NHN Cloud EasyCache는 Redis(REmote DIctionary Server) 또는 Valkey 를 클라우드 환경에서 제공하는 서비스입니다.
+NHN Cloud EasyCache는 Valkey 또는 Redis(REmote DIctionary Server) 를 클라우드 환경에서 제공하는 서비스입니다.
 간단한 설정으로 고가용성의 인메모리 캐시 서버를 사용할 수 있습니다.
 
 ## 특징 및 기능
@@ -26,7 +26,7 @@ NHN Cloud EasyCache는 Redis(REmote DIctionary Server) 또는 Valkey 를 클라�
 
 ### 프로필 설정
 
-* Redis 및 Valkey 서버의 설정 정보를 프로필로 관리할 수 있습니다.
+* Valkey 및 Redis 서버의 설정 정보를 프로필로 관리할 수 있습니다.
 * 기본(default) 프로필과 사용자 프로필 중 설정할 수 있습니다.
 
 ### 알람
@@ -45,7 +45,7 @@ NHN Cloud EasyCache는 Redis(REmote DIctionary Server) 또는 Valkey 를 클라�
 * 복제 그룹은 Standalone과 Replication 타입으로 제공합니다.
 * 서버 스펙은 최소 2~64GB 크기의 메모리를 지원합니다.
 * NHN Cloud의 Compute & Network 서비스에서 제공하는 모든 사양의 가상 장비로 복제 그룹을 생성할 수 있습니다.
-* 복제 그룹의 운영체제에 직접 접근할 수는 없습니다. 부여된 도메인과 복제 그룹 생성 시 입력한 포트를 통해  Redis 서버에 접근할 수 있습니다.
+* 복제 그룹의 운영체제에 직접 접근할 수는 없습니다. 부여된 도메인과 복제 그룹 생성 시 입력한 포트를 통해 Valkey 서버에 접근할 수 있습니다.
 * 복제 그룹은 사용자의 Compute & Network 서비스의 VPC 서브넷을 선택해야만 생성할 수 있으며, VPC 서브넷을 통해 Compute & Network 서비스의 인스턴스와 통신할 수 있습니다.
 * 복제 그룹은 사용자의 서브넷 이외의 외부 네트워크와 단절되어 있습니다. 외부에서 연결을 원하면 플로팅 IP를 붙여야 합니다.
 * 만약 Compute & Network 서비스를 이용 중이라면, 복제 그룹 생성 시, 연결을 원하는 서브넷을 설정할 수 있습니다.
@@ -61,8 +61,8 @@ NHN Cloud EasyCache는 Redis(REmote DIctionary Server) 또는 Valkey 를 클라�
 
 * 외부와 통신하기 위한 유동 IP입니다.
 * 플로팅 IP는 설정할 인스턴스와 연결된 사용자 VPC 서브넷에 인터넷 게이트웨이가 연결되어 있어야 사용할 수 있습니다.
-* 플로팅 IP가 연결된 인스턴스의 Redis는 public 도메인을 통해서 외부에서 접속할 수 있습니다.
-* 플로팅 IP 는 생성하는 즉시 Redis 인스턴스와는 별도로 요금이 부과됩니다.
+* 플로팅 IP가 연결된 인스턴스의 Valkey는 public 도메인을 통해서 외부에서 접속할 수 있습니다.
+* 플로팅 IP 는 생성하는 즉시 Valkey 인스턴스와는 별도로 요금이 부과됩니다.
 
 ### 고가용성(자동HA)
 
