@@ -1,6 +1,6 @@
 ## Database > EasyCache > 개요
 
-NHN Cloud EasyCache는 Valkey 또는 Redis(REmote DIctionary Server) 를 클라우드 환경에서 제공하는 서비스입니다.
+NHN Cloud EasyCache는 Valkey 또는 Redis(REmote DIctionary Server)를 클라우드 환경에서 제공하는 서비스입니다.
 간단한 설정으로 고가용성의 인메모리 캐시 서버를 사용할 수 있습니다.
 
 ## 특징 및 기능
