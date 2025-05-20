@@ -1,5 +1,18 @@
 ## Database > EasyCache > Release Notes
 
+### April 29, 2025
+
+#### Added Features
+- Added support for Valkey 8.0.2
+
+#### Features Updates
+- Terminated the feature to create new replication groups in Redis versions
+
+#### Bug Fixes
+- Fixed non-replication group nodes being exposed in the target replication group on the Notification tab
+- Fixed intermittent abnormal error message exposure immediately after service activation
+- Fixed an issue that caused replication group creation to fail in regions other than KR1 for a period of time after service activation
+
 ### February 25, 2025
 
 #### Added Features
