@@ -1,4 +1,5 @@
-## Database > EasyCache > 개요
+# EasyCache 개요
+**Database > EasyCache > 개요**
 - NHN Cloud EasyCache는 Valkey를 클라우드 환경에서 제공하는 서비스입니다. 간단한 설정만으로 Valkey가 설치된 인메모리 캐시 서버를 사용할 수 있습니다.
 
 ## 주요 기능
@@ -11,5 +12,5 @@
 - 캐시의 상태를 한눈에 파악할 수 있는 서버 대시보드를 제공합니다.
 - 서버 대시보드에서 인스턴스 및 데이터베이스의 각종 지표를 그래프로 확인할 수 있습니다.
 
->[주의]
->EasyCache는 사용자의 Compute & Network 서비스를 활성화해야만 사용할 수 있습니다.
+!!! tip "알아두기"
+    EasyCache는 Compute, Network 서비스를 활성화해야 사용할 수 있습니다.

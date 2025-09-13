@@ -1,6 +1,6 @@
-## Database > RDS for MySQL > 이벤트
+# 이벤트
 
-## 이벤트
+**Database > EasyCache > 콘솔 사용 가이드 > 이벤트**
 
 이벤트는 Valkey 또는 사용자에 의해 발생한 중요한 사건을 의미합니다. 이벤트는 이벤트 유형, 발생 일시, 원본 소스와 메시지로 구성됩니다. 이벤트는 콘솔에서 조회 가능하며, 구독을 통해 이메일, SMS으로 이벤트 발생 알림을 받을 수 있습니다. 이벤트의 유형과 발생 가능한 이벤트는 아래와 같습니다.
 
@@ -109,8 +109,8 @@
 | CACHE | CACHE_UPGRADE_REPLICA_PROMOTE_FAILED | 예 | 캐시 업그레이드 복제본 승격 실패 |
 | CACHE | CACHE_UPGRADE_REPLICA_UPGRADE_FAILED | 예 | 캐시 업그레이드 복제본 실패 |
 | CACHE | FAILOVER_DNS_FAILED | 아니오 | DNS 갱신 실패 |
-| CACHE | FAILOVER_DNSFAIL | 예 | 장애조치 DNS 실패 |
-| CACHE | FAILOVER_EXECUTED | 예 | 장애조치 발생 |
+| CACHE | FAILOVER_DNSFAIL | 예 | 장애 조치 DNS 실패 |
+| CACHE | FAILOVER_EXECUTED | 예 | 장애 조치 발생 |
 | CACHE | FLOATING_IP_ATTACHING_START | 예 | 플로팅 IP 연결 시작 |
 | CACHE | FLOATING_IP_ATTACHING_END | 예 | 플로팅 IP 연결 완료 |
 | CACHE | FLOATING_IP_ATTACHING_FAILED | 예 | 플로팅 IP 연결 실패 |
@@ -140,8 +140,8 @@
 | CACHE | SENTINEL_DELETION_START | 아니오 | 센티넬 노드 삭제 시작 |
 | CACHE | SENTINEL_DELETION_END | 아니오 | 센티넬 노드 삭제 완료 |
 | CACHE | SENTINEL_DELETION_FAILED | 아니오 | 센티넬 노드 삭제 실패 |
-| CACHE | SENTINEL_FAILOVER | 아니오 | 장애조치 발생 |
-| CACHE | SENTINEL_FAILOVER_DNSFAIL | 아니오 | 장애조치 DNS 실패 |
+| CACHE | SENTINEL_FAILOVER | 아니오 | 장애 조치 발생 |
+| CACHE | SENTINEL_FAILOVER_DNSFAIL | 아니오 | 장애 조치 DNS 실패 |
 | CACHE | SENTINEL_QUORUM_UPDATE_START | 예 | 센티넬 쿼럼 업데이트 시작 |
 | CACHE | SENTINEL_QUORUM_UPDATE_END | 예 | 센티넬 쿼럼 업데이트 완료 |
 | CACHE | SENTINEL_QUORUM_UPDATE_FAILED | 예 | 센티넬 쿼럼 업데이트 실패 |
@@ -201,7 +201,7 @@
 | PARAMETER_GROUP | PROFILE_UPDATE_FAILED | 아니오 | 프로필 업데이트 실패 |
 | MONITORING | METRIC_ALARM_TRIGGERED | 예 | 모니터링 알람 발생 |
 
-* 기록은 남아있으나 더 이상 새로 생성하지 않는 이벤트 코드
+* 기록은 남아 있으나 더 이상 새로 생성하지 않는 이벤트 코드
 
 | 이벤트 유형 | 이벤트 코드 | 구독 가능 여부 | 설명 |
 | - | - | - | - |
@@ -255,11 +255,11 @@
 
 [[이벤트 구독 이미지]]
 
-* ❶ 이벤트 구독 등록을 누르면 이벤트 구독을 등록할 수 있는 팝업 창이 나타납니다.
-* ❷ 구독할 이벤트 유형을 선택합니다. 이벤트 유형에 따라 선택할 수 있는 이벤트 코드가 변경됩니다.
-* ❸ 이벤트 템플릿을 이용하면 템플릿에 미리 정해진 이벤트 코드들을 한 번에 입력할 수 있습니다.
-* ❹ 구독할 이벤트 코드를 직접 선택합니다. 이벤트 템플릿을 사용한 상태에서 이벤트 코드를 변경할 경우 이벤트 템플릿 항목이 해제됩니다.
-* ❺ 구독할 이벤트 소스를 직접 선택합니다. 
-* ❻ 이벤트 알림을 받을 사용자 그룹을 선택합니다. 
-* ❼ 알림 유형을 통해 알림을 받을 방식을 선택합니다.
-* ❽ 활성화 여부를 선택합니다. 활성화 여부를 아니오로 선택할 경우 이벤트 발생 알림을 발송하지 않습니다.
+❶: **이벤트 구독 등록**을 누르면 이벤트 구독을 등록할 수 있는 팝업 창이 나타납니다.
+❷: 구독할 이벤트 유형을 선택합니다. 이벤트 유형에 따라 선택할 수 있는 이벤트 코드가 변경됩니다.
+❸: 이벤트 템플릿을 이용하면 템플릿에 미리 정해진 이벤트 코드들을 한 번에 입력할 수 있습니다.
+❹: 구독할 이벤트 코드를 직접 선택합니다. 이벤트 템플릿을 사용한 상태에서 이벤트 코드를 변경할 경우 이벤트 템플릿 항목이 해제됩니다.
+❺: 구독할 이벤트 소스를 직접 선택합니다. 
+❻: 이벤트 알림을 받을 사용자 그룹을 선택합니다. 
+❼: 알림 유형을 통해 알림을 받을 방식을 선택합니다.
+❽: 활성화 여부를 선택합니다. 활성화 여부를 **아니오**로 선택할 경우 이벤트 발생 알림을 발송하지 않습니다.
