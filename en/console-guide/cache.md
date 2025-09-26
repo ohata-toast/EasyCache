@@ -150,7 +150,7 @@ If you activate deletion protection, you can protect the cache from accidental d
 ## Cache and node list
 
 You can check the cache created from the console. You can view a list of nodes belonging to a cache by cache unit.
-[[캐시 리스트 이미지]]
+![cache1.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache1.PNG)
 
 ➊: You can collapse or expand the list of nodes belonging to the cache by clicking the button.
 ➋: It shows the most recently collected monitoring metrics. When the node list is collapsed, the monitoring metrics of the master node are displayed in the cache.
@@ -176,7 +176,7 @@ The state of the cache and nodes consists of the following values, which change 
 
 You can view the details by selecting the cache and node.
 
-[[캐시 기본 정보 이미지]]
+![cache2.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache2.PNG)
 
 ➊: When you click on a domain in the connection information, a pop-up window will appear where you can view detailed information about the domain, including IP information.
 ➋: When you click on a DB Security Group, a pop-up window will appear where you can check the DB Security Rules.
@@ -192,19 +192,19 @@ If you use a floating IP, an additional floating IP domain will be issued. The f
 
 If you have read replica nodes, you can set up a read-only domain by modifying the cache. When using a read-only domain, point the read-only domain to an IP address belonging to the VPC subnet of the read replica nodes that belong to the same cache and the same region. If a failover occurs and one of the read replicas becomes the new master, the IP information pointed to by the read-only domain is also updated.
 
-[[이벤트 이미지]]
+![cache3.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache3.PNG)
 
 ### Event (cache)
 
 Events triggered by the selected cache are displayed in chronological order, and you can view them by specifying the period you want.
 
-[[백업 이미지]]
+![cache4.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache4.PNG)
 
 ### Backup
 
 A list of backups created by the selected cache will be displayed, and you can create a backup by clicking **Create Backup**.
 
-[[노드 기본 정보 이미지]]
+![cache5.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache5.PNG)
 
 ### Domain
 
@@ -220,25 +220,25 @@ The cache shows all domain information, but the node basic information shows dif
 
 The selected node shows the OS version in working.
 
-[[모니터링 이미지]]
+![cache6.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache6.PNG)
 
 ### Monitoring
 
 Shows various monitoring indicators of the selected node.
 
-[[이벤트 이미지]]
+![cache7.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache7.PNG)
 
 ### Event (node)
 
 Events triggered by the selected node are displayed in chronological order, and you can view them by specifying the period you want.
 
-[[로그 이미지]]
+![cache8.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache8.PNG)
 
 ### Log
 
 The **Logs** tab of a node allows you to view Valkey's logs for a specified period of time. Click the **View in New Tab** to view the log in a new tab with a wider screen.
 
-[[사용자 이미지]]
+![cache9.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache9.PNG)
 
 ### User
 
@@ -255,7 +255,7 @@ The Users tab of a node allows you to create, view, edit, and delete users in Va
 
 ## Modify Cache
 
-[[캐시 수정 아이콘 이미지]]
+![cache10.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache10.PNG)
 You can easily change various items of the selected cache by checking the checkbox of the cache you want in the console screen and clicking **Edit**. Apply the requested changes sequentially to the cache. If a restart is required during the application process, restart the cache after applying all changes. The following items cannot be changed and require a restart:
 
 | Item | Changeable | Restart required | Description |
@@ -299,7 +299,7 @@ If the cache only contains one master node, the engine version upgrade will occu
 
 ## Modify Node
 
-[[노드 수정 아이콘 이미지]]
+![cache11.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache11.PNG)
 You can change some items of the selected node by selecting the checkbox of the desired node in the console screen and clicking **Modify**.
 
 | Item | Changeable | Restart required | Description |
@@ -320,7 +320,7 @@ If there are no other nodes besides the master node, the OS version upgrade can 
 
 ## Import Data
 
-[[데이터 가져오기 버튼 이미지]]
+![cache12.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache12.PNG)
 
 You can retrieve data from **@Object Storage** in the same region and apply it to the cache.
 Enter your tenant ID, API password, and the data file path in the format {containerName}/{path or fileName}, then click **Import Data** to start the task.
@@ -331,7 +331,7 @@ Enter your tenant ID, API password, and the data file path in the format {contai
 
 ## Export Data
 
-[[데이터 내보내 버튼 이미지]]
+![cache13.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache13.PNG)
 You can export data from the cache you want to **@Object Storage** in the same region. Enter your tenant ID and API password, then enter the container name and data name Prefix\* and click **Export Data** to begin the process.
 
 !!! tip "Note"
@@ -339,7 +339,7 @@ You can export data from the cache you want to **@Object Storage** in the same r
 
 ## Add Node
 
-[[노드 추가 아이콘 이미지]]
+![cache14.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache14.PNG)
 You can add a read replica node by selecting the checkbox for the desired cache in the console screen and clicking **Add Read Replica Node**.
 For single-node caches, adding a read replica node in the same region as the master node will also create a high-availability control node.
 You can create up to two read replica nodes in the same region as the master node, or one in a different region.
@@ -350,7 +350,7 @@ Once the node is added, the cache type changes to a high-availability cache. If 
 
 ## Remove Replication Connection and Forced Replication Connection
 
-[[복제 연결 제거 아이콘 이미지]]
+![cache15.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache15.PNG)
 In the console, you can select the checkbox for a read replica node located in a different region than the master node and use the **Remove Replication Connection** or **Forced Replication Connection** functions.
 Using the Remove Replication Connection function removes the replication connection from the master in the source region and promotes it to become the new master.
 
@@ -360,35 +360,35 @@ Using the Remove Replication Connection function removes the replication connect
 
 ## Delete Node
 
-[[노드 삭제 아이콘 이미지]]
+![cache16.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache16.PNG)
 You can delete a read replica node by selecting the checkbox for the node belonging to the high-availability cache you want on the console screen and clicking **Delete Node**.
 The master node and high-availability control node cannot be deleted by design.
 After the selected read replica node is deleted, if there are no more read replica nodes remaining in the same region as the master node, the high-availability control node will also be deleted.
 
 ## Change Master
 
-[[캐시 마스터 변경 아이콘 이미지]]
+![cache17.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache17.PNG)
 You can change the master by selecting the checkbox for the high-availability cache you want on the console screen and using the Change Master function.
 When the existing master node is converted to a read replica, one of the read replica nodes located in the same region as the master node becomes the new master.
 
 ## Stop Cache
 
-[[캐시 중지 아이콘 이미지]]
+![cache18.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache18.PNG)
 You can stop any running cache you want. If it's a high-availability cache, all nodes in the cache will be stopped.
 
 ## Start Cache
 
-[[캐시 시작 아이콘 이미지]]
+![cache19.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache19.PNG)
 You can restart any stopped cache you want. If it's a high-availability cache, restart all nodes belonging to the cache.
 
 ## Restart Cache
 
-[[캐시 시작 아이콘 이미지]]
+![cache20.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache20.PNG)
 You can restart any cache you want from the console screen. If it's a high-availability cache, all nodes in the cache will restart.
 
 ## Apply Parameter Group Changes
 
-[[파라미터 그룹 변경 사항 적용 이미지]]
+![cache21.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache21.PNG)
 If you modify a parameter group that is already in use by a cache in the **Parameter Groups** tab, the parameter group will not be immediately applied to the caches that are using it and the nodes that belong to the cache. Instead, a **Parameter** button will appear in the cache list on the console screen, and if you select the checkbox, the **Parameter Group Changes** item will be enabled.
 
 !!! danger "Warning"
@@ -396,12 +396,11 @@ If you modify a parameter group that is already in use by a cache in the **Param
 
 ## Reset High Availability
 
-[[고가용성 재설정 버튼 이미지]]
+![cache22.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache22.PNG)
 If the cache's high availability status is abnormal, the cache status will be displayed as **Abnormal**, and a **Reset High Availability** button will be displayed in the cache list for your use. Restting high availability reset will rewrite high availability-related settings or recreate high availability nodes.
 
 ## Migration
 
-[[마이그레이션 버튼 노출 이미지]]
 If a virtual machine needs to be migrated from one of the nodes in the cache, a Migrate button will appear on that node.
 The migration function requires caution, as it may cause service interruption in some cases.
 
@@ -429,7 +428,7 @@ EasyCache's cache automatically creates a high-availability control node when yo
 
 ### Failure Detection
 
-[[노드 추가 팝업 화면 이미지]]
+![cache24.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache24.PNG)
 All nodes in the same region as the master node detect the master node and, based on the master down after entered when adding a read replica node, determine whether communication has failed and initiate failover. Therefore, it is important to set a master down after appropriate for cache usage.
 
 ### Auto Failover
@@ -442,7 +441,7 @@ The connection domain and read-only domain information for connection are update
 
 ### Remove Forced Replication Connection
 
-[[강제 복제 연결 제거 아이콘 이미지]]
+![cache25.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache25.PNG)
 Read replica nodes added to other regions are not eligible for automatic failover in the event of a master failure. However, if you need to use a read replica node in another region immediately in the event of a failure, you can use the **Remove Forced Replication Connection** feature to promote a read replica node in another region to become the master node.
 **Remove Forced Replication Connection** will create a new, separate cache in another region, separate from the existing nodes, promote the existing read replica node to the master node, and expose a new connection domain.
 

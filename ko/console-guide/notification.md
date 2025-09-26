@@ -6,7 +6,7 @@
 
 ### 알림 그룹 생성
 
-[[알림 그룹 생성 이미지]]
+![notification1.PNG](https://static.toastoven.net/prod_easycache/25.09.27/notification1.PNG)
 
 ❶: **알림 그룹 생성**을 클릭하면 알림 그룹을 생성할 수 있는 팝업 창이 나타납니다.
 ❷: 알림을 받을 방법을 선택합니다.
@@ -71,7 +71,7 @@
 
 ### 감시 설정 추가
 
-[[감시 설정 추가 이미지]]
+![notification2.PNG](https://static.toastoven.net/prod_easycache/25.09.27/notification2.PNG)
 
 ❶ **감시 설정**을 누르면 감시 설정을 변경할 수 있는 팝업 창이 나타납니다.
 ❷ **감시 설정 추가**를 눌러 신규 감시 설정을 추가합니다.
@@ -79,7 +79,7 @@
 
 ### 감시 설정 변경 및 삭제
 
-[[감시 설정 삭제 이미지]]
+![notification3.PNG](https://static.toastoven.net/prod_easycache/25.09.27/notification3.PNG)
 
 ❶ 버튼을 클릭하면 추가된 감시 설정을 변경할 수 있습니다.
 ❷ 버튼을 클릭하면 추가된 감시 설정을 삭제할 수 있습니다.
@@ -93,7 +93,7 @@
 
 ### 사용자 그룹 생성
 
-[[사용자 그룹 생성 이미지]]
+![notification4.PNG](https://static.toastoven.net/prod_easycache/25.09.27/notification4.PNG)
 
 ❶ **사용자 그룹 생성**을 누르면 사용자 그룹을 생성할 수 있는 팝업 창이 나타납니다.
 ❷ **통보 방법** 항목의 프로젝트 전체 멤버 항목을 선택하면, 프로젝트에 속한 모두를 자동 반영합니다.
@@ -103,7 +103,7 @@
 
 ### 사용자 그룹 수정 및 삭제
 
-[[사용자 그룹 수정 및 삭제 이미지]]
+![notification5.PNG](https://static.toastoven.net/prod_easycache/25.09.27/notification5.PNG)
 
 ❶ 버튼을 클릭하면 추가된 사용자 그룹을 수정할 수 있습니다.
 ❷ 버튼을 클릭하면 추가된 사용자 그룹을 삭제할 수 있습니다.
