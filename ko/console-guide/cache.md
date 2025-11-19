@@ -333,7 +333,7 @@ NHN Cloud의 **@Certificate Manager** 서비스에 저장된 인증서 중 하�
 
 ![cache13.PNG](https://static.toastoven.net/prod_easycache/25.09.27/cache13.PNG)
 내가 원하는 캐시의 데이터를 동일한 리전의 **@Object Storage**로 내보낼 수 있습니다.
-사용자 테넌트 ㅑㅇ, API 비밀번호를 입력한 뒤, 컨테이너 이름과 데이터 이름 Prefix 항목을 입력하고 **데이터 내보내기**를 클릭하면 작업이 시작됩니다.
+사용자 테넌트 ID, API 비밀번호를 입력한 뒤, 컨테이너 이름과 데이터 이름 Prefix 항목을 입력하고 **데이터 내보내기**를 클릭하면 작업이 시작됩니다.
 
 !!! tip "알아두기"
     사용자가 입력한 경로의 Object Storage에 입력한 데이터 이름 prefix 값과 임의의 문자열이 합쳐진 RDB 파일이 생성됩니다.
