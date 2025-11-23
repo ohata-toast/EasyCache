@@ -5,7 +5,7 @@
 Cache is a concept for managing nodes with virtual equipment and engines (Valkey and old Redis) installed, and is the largest resource unit within the EasyCache service.
 A single cache consists of multiple nodes, and the nodes belonging to the cache share information such as the cache's engine version, port, password, parameter group, and security group.
 
-* The available port range is between 10,000 and 12,000.
+* The available service port range is between 10,000 and 12,000.
 * Currently we provide the Valkey engine. For Redis, we only support caches that have already been created.
 * A cache automatically issues and provides a 32-byte ID.
 * Users can enter or modify the cache name, and it has the limitation as below:
@@ -295,7 +295,7 @@ If the cache only contains one master node, the engine version upgrade will occu
 
 !!! tip "Note"
     * Redis versions prior to 7.0.7 can be upgraded to 7.0.7 before being upgraded to the next version.
-    * Upgrades from Redis to Valkey are not currently available, but will be available in the future.
+    * Redis versions 7.0.7 or later provide upgrades to the latest version.
 
 ## Modify Node
 
@@ -434,7 +434,7 @@ All nodes in the same region as the master node detect the master node and, base
 ### Auto Failover
 
 If a failure is detected through failure detection, one of the read replica nodes in the same region as the master is elected as the new master through agreement between nodes, and the existing master is changed to a read replica.
-The connection domain and read-only domain information for connection are updated based on the new failed-over node, and the floating IP domain does not change, but the floating IP pointed to by the floating IP domain is automatically changed to point to the new master.
+The IP information of connection domain and read-only domain for connection are updated based on the new failed-over node, and the floating IP domain does not change, but the floating IP pointed to by the floating IP domain is automatically changed to point to the new master.
 
 !!! tip "Note"
     Since failover is a function that targets nodes belonging to the same region as the master node, automatic failover is not supported when adding read replica nodes only in other regions.
