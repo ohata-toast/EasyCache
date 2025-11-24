@@ -1,8 +1,24 @@
 ## Database > EasyCache > Release Notes
 
-### July 29, 2025
+### November 15, 2025
+
+#### Feature Updates
+
+- Added support for Valkey 8.1.4
+- Improved texts in the guide for some parameters
+- Made improvements so that the list from Event Subscription > Event Code is sorted by "Start", "Completed", and "Failed".
 
 #### Bug Fixes
+
+- Fixed a bug that caused engine version upgrades to fail under certain conditions.
+- Fixed a bug where the Modify button was enabled while working on cache and parameter groups.
+- Fixed a bug where the Reset High Availability button was exposed during node deletion.
+- Fixed a bug where an error message was displayed in the Monitoring/User tabs of other region nodes.
+- Fixed a bug where other region nodes were displayed in the Server Dashboard tab.
+
+### September 23, 2025
+
+#### Feature Updates
 - Fixed an issue where a "Could not find the tenant resource" error message was displayed for a short time immediately after service activation
 - Fixed an issue where emails were not sent when restarting EasyCache for hypervisor maintenance
 - Fixed an issue where restarting EasyCache for hypervisor maintenance failed under certain conditions
