@@ -1,6 +1,14 @@
 ## EasyCache Release Notes
 **Database > EasyCache > Release Notes**
 
+### May 27, 2026
+
+#### Feature Updates
+- Added support for Valkey 9.0.3.
+
+#### Bug Fixes
+- Removed the exposure of the unnecessary parameter `dynamic-hz` for Valkey 8.1.4 and later.
+
 ### March 24, 2026
 
 #### Feature Updates
