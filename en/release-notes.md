@@ -1,6 +1,16 @@
 ## EasyCache Release Notes
 **Database > EasyCache > Release Notes**
 
+### July 28, 2026
+
+#### Feature Updates
+- Added support for Valkey 8.0.9, 8.1.7, and 9.0.4.
+
+#### Bug Fixes
+- Fixed a bug where repeatedly adding and deleting read replica nodes in another region caused the cache status to become abnormal.
+- Fixed an incorrect user guide link URL on the apply parameter group changes screen.
+- Fixed a bug where an error occurred when a notification was triggered for certain monitoring settings.
+
 ### May 27, 2026
 
 #### Feature Updates
